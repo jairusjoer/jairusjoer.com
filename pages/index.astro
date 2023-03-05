@@ -1,0 +1,31 @@
+---
+import Projects from "../components/projects.astro";
+import SideProjects from "../components/side-projects.astro";
+import Root from "../layouts/root.astro";
+
+const meta = {
+  title: "This is index title",
+  description: "This is index description",
+};
+---
+
+<Root {meta}>
+  <header class="mt-36 px-6 md:px-15 leading-relaxed">
+    <h1 class="font-display text-24 font-medium text-white">
+      Jairus Joer is an award-winning full stack designer and developer from Germany,
+      focused on crafting unified and clear design languages for rich, beautiful
+      products.
+    </h1>
+    <h2 class="mt-15 text-18">
+      Full stack developer at neuwaerts, co-founder of XVI CHAPEL, marketing manager
+      at World of Bass and freelance designer – In the past decade he had the
+      delight to experience many facettes of the design industry. Today, he’s
+      working at neuwaerts, helping clients design, develop and launching their
+      products.
+    </h2>
+  </header>
+  <main>
+    <Projects />
+    <SideProjects />
+  </main>
+</Root>

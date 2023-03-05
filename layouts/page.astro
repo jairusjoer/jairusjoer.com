@@ -1,0 +1,21 @@
+---
+import Header from "../components/header.astro";
+import Root from "./root.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Root meta={frontmatter}>
+  <Header>
+    <h1
+      class="font-display text-32 sm:text-42 font-medium text-white leading-tight"
+    >
+      {frontmatter.title}
+    </h1>
+  </Header>
+  <main class="mt-15">
+    <section class="markdown">
+      <slot />
+    </section>
+  </main>
+</Root>

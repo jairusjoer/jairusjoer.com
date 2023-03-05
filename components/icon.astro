@@ -1,0 +1,8 @@
+---
+import { readFile } from "node:fs/promises";
+
+const { type } = Astro.props;
+const icon = await readFile(`public/icons/${type}.svg`, { encoding: "utf8" });
+---
+
+<Fragment set:html={icon} />

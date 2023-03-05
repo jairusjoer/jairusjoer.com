@@ -1,0 +1,23 @@
+---
+const pages = [
+  { name: "Privacy", url: "/privacy" },
+  { name: "Cookies", url: "/cookies" },
+  { name: "Imprint", url: "/imprint" },
+];
+---
+
+<footer
+  class="relative flex flex-wrap items-center justify-center mt-36 py-3.5"
+>
+  {
+    pages.map(({ name, url }) => (
+      <a
+        class="inline-block font-medium rounded-xl text-white leading-4 py-2 px-3"
+        href={url}
+        target="_blank"
+      >
+        {name}
+      </a>
+    ))
+  }
+</footer>

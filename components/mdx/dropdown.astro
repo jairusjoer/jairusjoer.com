@@ -1,0 +1,9 @@
+---
+import Icon from "../icon.astro";
+const { title } = Astro.props;
+---
+
+<details>
+  <summary> <Icon type="triangle" />{title}</summary>
+  <slot />
+</details>

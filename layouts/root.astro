@@ -1,0 +1,19 @@
+---
+import "../styles/globals.scss";
+
+import Footer from "../components/footer.astro";
+import Head from "../components/head.astro";
+import Navigation from "../components/navigation.astro";
+
+const { meta } = Astro.props;
+---
+
+<html lang="de" class="scroll-smooth bg-black">
+  <Head {meta} />
+  <body class="antialiased text-14 text-zinc-400 overscroll-none">
+    <div class="flex flex-col min-h-screen overflow-hidden mx-auto w-full max-w-6 px-6">
+      <slot />
+      <Footer />
+    </div>
+  </body>
+</html>

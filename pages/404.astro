@@ -1,0 +1,26 @@
+---
+import Root from "../layouts/root.astro";
+
+const meta = {
+  title: "404 – Da ist etwas nicht in Ordnung",
+  description: "Die von dir angeforderte Seite ist nicht verfügbar.",
+  action: "Zurück zur Startseite",
+};
+---
+
+<Root {meta}>
+  <main
+    class="grow grid gap-6 justify-items-center content-center text-center p-12"
+  >
+    <h1
+      class="font-display text-24 font-medium text-white leading-tight"
+    >
+      {meta.title}
+    </h1>
+    <p class="text-18 leading-relaxed">{meta.description}</p>
+    <a
+      class="px-4 leading-8 rounded-xl font-medium bg-white text-black"
+      href="/">{meta.action}</a
+    >
+  </main>
+</Root>

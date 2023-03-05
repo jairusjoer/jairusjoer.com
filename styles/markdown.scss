@@ -1,0 +1,283 @@
+$accent: #3b82f6;
+
+[class*="markdown"] {
+  line-height: 1.625;
+  font-size: 0.875rem;
+
+  @media (min-width: 30rem) {
+    font-size: 1.125rem;
+  }
+
+  > * + * {
+    margin-top: 0.9375rem;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: Hubot Sans, Mona Sans, ui-sans-serif, system-ui, sans-serif;
+    color: #fff;
+    font-weight: 500;
+    scroll-margin-top: 4.5rem;
+    line-height: 1.25;
+
+    &:not(:first-of-type) {
+      margin-top: 3.75rem;
+    }
+
+    a {
+      color: inherit;
+      border-bottom: unset;
+
+      &:hover {
+        border-bottom: 0.0625rem dotted #a1a1aa;
+      }
+    }
+  }
+
+  h1 {
+    display: none;
+  }
+
+  h2 {
+    // font-size: 2.375rem;
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    // font-size: 1.875rem;
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    // font-size: 1.5rem;
+    font-size: 1.3125rem;
+  }
+
+  h5 {
+    // font-size: 1.25rem;
+    font-size: 1.1875rem;
+  }
+
+  h6 {
+    font-size: 1.125rem;
+  }
+
+  p {
+    code {
+      overflow-wrap: anywhere;
+    }
+  }
+
+  del {
+    text-decoration: line-through;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    color: #e4e4e7;
+    font-weight: 500;
+  }
+
+  a:not(.modebar-btn, [data-footnote-backref]) {
+    overflow-wrap: anywhere;
+    display: inline;
+    border-bottom: 0.0625rem dotted #a1a1aa;
+
+    &[href^="http"] {
+      &:after {
+        content: " ↗";
+      }
+    }
+
+    &:focus {
+      border-radius: 0.25rem;
+      border-color: transparent;
+    }
+
+    &,
+    code {
+      color: $accent;
+    }
+  }
+
+  ul,
+  ol {
+    list-style-position: outside;
+    padding-left: 1.5rem;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  li {
+    &::marker {
+      color: $accent;
+    }
+    + li {
+      margin-top: 0.46875rem;
+    }
+  }
+
+  hr {
+    border-top: unset;
+    margin-block: 3.5rem;
+    height: 0.0625rem;
+    background: $accent;
+  }
+
+  code {
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  img:not(.icon) {
+    margin: 1.875rem auto;
+    border-radius: 0.75rem;
+  }
+
+  table,
+  pre {
+    margin-block: 1.875rem;
+    border-radius: 0.75rem;
+  }
+
+  blockquote {
+    position: relative;
+    margin-block: 1.875rem;
+    padding: 1.5rem;
+
+    &:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 0.0625rem;
+      height: 100%;
+      background: $accent;
+    }
+
+    p {
+      color: #e4e4e7;
+    }
+  }
+
+  table {
+    width: 100%;
+    padding: 1.5rem;
+    border: 0.125rem solid #27272a;
+
+    th,
+    td {
+      &:not(:last-child) {
+        padding-right: 1.5rem;
+      }
+    }
+
+    th {
+      font-weight: 500;
+      border-bottom: 0.125rem solid #27272a;
+      padding-bottom: 0.9375rem;
+    }
+
+    tbody {
+      tr {
+        &:first-child {
+          td {
+            padding-top: 0.9375rem;
+          }
+        }
+      }
+    }
+  }
+
+  pre {
+    overflow-x: auto;
+    padding: 1.5rem;
+    max-width: calc(100vw - 3rem); // Force display width
+    white-space: pre;
+    font-size: 0.75rem;
+
+    @media (min-width: 30rem) {
+      font-size: 1rem;
+    }
+  }
+
+  details {
+    border-radius: 0.75rem;
+    border: 1px solid #18181b;
+    margin-block: 1.875rem;
+    background: #000;
+
+    > * + *:not(hr) {
+      margin-top: 0.9375rem;
+    }
+
+    &[open] {
+      padding: 1.5rem;
+
+      summary {
+        background: #18181b;
+        margin: -1.5rem -1.5rem 1.5rem;
+      }
+
+      svg {
+        rotate: 180deg;
+      }
+    }
+
+    svg {
+      rotate: 90deg;
+    }
+
+    summary {
+      font-weight: 500;
+      display: flex;
+      gap: 1.125rem;
+      align-items: center;
+      cursor: pointer;
+      padding: 0.75rem 1.125rem;
+      border-radius: 0.6875rem;
+      color: #fff;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+  }
+
+  section {
+    margin-block: 1.875rem;
+  }
+
+  // Katex
+
+  .katex {
+    color: #e4e4e7;
+  }
+
+  // Footnotes
+  #footnote-label {
+    display: none;
+  }
+
+  a {
+    &[data-footnote-backref] {
+      display: inline-flex;
+      gap: 0.125rem;
+
+      sup {
+        position: revert;
+        line-height: inherit;
+      }
+    }
+  }
+}
