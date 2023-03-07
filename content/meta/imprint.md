@@ -1,6 +1,5 @@
 ---
 title: "Impressum"
-layout: "/layouts/page.astro"
 ---
 
 ## Rechtliche Hinweise

@@ -1,22 +1,22 @@
 ---
-const pages = [
-  { name: "Privacy", url: "/privacy" },
-  { name: "Cookies", url: "/cookies" },
-  { name: "Imprint", url: "/imprint" },
-];
+import { getCollection } from "astro:content";
+
+const pages = await getCollection("meta", ({ data }) => !data.draft);
+
+console.log(pages[0]);
 ---
 
 <footer
   class="relative flex flex-wrap items-center justify-center mt-36 py-3.5"
 >
   {
-    pages.map(({ name, url }) => (
+    pages.map(({ data, slug }) => (
       <a
         class="inline-block font-medium rounded-xl text-white leading-4 py-2 px-3"
-        href={url}
+        href={`/meta/` + slug}
         target="_blank"
       >
-        {name}
+        {data.title}
       </a>
     ))
   }
