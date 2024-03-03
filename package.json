@@ -1,0 +1,27 @@
+{
+  "name": "getnuud.app",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/alpinejs": "^0.4.0",
+    "alpinejs": "^3.13.5"
+  },
+  "devDependencies": {
+    "@astrojs/sitemap": "^3.0.5",
+    "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/alpinejs": "^3.13.6",
+    "@types/node": "^20.10.6",
+    "astro": "^4.4.0",
+    "sass": "^1.70.0",
+    "tailwindcss": "^3.4.1",
+    "unlighthouse": "^0.10.4"
+  }
+}

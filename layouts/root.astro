@@ -1,0 +1,30 @@
+---
+import "@/styles/globals.scss";
+import Meta from "@/components/meta.astro";
+
+interface Props {
+  meta: {
+    title?: string;
+    description?: string;
+    image?: {
+      src: string;
+      alt?: string;
+    };
+  };
+}
+
+const { meta, ...props } = Astro.props;
+---
+
+<script>
+  import "@/scripts/alpine"
+</script>
+
+<html lang="en">
+  <Meta {meta} />
+  <body>
+    <div class="relative flex flex-col min-h-screen" {...props}>
+      <slot />
+    </div>
+  </body>
+</html>

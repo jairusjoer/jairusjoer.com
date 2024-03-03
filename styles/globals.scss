@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    --background: 240 10% 4%; // Zinc 950
+    --frame: 240 6% 10%; // Zinc 900
+    --foreground: 0 0% 98%; // Zinc 50
+
+    --border: 240 5% 26%; // Zinc 700
+
+    --input: var(--border);
+
+    --ring: var(--accent-color);
+
+    --muted: 240 4% 16%; // Zinc 800
+    --muted-foreground: 240 5% 65%; // Zinc 400
+
+    --card: var(--background);
+    --card-foreground: var(--muted-foreground);
+
+    --popover: var(--muted);
+    --popover-foreground: var(--muted-foreground);
+
+    --primary: var(--foreground);
+    --primary-foreground: var(--background);
+
+    --secondary: var(--muted);
+    --secondary-foreground: var(--muted-foreground);
+
+    --accent-background: 242 47% 34%; // Indigo 900
+    --accent-color: 239 84% 67%; // Indigo 500
+    --accent-foreground: 226 100% 94%; // Indigo 100
+
+    --informative-background: 202 80% 24%; // Sky 900
+    --informative-color: 199 89% 48%; // Sky 500
+    --informative-foreground: 204 94% 94%; // Sky 100
+
+    --successful-background: 164 86% 16%; // Emerald 900
+    --successful-color: 160 84% 39%; // Emerald 500
+    --successful-foreground: 149 80% 90%; // Emerald 100
+
+    --cautionary-background: 22 78% 26%; // Amber 400
+    --cautionary-color: 38 92% 50%; // Amber 500
+    --cautionary-foreground: 48 96% 89%; // Amber 100
+
+    --destructive-background: 342 75% 30%; // Rose 900
+    --destructive-color: 350 89% 60%; // Rose 500
+    --destructive-foreground: 356 100% 95%; // Rose 100
+
+    @media (prefers-color-scheme: light) {
+      --background: 0 0% 98%; // Zinc 50
+      --frame: 240 5% 96%; // Zinc 100
+      --foreground: 240 10% 4%; // Zinc 950
+
+      --border: 240 6% 90%; // Zinc 200
+
+      --muted: 240 6% 90%; // Zinc 200
+      --muted-foreground: 240 5% 34%; // Zinc 600
+
+      --accent-background: 226 100% 94%; // Indigo 100
+      --accent-foreground: 242 47% 34%; // Indigo 900
+
+      --informative-background: 204 94% 94%; // Sky 100
+      --informative-foreground: 202 80% 24%; // Sky 900
+
+      --successful-background: 149 80% 90%; // Emerald 100
+      --successful-foreground: 164 86% 16%; // Emerald 900
+
+      --cautionary-background: 48 96% 89%; // Amber 100
+      --cautionary-foreground: 22 78% 26%; // Amber 400
+
+      --destructive-background: 356 100% 95%; // Rose 100
+      --destructive-foreground: 342 75% 30%; // Rose 900
+    }
+  }
+
+  [x-cloak] {
+    display: none !important;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply bg-background text-muted-foreground font-sans antialiased scroll-smooth;
+    text-wrap: balance;
+  }
+
+  main[tabindex='-1'] {
+    outline: none;
+  }
+}
+
+@layer utilities {
+  .rich-text {
+    @apply prose prose-accent prose-blockquote:border-l-accent-color prose-headings:scroll-my-36 prose-headings:text-foreground
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
