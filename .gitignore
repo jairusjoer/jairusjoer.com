@@ -1,42 +1,24 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# Dpendencies
-.pnp.js
-.pnp/
-bun.lockb
-node_modules/
-pnpm-lock.yaml
-
-# Testing
-coverage/
-
-# Next.js
-.next/
-out/
-certificates/
-
-# Production
-build/
+# build output
 dist/
+# generated types
+.astro/
 
-# Misc
-.DS_Store
-*.pem
+# dependencies
+node_modules/
 
-# Debug
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# Local env files
+
+# environment variables
 .env
+.env.production
 
-# Vercel
-.vercel
+# macOS-specific files
+.DS_Store
 
-# Typescript
-*.tsbuildinfo
-next-env.d.ts
-
-# .gitkeep
-!.gitkeep
+# jetbrains setting folder
+.idea/

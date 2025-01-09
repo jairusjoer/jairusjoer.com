@@ -1,19 +1,14 @@
-import { defineConfig } from "astro/config";
-import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
-import alpinejs from "@astrojs/alpinejs";
+import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  srcDir: ".",
-  site: "https://jairusjoer.com",
-  integrations: [
-    sitemap(),
-    tailwind({
-      applyBaseStyles: false
-    }),
-    alpinejs({
-     entrypoint: 'scripts/alpine.ts'
-    })
-  ]
+    integrations: [mdx(), sitemap()],
+    site: 'https://jairusjoer.com',
+    srcDir: '.',
+    vite: {
+        plugins: [tailwindcss()],
+    },
 });
