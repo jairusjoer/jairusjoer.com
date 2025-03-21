@@ -1,0 +1,111 @@
+---
+import type { Metadata } from '../assets/ts/types';
+import profileData from '../assets/read.cv/profileData.json';
+
+interface Props {
+  metadata?: Metadata;
+}
+
+const {
+  metadata = {
+    title: profileData.general.displayName,
+    description: profileData.general.byline,
+  },
+} = Astro.props;
+
+const useURL = (path: string) => String(new URL(path, Astro.site));
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width"
+/>
+
+<meta
+  name="generator"
+  content={Astro.generator}
+/>
+
+<!-- Favicons -->
+<link
+  rel="icon"
+  href={useURL('favicon.ico')}
+  sizes="32x32"
+/>
+<link
+  rel="icon"
+  href={useURL('favicon.svg')}
+  type="image/svg+xml"
+/>
+<link
+  rel="apple-touch-icon"
+  href={useURL('apple-touch-icon.png')}
+/>
+
+<!-- Primary Meta Tags -->
+<title>{metadata.title}</title>
+<meta
+  name="title"
+  content={metadata.title}
+/>
+<meta
+  name="description"
+  content={metadata.description}
+/>
+
+<!-- Open Graph / Facebook -->
+<meta
+  property="og:type"
+  content="website"
+/>
+<meta
+  property="og:url"
+  content={useURL(Astro.url.pathname)}
+/>
+<meta
+  property="og:title"
+  content={metadata.title}
+/>
+<meta
+  property="og:description"
+  content={metadata.description}
+/>
+<meta
+  property="og:image"
+  content={metadata?.image}
+/>
+
+<!-- Twitter -->
+<meta
+  property="twitter:card"
+  content="summary_large_image"
+/>
+<meta
+  property="twitter:url"
+  content={useURL(Astro.url.pathname)}
+/>
+<meta
+  property="twitter:title"
+  content={metadata.title}
+/>
+<meta
+  property="twitter:description"
+  content={metadata.description}
+/>
+<meta
+  property="twitter:image"
+  content={metadata?.image}
+/>
+
+{
+  metadata?.schema && (
+    <script
+      set:html={JSON.stringify(metadata.schema)}
+      type="application/ld+json"
+    />
+  )
+}
+
+<slot />

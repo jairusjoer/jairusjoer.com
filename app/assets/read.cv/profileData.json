@@ -1,0 +1,812 @@
+{
+  "general": {
+    "profilePhoto": "/content/media/profilePhoto.jpg",
+    "username": "jairusjoer",
+    "displayName": "Jairus Joer",
+    "profession": "Full Stack Developer & Designer",
+    "location": "Hanover, Germany",
+    "pronouns": "He/him",
+    "byline": "Full Stack Developer & Designer in Hanover, Germany, He/him",
+    "website": "jairusjoer.com",
+    "websiteURL": "http://jairusjoer.com",
+    "about": "I am a Full Stack Developer and Designer from Germany. Focused on creating consistent and clear design systems for rich, beautiful products.\n\nFull Stack Developer at [neuwaerts](https://www.neuwaerts.de/), Co-Founder of XVI CHAPEL, Marketing Manager at World of Bass and Freelance Designer & Developer - over the past decade I have had the delight of experiencing many facets of the design industry.\n\nToday I work at [HERO Software](https://hero-software.de). In my spare time I contribute to [aggregata.de](https://aggregata.de/en/).",
+    "status": {
+      "text": null,
+      "emoji": null,
+      "timestamp": null
+    },
+    "sectionOrder": [
+      "Work Experience",
+      "Awards",
+      "Certifications",
+      "Projects",
+      "Side Projects",
+      "Speaking",
+      "Writing",
+      "Education",
+      "Contact",
+      "Exhibitions",
+      "Features",
+      "Volunteering",
+      "Teams"
+    ]
+  },
+  "projects": [
+    {
+      "id": "CriC4bw7JOqkMc4vILnC",
+      "year": "Ongoing",
+      "heading": "Aggregata",
+      "url": "https://aggregata.de",
+      "collaborators": [
+        {
+          "displayName": "henrikbartsch",
+          "profilePhoto": "/content/collaborators/henrikbartsch.jpg",
+          "profileURL": "https://read.cv/henrikbartsch"
+        }
+      ],
+      "description": "Responsible primarily for development and design, secondarily content",
+      "attachments": [],
+      "type": "project",
+      "title": "Aggregata",
+      "company": ""
+    },
+    {
+      "id": "ELcPcHogxHPiNdREbEJw",
+      "year": "2024",
+      "heading": "neuwaerts.de at neuwaerts",
+      "url": "https://www.neuwaerts.de/",
+      "collaborators": [],
+      "description": "Responsible primarily for development and design",
+      "attachments": [],
+      "type": "project",
+      "title": "neuwaerts.de",
+      "company": "neuwaerts"
+    },
+    {
+      "id": "H071Km3RhuWwo93y8nLw",
+      "year": "2024",
+      "heading": "Ernährungsrat Hannover at neuwaerts",
+      "url": null,
+      "collaborators": [],
+      "description": "Responsible primarily for development",
+      "attachments": [],
+      "type": "project",
+      "title": "Ernährungsrat Hannover",
+      "company": "neuwaerts"
+    },
+    {
+      "id": "021IK5Rnd8g6XEJ8Y2JU",
+      "year": "2023",
+      "heading": "\"Zusammen wächst Zukunft\" at neuwaerts",
+      "url": "https://www.lbs-zusammen-waechst-zukunft.de/",
+      "collaborators": [],
+      "description": "Responsible primarily for development and design",
+      "attachments": [],
+      "type": "project",
+      "title": "\"Zusammen wächst Zukunft\"",
+      "company": "neuwaerts"
+    },
+    {
+      "id": "xekp4KQR45NAOiEbJu07",
+      "year": "2023",
+      "heading": "zukunftswaende at neuwaerts",
+      "url": "https://zukunftswaende.de/",
+      "collaborators": [],
+      "description": "Responsible primarily for development, design and accessibility",
+      "attachments": [],
+      "type": "project",
+      "title": "zukunftswaende",
+      "company": "neuwaerts"
+    },
+    {
+      "id": "DRzxn0Mh6zsRsT7Aetv7",
+      "year": "2022",
+      "heading": "Staticbook at neuwaerts",
+      "url": null,
+      "collaborators": [],
+      "description": "Responsible primarily for development and design",
+      "attachments": [],
+      "type": "project",
+      "title": "Staticbook",
+      "company": "neuwaerts"
+    },
+    {
+      "id": "lpukPhTLJ1Qbti05w9F8",
+      "year": "2022",
+      "heading": "Transformationswerk at neuwaerts",
+      "url": "https://www.transformationswerk.de",
+      "collaborators": [],
+      "description": "Responsible primarily for development and design",
+      "attachments": [],
+      "type": "project",
+      "title": "Transformationswerk",
+      "company": "neuwaerts"
+    },
+    {
+      "id": "2tUFnlMzMtPdzOsxPlLM",
+      "year": "2022",
+      "heading": "Beluga Reisen at neuwaerts",
+      "url": "https://www.belugareisen.de/",
+      "collaborators": [],
+      "description": "Responsible primarily for development, secondarily design",
+      "attachments": [],
+      "type": "project",
+      "title": "Beluga Reisen",
+      "company": "neuwaerts"
+    },
+    {
+      "id": "UQX2rXcnU73vaVmGvQmG",
+      "year": "2021",
+      "heading": "MOBILOTSIN at neuwaerts",
+      "url": "https://www.mobilotsin-niedersachsen.de/",
+      "collaborators": [],
+      "description": "Responsible primarily for development, secondarily design",
+      "attachments": [],
+      "type": "project",
+      "title": "MOBILOTSIN",
+      "company": "neuwaerts"
+    }
+  ],
+  "sideProjects": [],
+  "exhibitions": [],
+  "talks": [
+    {
+      "id": "i9sayEW93PKUDsYDF2bq",
+      "year": "2023",
+      "heading": "Figma Workshop Series",
+      "url": null,
+      "collaborators": [],
+      "description": "Over the course of the year, I held a series of workshops on working with Figma for various units and clients:\n\n* Introduction to Figma\n\n* How to Work with Figma\n\n* Design Systems & Design Tokens in Figma\n\n* Figma for Project Management & Clients",
+      "attachments": [],
+      "type": "talk",
+      "title": "Figma Workshop Series",
+      "event": "",
+      "location": ""
+    },
+    {
+      "id": "KxmfqaITCqhSMZx0vM5I",
+      "year": "2023",
+      "heading": "Digital Tools for Clients at neuwaerts",
+      "url": null,
+      "collaborators": [],
+      "description": "Seminar on the analysis of recent collaborative successes and a look at the future of AI-enabled work.",
+      "attachments": [],
+      "type": "talk",
+      "title": "Digital Tools for Clients",
+      "event": "neuwaerts",
+      "location": ""
+    },
+    {
+      "id": "sTQ3VvdWMAeLqoZMfeGf",
+      "year": "2023",
+      "heading": "Working with Projects & Files",
+      "url": null,
+      "collaborators": [],
+      "description": "Multi-part workshop for employees of an undisclosed client on how to work with Figma at an organisational level.",
+      "attachments": [],
+      "type": "talk",
+      "title": "Working with Projects & Files",
+      "event": "",
+      "location": ""
+    },
+    {
+      "id": "kCzE3UWfaM9erGRiJQb2",
+      "year": "2023",
+      "heading": "Generative Texts at neuwaerts",
+      "url": null,
+      "collaborators": [],
+      "description": "Short workshop on new and emerging generative text models and their use cases.",
+      "attachments": [],
+      "type": "talk",
+      "title": "Generative Texts",
+      "event": "neuwaerts",
+      "location": null
+    },
+    {
+      "id": "twlDM93hqgNIrQl09kIw",
+      "year": "2019",
+      "heading": "New Work at neuwaerts",
+      "url": null,
+      "collaborators": [],
+      "description": "Insight into established cloud and collaboration tools in the context of GDPR compliance.",
+      "attachments": [],
+      "type": "talk",
+      "title": "New Work",
+      "event": "neuwaerts",
+      "location": null
+    }
+  ],
+  "writing": [
+    {
+      "id": "RpHdSkqwS8UuaTGtUEPr",
+      "year": "2025",
+      "heading": "Articles from 2025, Aggregata",
+      "url": "https://aggregata.de/en/",
+      "collaborators": [],
+      "description": "* [Leverage the View Transition API in any Project](https://aggregata.de/en/blog/web/leverage-the-view-transitions-api-in-any-project/)",
+      "attachments": [],
+      "type": "writing",
+      "title": "Articles from 2025",
+      "publisher": "Aggregata"
+    },
+    {
+      "id": "xkdd1QZK9Lm7wfoaYKqo",
+      "year": "2024",
+      "heading": "Articles from 2024, Aggregata",
+      "url": "https://aggregata.de/en/",
+      "collaborators": [],
+      "description": "* [Set up a new project with Tailwind CSS 4.0](https://aggregata.de/en/blog/web/set-up-a-new-project-with-tailwind-css-4/)\n\n* [Expand a Component Library for Designers and Developers](https://aggregata.de/en/blog/web/expand-a-component-library-for-designers-and-developers/)\n\n* [Create a Component Library for Designers and Developers](https://aggregata.de/en/blog/web/create-a-component-library-for-designers-and-developers/)\n\n* [Adapting and Evolving: Year Two of Aggregata](https://aggregata.de/en/blog/aggregata/adapting-and-evolving-year-two/)\n\n* [Define a Component Library for Designer and Developers](https://aggregata.de/en/blog/web/define-a-component-library-for-designers-and-developers)\n\n* [Crafting a detailed Dialog element using Microinteractions](https://aggregata.de/en/blog/web/crafting-a-detailed-dialog-element-using-microinteractions/)\n\n* [Visiting the WeAreDevelopers World Congress 2024](https://aggregata.de/en/blog/web/visiting-the-we-are-developers-world-congress-2024/)\n\n* [Accessibility - a Necessity, not an Afterthought](https://aggregata.de/en/blog/web/accessibility-a-necessity-not-an-afterthought/)\n\n* [Develop design systems with accessibility in mind](https://aggregata.de/en/blog/web/develop-design-systems-with-accessibility-in-mind/)\n\n* [Why we are moving Aggregata from Astro to Ghost](https://aggregata.de/en/blog/aggregata/why-we-are-moving-aggregata-from-astro-to-ghost/)\n\n* [Beyond bullet points: Dive into Obsidian](https://aggregata.de/en/blog/applications/obsidian-your-personal-knowledge-base/)\n\n* [Deploying dynamic content as static HTML](https://aggregata.de/en/blog/web/deploying-dynamic-content-as-static-html/)\n\n* [Advanced forms with Alpine.js](https://aggregata.de/de/blog/alpinejs/advanced-forms-with-alpine/)",
+      "attachments": [],
+      "type": "writing",
+      "title": "Articles from 2024",
+      "publisher": "Aggregata"
+    },
+    {
+      "id": "61zmwlbkldjcXyv1o5E5",
+      "year": "2023",
+      "heading": "Articles from 2023, Aggregata",
+      "url": "https://aggregata.de/en/",
+      "collaborators": [],
+      "description": "* [Dynamic imports with Alpine.js](https://aggregata.de/en/blog/alpinejs/dynamic-imports-with-alpine/)\n\n* [Astro - An introduction to your next project](https://aggregata.de/en/blog/astro/astro-an-introduction-to-your-next-project/)\n\n* [One year of Aggregata: A review and outlook](https://aggregata.de/en/blog/aggregata/one-year-of-aggregata-a-review-and-outlook/)\n\n* [\"How does A.I. learn?\" - Impressions from our first seminar](https://aggregata.de/en/blog/artificial-intelligence/how-does-ai-learn-impressions-from-our-first-seminar/)\n\n* [Temporary and persistent state management with Alpine.js](https://aggregata.de/en/blog/alpinejs/temporary-and-persistent-state-management-with-alpine/)\n\n* [Colophon: How we build Aggregata](https://aggregata.de/en/blog/web/colophon-how-we-build-aggregata/)\n\n* [Working with Artificial Intelligence: Risks & Side Effects](https://aggregata.de/en/blog/artificial-intelligence/working-with-artificial-intelligence-risks-and-side-effects/)\n\n* [Generative texts: Working with Artificial Intelligence](https://aggregata.de/en/blog/artificial-intelligence/generative-texts-working-with-artificial-intelligence/)\n\n* [The Search Function - Redefined by Machine Learning](https://aggregata.de/en/blog/machine-learning/the-search-function-redefined-by-machine-learning/)",
+      "attachments": [],
+      "type": "writing",
+      "title": "Articles from 2023",
+      "publisher": "Aggregata"
+    },
+    {
+      "id": "ip5STPOX5D6cEUQskgLd",
+      "year": "2022",
+      "heading": "Articles from 2022, Aggregata",
+      "url": "https://aggregata.de/en/",
+      "collaborators": [],
+      "description": "* [Visualize and update products with Alpine.js](https://aggregata.de/en/blog/alpinejs/visualize-and-update-products-with-alpine/)\n\n* [Interactive forms with Alpine.js](https://aggregata.de/en/blog/alpinejs/interactive-forms-with-alpine/)\n\n* [Include Alpine.js in a production environment](https://aggregata.de/en/blog/alpinejs/alpine-in-a-production-environment/)",
+      "attachments": [],
+      "type": "writing",
+      "title": "Articles from 2022",
+      "publisher": "Aggregata"
+    }
+  ],
+  "awards": [
+    {
+      "id": "KXQJHnd7F1v2kXVoh56y",
+      "year": "2022",
+      "heading": "Content Platforms B2C (Gold) from BCM",
+      "url": "https://bestofcontentmarketing.com/wp-content/uploads/2024/10/BCM_2022_Shortlist_Gold_.pdf",
+      "collaborators": [],
+      "description": "Awarded for [zukunftswaende](https://zukunftswaende.de/) in association with [neuwaerts](https://www.neuwaerts.de/)",
+      "attachments": [],
+      "type": "award",
+      "title": "Content Platforms B2C (Gold)",
+      "presenter": "BCM"
+    }
+  ],
+  "features": [],
+  "workExperience": [
+    {
+      "id": "WTxKftPIguri1QF1u494",
+      "year": "2024 — Now",
+      "heading": "Full Stack Engineer at HERO Software",
+      "url": "https://hero-software.de/",
+      "collaborators": [],
+      "description": "",
+      "attachments": [],
+      "type": "workExperience",
+      "title": "Full Stack Engineer",
+      "company": "HERO Software",
+      "location": "Hanover, Germany"
+    },
+    {
+      "id": "eY7zuZtCKG0webjMegaa",
+      "year": "2020 — Now",
+      "heading": "Freelance Developer & Designer",
+      "url": null,
+      "collaborators": [],
+      "description": "",
+      "attachments": [],
+      "type": "workExperience",
+      "title": "",
+      "company": "Freelance Developer & Designer",
+      "location": ""
+    },
+    {
+      "id": "iGnKClKMAoQomKZpgJQK",
+      "year": "2019 — 2024",
+      "heading": "Full Stack Developer at neuwaerts",
+      "url": "https://www.neuwaerts.de",
+      "collaborators": [],
+      "description": "* 2021 — 2022 Junior Frontend Developer\n\n* 2019 — 2021 Media Designer Apprentice",
+      "attachments": [],
+      "type": "workExperience",
+      "title": "Full Stack Developer",
+      "company": "neuwaerts",
+      "location": "Hanover, Germany"
+    },
+    {
+      "id": "e4liG2sAhPdykL2oz18z",
+      "year": "2018 — 2019",
+      "heading": "Media Designer (Apprentice) at TA Bildungszentrum",
+      "url": null,
+      "collaborators": [],
+      "description": null,
+      "attachments": [],
+      "type": "workExperience",
+      "title": "Media Designer (Apprentice)",
+      "company": "TA Bildungszentrum",
+      "location": "Hamelin, Germany"
+    },
+    {
+      "id": "qGvKDADDUj1CDupURbSw",
+      "year": "2016 — 2017",
+      "heading": "Co-Founder at XVI CHAPEL",
+      "url": null,
+      "collaborators": [],
+      "description": "Digital agency associated with World Of Bass Records",
+      "attachments": [],
+      "type": "workExperience",
+      "title": "Co-Founder",
+      "company": "XVI CHAPEL",
+      "location": "New York, United States – Remote"
+    },
+    {
+      "id": "PKgFhPXr24o7Q6CRyoEB",
+      "year": "2015 — 2016",
+      "heading": "Marketing Manager at Word Of Bass Records",
+      "url": null,
+      "collaborators": [],
+      "description": "",
+      "attachments": [],
+      "type": "workExperience",
+      "title": "Marketing Manager",
+      "company": "Word Of Bass Records",
+      "location": "New York, United States – Part-time, Remote"
+    }
+  ],
+  "volunteering": [],
+  "education": [
+    {
+      "id": "6cx1FXqL2nu6DDkjAbhb",
+      "year": "2018 — 2021",
+      "heading": "Apprenticeship in Media Design at Multi Media Berufsbildende Schulen Hannover (MMBbS)",
+      "url": null,
+      "collaborators": [],
+      "description": null,
+      "attachments": [],
+      "type": "education",
+      "degree": "Apprenticeship in Media Design",
+      "school": "Multi Media Berufsbildende Schulen Hannover (MMBbS)",
+      "location": "Hanover, Germany"
+    },
+    {
+      "id": "sl1c6WlS25g2CFWVWO7O",
+      "year": "2015 — 2018",
+      "heading": "Matura in Linguistics at Kooperative Gesamtschule Gronau (Leine)",
+      "url": null,
+      "collaborators": [],
+      "description": null,
+      "attachments": [],
+      "type": "education",
+      "degree": "Matura in Linguistics",
+      "school": "Kooperative Gesamtschule Gronau (Leine)",
+      "location": "Gronau (Leine), Germany"
+    }
+  ],
+  "certifications": [],
+  "contact": [
+    {
+      "id": "Sw4HcAvZCApHiVunzqWm",
+      "platform": "LinkedIn",
+      "handle": "jairusjoer",
+      "url": "https://linkedin.com/in/jairusjoer"
+    },
+    {
+      "id": "KXdefF3U6VHgnfwxUbGk",
+      "platform": "GitHub",
+      "handle": "jairusjoer",
+      "url": "https://github.com/jairusjoer"
+    },
+    {
+      "id": "lb2EEW33EOBQMFuI3vcg",
+      "platform": "Email",
+      "handle": "hello@jairusjoer.com",
+      "url": "mailto:hello@jairusjoer.com"
+    }
+  ],
+  "allCollections": [
+    {
+      "name": "Work Experience",
+      "items": [
+        {
+          "id": "WTxKftPIguri1QF1u494",
+          "year": "2024 — Now",
+          "heading": "Full Stack Engineer at HERO Software",
+          "url": "https://hero-software.de/",
+          "collaborators": [],
+          "description": "",
+          "attachments": [],
+          "type": "workExperience",
+          "title": "Full Stack Engineer",
+          "company": "HERO Software",
+          "location": "Hanover, Germany"
+        },
+        {
+          "id": "eY7zuZtCKG0webjMegaa",
+          "year": "2020 — Now",
+          "heading": "Freelance Developer & Designer",
+          "url": null,
+          "collaborators": [],
+          "description": "",
+          "attachments": [],
+          "type": "workExperience",
+          "title": "",
+          "company": "Freelance Developer & Designer",
+          "location": ""
+        },
+        {
+          "id": "iGnKClKMAoQomKZpgJQK",
+          "year": "2019 — 2024",
+          "heading": "Full Stack Developer at neuwaerts",
+          "url": "https://www.neuwaerts.de",
+          "collaborators": [],
+          "description": "* 2021 — 2022 Junior Frontend Developer\n\n* 2019 — 2021 Media Designer Apprentice",
+          "attachments": [],
+          "type": "workExperience",
+          "title": "Full Stack Developer",
+          "company": "neuwaerts",
+          "location": "Hanover, Germany"
+        },
+        {
+          "id": "e4liG2sAhPdykL2oz18z",
+          "year": "2018 — 2019",
+          "heading": "Media Designer (Apprentice) at TA Bildungszentrum",
+          "url": null,
+          "collaborators": [],
+          "description": null,
+          "attachments": [],
+          "type": "workExperience",
+          "title": "Media Designer (Apprentice)",
+          "company": "TA Bildungszentrum",
+          "location": "Hamelin, Germany"
+        },
+        {
+          "id": "qGvKDADDUj1CDupURbSw",
+          "year": "2016 — 2017",
+          "heading": "Co-Founder at XVI CHAPEL",
+          "url": null,
+          "collaborators": [],
+          "description": "Digital agency associated with World Of Bass Records",
+          "attachments": [],
+          "type": "workExperience",
+          "title": "Co-Founder",
+          "company": "XVI CHAPEL",
+          "location": "New York, United States – Remote"
+        },
+        {
+          "id": "PKgFhPXr24o7Q6CRyoEB",
+          "year": "2015 — 2016",
+          "heading": "Marketing Manager at Word Of Bass Records",
+          "url": null,
+          "collaborators": [],
+          "description": "",
+          "attachments": [],
+          "type": "workExperience",
+          "title": "Marketing Manager",
+          "company": "Word Of Bass Records",
+          "location": "New York, United States – Part-time, Remote"
+        }
+      ]
+    },
+    {
+      "name": "Awards",
+      "items": [
+        {
+          "id": "KXQJHnd7F1v2kXVoh56y",
+          "year": "2022",
+          "heading": "Content Platforms B2C (Gold) from BCM",
+          "url": "https://bestofcontentmarketing.com/wp-content/uploads/2024/10/BCM_2022_Shortlist_Gold_.pdf",
+          "collaborators": [],
+          "description": "Awarded for [zukunftswaende](https://zukunftswaende.de/) in association with [neuwaerts](https://www.neuwaerts.de/)",
+          "attachments": [],
+          "type": "award",
+          "title": "Content Platforms B2C (Gold)",
+          "presenter": "BCM"
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "items": [
+        {
+          "id": "CriC4bw7JOqkMc4vILnC",
+          "year": "Ongoing",
+          "heading": "Aggregata",
+          "url": "https://aggregata.de",
+          "collaborators": [
+            {
+              "displayName": "henrikbartsch",
+              "profilePhoto": "/content/collaborators/henrikbartsch.jpg",
+              "profileURL": "https://read.cv/henrikbartsch"
+            }
+          ],
+          "description": "Responsible primarily for development and design, secondarily content",
+          "attachments": [],
+          "type": "project",
+          "title": "Aggregata",
+          "company": ""
+        },
+        {
+          "id": "ELcPcHogxHPiNdREbEJw",
+          "year": "2024",
+          "heading": "neuwaerts.de at neuwaerts",
+          "url": "https://www.neuwaerts.de/",
+          "collaborators": [],
+          "description": "Responsible primarily for development and design",
+          "attachments": [],
+          "type": "project",
+          "title": "neuwaerts.de",
+          "company": "neuwaerts"
+        },
+        {
+          "id": "H071Km3RhuWwo93y8nLw",
+          "year": "2024",
+          "heading": "Ernährungsrat Hannover at neuwaerts",
+          "url": null,
+          "collaborators": [],
+          "description": "Responsible primarily for development",
+          "attachments": [],
+          "type": "project",
+          "title": "Ernährungsrat Hannover",
+          "company": "neuwaerts"
+        },
+        {
+          "id": "021IK5Rnd8g6XEJ8Y2JU",
+          "year": "2023",
+          "heading": "\"Zusammen wächst Zukunft\" at neuwaerts",
+          "url": "https://www.lbs-zusammen-waechst-zukunft.de/",
+          "collaborators": [],
+          "description": "Responsible primarily for development and design",
+          "attachments": [],
+          "type": "project",
+          "title": "\"Zusammen wächst Zukunft\"",
+          "company": "neuwaerts"
+        },
+        {
+          "id": "xekp4KQR45NAOiEbJu07",
+          "year": "2023",
+          "heading": "zukunftswaende at neuwaerts",
+          "url": "https://zukunftswaende.de/",
+          "collaborators": [],
+          "description": "Responsible primarily for development, design and accessibility",
+          "attachments": [],
+          "type": "project",
+          "title": "zukunftswaende",
+          "company": "neuwaerts"
+        },
+        {
+          "id": "DRzxn0Mh6zsRsT7Aetv7",
+          "year": "2022",
+          "heading": "Staticbook at neuwaerts",
+          "url": null,
+          "collaborators": [],
+          "description": "Responsible primarily for development and design",
+          "attachments": [],
+          "type": "project",
+          "title": "Staticbook",
+          "company": "neuwaerts"
+        },
+        {
+          "id": "lpukPhTLJ1Qbti05w9F8",
+          "year": "2022",
+          "heading": "Transformationswerk at neuwaerts",
+          "url": "https://www.transformationswerk.de",
+          "collaborators": [],
+          "description": "Responsible primarily for development and design",
+          "attachments": [],
+          "type": "project",
+          "title": "Transformationswerk",
+          "company": "neuwaerts"
+        },
+        {
+          "id": "2tUFnlMzMtPdzOsxPlLM",
+          "year": "2022",
+          "heading": "Beluga Reisen at neuwaerts",
+          "url": "https://www.belugareisen.de/",
+          "collaborators": [],
+          "description": "Responsible primarily for development, secondarily design",
+          "attachments": [],
+          "type": "project",
+          "title": "Beluga Reisen",
+          "company": "neuwaerts"
+        },
+        {
+          "id": "UQX2rXcnU73vaVmGvQmG",
+          "year": "2021",
+          "heading": "MOBILOTSIN at neuwaerts",
+          "url": "https://www.mobilotsin-niedersachsen.de/",
+          "collaborators": [],
+          "description": "Responsible primarily for development, secondarily design",
+          "attachments": [],
+          "type": "project",
+          "title": "MOBILOTSIN",
+          "company": "neuwaerts"
+        }
+      ]
+    },
+    {
+      "name": "Speaking",
+      "items": [
+        {
+          "id": "i9sayEW93PKUDsYDF2bq",
+          "year": "2023",
+          "heading": "Figma Workshop Series",
+          "url": null,
+          "collaborators": [],
+          "description": "Over the course of the year, I held a series of workshops on working with Figma for various units and clients:\n\n* Introduction to Figma\n\n* How to Work with Figma\n\n* Design Systems & Design Tokens in Figma\n\n* Figma for Project Management & Clients",
+          "attachments": [],
+          "type": "talk",
+          "title": "Figma Workshop Series",
+          "event": "",
+          "location": ""
+        },
+        {
+          "id": "KxmfqaITCqhSMZx0vM5I",
+          "year": "2023",
+          "heading": "Digital Tools for Clients at neuwaerts",
+          "url": null,
+          "collaborators": [],
+          "description": "Seminar on the analysis of recent collaborative successes and a look at the future of AI-enabled work.",
+          "attachments": [],
+          "type": "talk",
+          "title": "Digital Tools for Clients",
+          "event": "neuwaerts",
+          "location": ""
+        },
+        {
+          "id": "sTQ3VvdWMAeLqoZMfeGf",
+          "year": "2023",
+          "heading": "Working with Projects & Files",
+          "url": null,
+          "collaborators": [],
+          "description": "Multi-part workshop for employees of an undisclosed client on how to work with Figma at an organisational level.",
+          "attachments": [],
+          "type": "talk",
+          "title": "Working with Projects & Files",
+          "event": "",
+          "location": ""
+        },
+        {
+          "id": "kCzE3UWfaM9erGRiJQb2",
+          "year": "2023",
+          "heading": "Generative Texts at neuwaerts",
+          "url": null,
+          "collaborators": [],
+          "description": "Short workshop on new and emerging generative text models and their use cases.",
+          "attachments": [],
+          "type": "talk",
+          "title": "Generative Texts",
+          "event": "neuwaerts",
+          "location": null
+        },
+        {
+          "id": "twlDM93hqgNIrQl09kIw",
+          "year": "2019",
+          "heading": "New Work at neuwaerts",
+          "url": null,
+          "collaborators": [],
+          "description": "Insight into established cloud and collaboration tools in the context of GDPR compliance.",
+          "attachments": [],
+          "type": "talk",
+          "title": "New Work",
+          "event": "neuwaerts",
+          "location": null
+        }
+      ]
+    },
+    {
+      "name": "Writing",
+      "items": [
+        {
+          "id": "RpHdSkqwS8UuaTGtUEPr",
+          "year": "2025",
+          "heading": "Articles from 2025, Aggregata",
+          "url": "https://aggregata.de/en/",
+          "collaborators": [],
+          "description": "* [Leverage the View Transition API in any Project](https://aggregata.de/en/blog/web/leverage-the-view-transitions-api-in-any-project/)",
+          "attachments": [],
+          "type": "writing",
+          "title": "Articles from 2025",
+          "publisher": "Aggregata"
+        },
+        {
+          "id": "xkdd1QZK9Lm7wfoaYKqo",
+          "year": "2024",
+          "heading": "Articles from 2024, Aggregata",
+          "url": "https://aggregata.de/en/",
+          "collaborators": [],
+          "description": "* [Set up a new project with Tailwind CSS 4.0](https://aggregata.de/en/blog/web/set-up-a-new-project-with-tailwind-css-4/)\n\n* [Expand a Component Library for Designers and Developers](https://aggregata.de/en/blog/web/expand-a-component-library-for-designers-and-developers/)\n\n* [Create a Component Library for Designers and Developers](https://aggregata.de/en/blog/web/create-a-component-library-for-designers-and-developers/)\n\n* [Adapting and Evolving: Year Two of Aggregata](https://aggregata.de/en/blog/aggregata/adapting-and-evolving-year-two/)\n\n* [Define a Component Library for Designer and Developers](https://aggregata.de/en/blog/web/define-a-component-library-for-designers-and-developers)\n\n* [Crafting a detailed Dialog element using Microinteractions](https://aggregata.de/en/blog/web/crafting-a-detailed-dialog-element-using-microinteractions/)\n\n* [Visiting the WeAreDevelopers World Congress 2024](https://aggregata.de/en/blog/web/visiting-the-we-are-developers-world-congress-2024/)\n\n* [Accessibility - a Necessity, not an Afterthought](https://aggregata.de/en/blog/web/accessibility-a-necessity-not-an-afterthought/)\n\n* [Develop design systems with accessibility in mind](https://aggregata.de/en/blog/web/develop-design-systems-with-accessibility-in-mind/)\n\n* [Why we are moving Aggregata from Astro to Ghost](https://aggregata.de/en/blog/aggregata/why-we-are-moving-aggregata-from-astro-to-ghost/)\n\n* [Beyond bullet points: Dive into Obsidian](https://aggregata.de/en/blog/applications/obsidian-your-personal-knowledge-base/)\n\n* [Deploying dynamic content as static HTML](https://aggregata.de/en/blog/web/deploying-dynamic-content-as-static-html/)\n\n* [Advanced forms with Alpine.js](https://aggregata.de/de/blog/alpinejs/advanced-forms-with-alpine/)",
+          "attachments": [],
+          "type": "writing",
+          "title": "Articles from 2024",
+          "publisher": "Aggregata"
+        },
+        {
+          "id": "61zmwlbkldjcXyv1o5E5",
+          "year": "2023",
+          "heading": "Articles from 2023, Aggregata",
+          "url": "https://aggregata.de/en/",
+          "collaborators": [],
+          "description": "* [Dynamic imports with Alpine.js](https://aggregata.de/en/blog/alpinejs/dynamic-imports-with-alpine/)\n\n* [Astro - An introduction to your next project](https://aggregata.de/en/blog/astro/astro-an-introduction-to-your-next-project/)\n\n* [One year of Aggregata: A review and outlook](https://aggregata.de/en/blog/aggregata/one-year-of-aggregata-a-review-and-outlook/)\n\n* [\"How does A.I. learn?\" - Impressions from our first seminar](https://aggregata.de/en/blog/artificial-intelligence/how-does-ai-learn-impressions-from-our-first-seminar/)\n\n* [Temporary and persistent state management with Alpine.js](https://aggregata.de/en/blog/alpinejs/temporary-and-persistent-state-management-with-alpine/)\n\n* [Colophon: How we build Aggregata](https://aggregata.de/en/blog/web/colophon-how-we-build-aggregata/)\n\n* [Working with Artificial Intelligence: Risks & Side Effects](https://aggregata.de/en/blog/artificial-intelligence/working-with-artificial-intelligence-risks-and-side-effects/)\n\n* [Generative texts: Working with Artificial Intelligence](https://aggregata.de/en/blog/artificial-intelligence/generative-texts-working-with-artificial-intelligence/)\n\n* [The Search Function - Redefined by Machine Learning](https://aggregata.de/en/blog/machine-learning/the-search-function-redefined-by-machine-learning/)",
+          "attachments": [],
+          "type": "writing",
+          "title": "Articles from 2023",
+          "publisher": "Aggregata"
+        },
+        {
+          "id": "ip5STPOX5D6cEUQskgLd",
+          "year": "2022",
+          "heading": "Articles from 2022, Aggregata",
+          "url": "https://aggregata.de/en/",
+          "collaborators": [],
+          "description": "* [Visualize and update products with Alpine.js](https://aggregata.de/en/blog/alpinejs/visualize-and-update-products-with-alpine/)\n\n* [Interactive forms with Alpine.js](https://aggregata.de/en/blog/alpinejs/interactive-forms-with-alpine/)\n\n* [Include Alpine.js in a production environment](https://aggregata.de/en/blog/alpinejs/alpine-in-a-production-environment/)",
+          "attachments": [],
+          "type": "writing",
+          "title": "Articles from 2022",
+          "publisher": "Aggregata"
+        }
+      ]
+    },
+    {
+      "name": "Education",
+      "items": [
+        {
+          "id": "6cx1FXqL2nu6DDkjAbhb",
+          "year": "2018 — 2021",
+          "heading": "Apprenticeship in Media Design at Multi Media Berufsbildende Schulen Hannover (MMBbS)",
+          "url": null,
+          "collaborators": [],
+          "description": null,
+          "attachments": [],
+          "type": "education",
+          "degree": "Apprenticeship in Media Design",
+          "school": "Multi Media Berufsbildende Schulen Hannover (MMBbS)",
+          "location": "Hanover, Germany"
+        },
+        {
+          "id": "sl1c6WlS25g2CFWVWO7O",
+          "year": "2015 — 2018",
+          "heading": "Matura in Linguistics at Kooperative Gesamtschule Gronau (Leine)",
+          "url": null,
+          "collaborators": [],
+          "description": null,
+          "attachments": [],
+          "type": "education",
+          "degree": "Matura in Linguistics",
+          "school": "Kooperative Gesamtschule Gronau (Leine)",
+          "location": "Gronau (Leine), Germany"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "items": [
+        {
+          "id": "Sw4HcAvZCApHiVunzqWm",
+          "platform": "LinkedIn",
+          "handle": "jairusjoer",
+          "url": "https://linkedin.com/in/jairusjoer"
+        },
+        {
+          "id": "KXdefF3U6VHgnfwxUbGk",
+          "platform": "GitHub",
+          "handle": "jairusjoer",
+          "url": "https://github.com/jairusjoer"
+        },
+        {
+          "id": "lb2EEW33EOBQMFuI3vcg",
+          "platform": "Email",
+          "handle": "hello@jairusjoer.com",
+          "url": "mailto:hello@jairusjoer.com"
+        }
+      ]
+    }
+  ]
+}

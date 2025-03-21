@@ -1,0 +1,22 @@
+/* A small glimpse of what was. */
+
+@theme {
+  --color-background: var(--color-neutral-700);
+  --color-background-subtle: var(--color-neutral-800);
+
+  --color-foreground: var(--color-neutral-200);
+  --color-foreground-subtle: var(--color-neutral-400);
+
+  --color-theme: var(--color-neutral-200);
+
+  --color-border: var(--color-neutral-700);
+
+  --font-headings: system-ui, ui-sans-serif, sans-serif;
+  --font-body: system-ui, ui-sans-serif, sans-serif;
+}
+
+/* Customizations */
+
+img {
+  @apply rounded-full;
+}

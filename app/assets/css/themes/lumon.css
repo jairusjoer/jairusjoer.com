@@ -1,0 +1,48 @@
+/* Please try to enjoy each theme equally. */
+
+@theme {
+  --color-background: var(--color-slate-200);
+  --color-background-subtle: var(--color-slate-100);
+
+  --color-foreground: var(--color-slate-950);
+  --color-foreground-subtle: var(--color-slate-600);
+
+  --color-theme: #235ba8;
+
+  --color-border: var(--color-slate-300);
+
+  --font-headings: 'Michroma', system-ui, ui-sans-serif, sans-serif;
+  --font-body: system-ui, ui-sans-serif, sans-serif;
+}
+
+@font-face {
+  font-family: 'Michroma';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../../fonts/Michroma.ttf');
+}
+
+/* Customizations */
+
+img {
+  @apply size-12 rounded-sm;
+}
+
+img:hover,
+img:focus {
+  @apply scale-125 transition-transform;
+}
+
+img + div {
+  @apply border-foreground border-l pl-4;
+}
+
+h1,
+h2 {
+  @apply uppercase;
+}
+
+h2 {
+  @apply border-foreground border-l pl-2 leading-none;
+}

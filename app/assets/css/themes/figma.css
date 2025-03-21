@@ -1,0 +1,49 @@
+/* Think bigger. */
+
+@theme {
+  --color-background: var(--color-neutral-100);
+  --color-background-subtle: var(--color-neutral-50);
+
+  --color-foreground: var(--color-neutral-950);
+  --color-foreground-subtle: var(--color-neutral-600);
+
+  --color-theme: #9747ff;
+
+  --color-border: var(--color-neutral-200);
+
+  --font-headings: 'Inter', system-ui, ui-sans-serif, sans-serif;
+  --font-body: 'Inter', system-ui, ui-sans-serif, sans-serif;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('../../fonts/Inter.ttf');
+}
+
+/* Customizations */
+
+img {
+  @apply border-background -rotate-6 rounded-2xl border-8 drop-shadow-xl transition-transform;
+}
+
+img:hover {
+  @apply rotate-0;
+}
+
+h2 {
+  @apply text-theme;
+}
+
+h2::before {
+  content: '❖ ';
+  @apply text-theme;
+}
+
+li::marker {
+  content: ' ';
+  @apply text-theme text-xs;
+}

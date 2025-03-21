@@ -1,0 +1,17 @@
+---
+import '../assets/css/tailwind.css';
+import Meta from '../components/Meta.astro';
+---
+
+<!doctype html>
+<html
+  lang="en"
+  class="bg-background-subtle font-body antialiased"
+>
+  <head>
+    <Meta />
+  </head>
+  <body class="text-foreground-subtle text-sm">
+    <slot />
+  </body>
+</html>

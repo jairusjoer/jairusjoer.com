@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/* Choose one theme */
+@import './themes/figma.css';
+/* @import './themes/lumon.css'; */
+/* @import './themes/rams.css'; */
+/* @import './themes/read.css'; */
+
+@import './tailwind/base.css';
+@import './tailwind/utilities.css';

@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import General from '../components/General.astro';
+import Section from '../components/Section.astro';
+import Theme from '../components/Theme.astro';
+import profileData from '../assets/read.cv/profileData.json';
+---
+
+<Layout>
+  <div class="my-16 space-y-16">
+    <General />
+    {profileData.allCollections.map((collection) => <Section data={collection} />)}
+  </div>
+</Layout>

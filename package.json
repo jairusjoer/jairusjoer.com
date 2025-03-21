@@ -1,35 +1,34 @@
 {
-    "name": "jairusjoer.com",
-    "type": "module",
-    "version": "0.0.1",
-    "scripts": {
-        "dev": "astro dev",
-        "build": "astro build",
-        "preview": "astro preview",
-        "astro": "astro",
-        "prettier": "prettier **/*.{astro,css,js,ts} -w"
-    },
-    "dependencies": {
-        "@astrojs/mdx": "^4.0.4",
-        "@astrojs/rss": "^4.0.11",
-        "@astrojs/sitemap": "^3.2.1",
-        "astro": "^5.1.4"
-    },
-    "devDependencies": {
-        "@tailwindcss/typography": "github:tailwindcss/typography",
-        "@tailwindcss/vite": "^4.0.0-beta.9",
-        "prettier": "^3.4.2",
-        "prettier-plugin-astro": "^0.14.1",
-        "prettier-plugin-tailwindcss": "^0.6.9",
-        "tailwindcss": "^4.0.0-beta.9"
-    },
-    "prettier": {
-        "printWidth": 120,
-        "singleQuote": true,
-        "tabWidth": 4,
-        "plugins": [
-            "prettier-plugin-astro",
-            "prettier-plugin-tailwindcss"
-        ]
-    }
+  "name": "open.cv",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "prettier": "prettier **.{astro,css,ts} -w"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.0.14",
+    "astro": "^5.5.2",
+    "marked": "^15.0.7",
+    "tailwindcss": "^4.0.14"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "printWidth": 120,
+    "singleAttributePerLine": true,
+    "singleQuote": true,
+    "plugins": [
+      "prettier-plugin-astro",
+      "prettier-plugin-tailwindcss"
+    ]
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.11"
+  }
 }
