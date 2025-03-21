@@ -1,9 +1,10 @@
 ---
 import { parse } from 'marked';
 import type profileData from '../assets/read.cv/profileData.json';
+import type { Collection, CollectionItem } from '../assets/ts/types';
 
 interface Props {
-  data: (typeof profileData.allCollections)[number];
+  data: Collection;
 }
 
 const { data } = Astro.props;
@@ -19,7 +20,7 @@ const { data } = Astro.props;
     }}
   >
     {
-      data.items.map((item) => (
+      data.items.map((item: CollectionItem) => (
         <div class="grid sm:grid-cols-[6rem_1fr] sm:gap-8">
           <span class="tabular-nums">{item.year || item.platform}</span>
           <div>
