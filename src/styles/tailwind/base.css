@@ -1,0 +1,22 @@
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  /* Base theme configuration */
+
+  h3:has(a[target='_blank'])::after {
+    color: var(--color-theme);
+    content: '↗';
+  }
+
+  a:not(h3 *) {
+    border-bottom: 0.0625rem solid var(--color-border);
+    font-weight: 400 !important;
+    text-decoration: none !important;
+  }
+
+  ul {
+    margin-left: calc(-1.5714286em - 0.4285714em);
+  }
+}
