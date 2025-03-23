@@ -6,6 +6,16 @@ import profileData from '../assets/read.cv/profileData.json';
 import type { Collection } from '../assets/ts/types';
 ---
 
+<script>
+  const links = document.querySelectorAll('a');
+
+  for (const link of links) {
+    if (!link.hasAttribute('target')) {
+      link.setAttribute('target', '_blank');
+    }
+  }
+</script>
+
 <Layout>
   <div class="my-16 space-y-16">
     <General />
