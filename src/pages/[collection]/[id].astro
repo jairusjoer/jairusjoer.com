@@ -4,7 +4,7 @@ import { collections } from '../../content.config';
 import { getCollection } from 'astro:content';
 import type { DataEntryMap } from 'astro:content';
 import { render } from 'astro:content';
-import { useCollectionURL } from '../../composables/useCollectionURL';
+import _ from 'lodash';
 
 export async function getStaticPaths() {
   let paths = [];
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
     const collection = await getCollection(collectionKey);
 
     const map = collection.map((entry) => ({
-      params: { collection: useCollectionURL(collectionKey), id: entry.id },
+      params: { collection: _.kebabCase(collectionKey), id: entry.id },
       props: { entry },
     }));
 
@@ -31,7 +31,7 @@ const { Content } = await render(entry);
 
 <Default>
   <main>
-    <h1 class="font-medium text-foreground mb-4">{entry.data.title}</h1>
+    <h1 class="text-foreground mb-4">{entry.data.title}</h1>
     <div class="prose prose-sm prose-theme">
       <Content />
     </div>

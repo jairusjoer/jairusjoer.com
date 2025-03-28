@@ -29,9 +29,3 @@
   --font-headings: system-ui, ui-sans-serif, sans-serif;
   --font-body: system-ui, ui-sans-serif, sans-serif;
 }
-
-/* Customizations */
-
-img {
-  @apply rounded-full;
-}

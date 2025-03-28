@@ -26,19 +26,19 @@
     var(--color-neutral-700)
   );
 
-  --font-headings: "Inter", system-ui, ui-sans-serif, sans-serif;
-  --font-headings--font-feature-settings: "ss02" on, "liga" on, "calt" on;
-  --font-body: "Inter", system-ui, ui-sans-serif, sans-serif;
-  --font-body--font-feature-settings: "ss02" on, "liga" on, "calt" on;
+  --font-headings: 'Inter', system-ui, ui-sans-serif, sans-serif;
+  --font-headings--font-feature-settings: 'ss02' on, 'liga' on, 'calt' on;
+  --font-body: 'Inter', system-ui, ui-sans-serif, sans-serif;
+  --font-body--font-feature-settings: 'ss02' on, 'liga' on, 'calt' on;
 }
 
 @font-face {
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 100 900;
   font-stretch: 100%;
   font-display: swap;
-  src: url("../../fonts/Inter.ttf");
+  src: url('../../fonts/Inter.ttf');
 }
 
 /* Customizations */
@@ -56,11 +56,11 @@ h2 {
 }
 
 h2::before {
-  content: "❖ ";
+  content: '❖ ';
   @apply text-theme;
 }
 
 li::marker {
-  content: " ";
+  content: ' ';
   @apply text-theme text-xs;
 }

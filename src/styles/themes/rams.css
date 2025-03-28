@@ -17,31 +17,31 @@
 
   --color-border: light-dark(var(--color-zinc-300), var(--color-zinc-700));
 
-  --font-headings: "Instrument Serif", ui-serif, serif;
-  --font-body: "Instrument Sans", system-ui, ui-sans-serif, sans-serif;
+  --font-headings: 'Instrument Serif', ui-serif, serif;
+  --font-body: 'Instrument Sans', system-ui, ui-sans-serif, sans-serif;
 }
 
 @font-face {
-  font-family: "Instrument Serif";
+  font-family: 'Instrument Serif';
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url("../../fonts/InstrumentSerif.ttf");
+  src: url('../../fonts/InstrumentSerif.ttf');
 }
 
 @font-face {
-  font-family: "Instrument Sans";
+  font-family: 'Instrument Sans';
   font-style: normal;
   font-weight: 400 700;
   font-stretch: 100%;
   font-display: swap;
-  src: url("../../fonts/InstrumentSans.ttf");
+  src: url('../../fonts/InstrumentSans.ttf');
 }
 
 /* Customizations */
 
 img {
-  @apply size-18 border-border rounded-full border;
+  @apply border-border size-18 rounded-full border;
 }
 
 h1 {

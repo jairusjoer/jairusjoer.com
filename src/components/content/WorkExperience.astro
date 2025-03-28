@@ -1,27 +1,21 @@
 ---
 import { type CollectionEntry } from 'astro:content';
-import { useCollectionURL } from '../../composables/useCollectionURL';
+import _ from 'lodash';
 
 interface Props {
   entry: CollectionEntry<'WorkExperience'>;
 }
-
 const { entry } = Astro.props;
 ---
 
-<article class="grid sm:grid-cols-[6rem_1fr] sm:gap-8">
-  <a href={`/${useCollectionURL(entry.collection)}/${entry.id}`}>
-    <span class="tabular-nums">{entry.data.from}</span>
-    <div>
-      <h3 class="text-foreground">{entry.data.title}</h3>
-      {entry.data?.location && <p>{entry.data?.location}</p>}
-      {
-        entry.data?.description && (
-          <div class="prose prose-sm prose-theme">
-            {entry.data?.description}
-          </div>
-        )
-      }
-    </div>
+<article class="-my-2 grid sm:grid-cols-[6rem_1fr] sm:gap-8">
+  <span class="py-2 tabular-nums">{entry.data.from}</span>
+  <a
+    class:list={['rounded p-2', 'hover:bg-background', 'focus:bg-background']}
+    href={`/${_.kebabCase(entry.collection)}/${entry.id}`}
+  >
+    <h3 class="text-foreground">{entry.data.title}</h3>
+    {entry.data?.location && <p>{entry.data?.location}</p>}
+    {entry.data?.description && <p>{entry.data?.description}</p>}
   </a>
 </article>

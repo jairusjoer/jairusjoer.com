@@ -1,6 +1,7 @@
 ---
 import type { DataEntryMap } from 'astro:content';
 import { getCollection } from 'astro:content';
+import _ from 'lodash';
 
 interface Props {
   content: keyof DataEntryMap;
@@ -13,5 +14,6 @@ const { default: Content } = await import(`./content/${content}.astro`);
 ---
 
 <section>
+  <h2 class="text-foreground mb-4">{_.startCase(content)}</h2>
   {collection.map((entry) => <Content {entry} />)}
 </section>

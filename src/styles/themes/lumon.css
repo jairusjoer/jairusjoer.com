@@ -17,16 +17,16 @@
 
   --color-border: light-dark(var(--color-gray-300), var(--color-gray-800));
 
-  --font-headings: "Michroma", system-ui, ui-sans-serif, sans-serif;
+  --font-headings: 'Michroma', system-ui, ui-sans-serif, sans-serif;
   --font-body: system-ui, ui-sans-serif, sans-serif;
 }
 
 @font-face {
-  font-family: "Michroma";
+  font-family: 'Michroma';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../../fonts/Michroma.ttf");
+  src: url('../../fonts/Michroma.ttf');
 }
 
 /* Customizations */

@@ -19,8 +19,8 @@ import { ClientRouter } from 'astro:transitions';
     <Meta />
     <ClientRouter />
   </head>
-  <body class="text-foreground-subtle text-sm px-4 py-16">
-    <div class="max-w-xl mx-auto">
+  <body class="text-foreground-subtle px-4 py-16 text-sm">
+    <div class="mx-auto max-w-xl" style="view-transition-name: base;">
       <Header />
       <slot />
     </div>
