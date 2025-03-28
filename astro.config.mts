@@ -1,11 +1,23 @@
 import { defineConfig } from 'astro/config';
+import node from '@astrojs/node';
+
+// Integrations
+import keystatic from '@keystatic/astro';
+import markdoc from '@astrojs/markdoc';
 import mdx from '@astrojs/mdx';
+import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+
+// Plugins
 import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), sitemap()],
+  adapter: node({
+    mode: 'standalone',
+  }),
+  integrations: [keystatic(), markdoc(), mdx(), react(), sitemap()],
+  output: 'static',
   site: 'https://jairusjoer.com',
   vite: {
     plugins: [tailwindcss()],

@@ -1,0 +1,39 @@
+---
+import Default from '../../layouts/Default.astro';
+import { collections } from '../../content.config';
+import { getCollection } from 'astro:content';
+import type { DataEntryMap } from 'astro:content';
+import { render } from 'astro:content';
+import { useCollectionURL } from '../../composables/useCollectionURL';
+
+export async function getStaticPaths() {
+  let paths = [];
+
+  for (const key of Object.keys(collections)) {
+    const collectionKey = key as keyof DataEntryMap;
+    const collection = await getCollection(collectionKey);
+
+    const map = collection.map((entry) => ({
+      params: { collection: useCollectionURL(collectionKey), id: entry.id },
+      props: { entry },
+    }));
+
+    paths.push(...map);
+  }
+
+  console.log(paths);
+  return paths;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Default>
+  <main>
+    <h1 class="font-medium text-foreground mb-4">{entry.data.title}</h1>
+    <div class="prose prose-sm prose-theme">
+      <Content />
+    </div>
+  </main>
+</Default>

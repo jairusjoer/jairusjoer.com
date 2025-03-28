@@ -1,0 +1,27 @@
+---
+import { type CollectionEntry } from 'astro:content';
+import { useCollectionURL } from '../../composables/useCollectionURL';
+
+interface Props {
+  entry: CollectionEntry<'WorkExperience'>;
+}
+
+const { entry } = Astro.props;
+---
+
+<article class="grid sm:grid-cols-[6rem_1fr] sm:gap-8">
+  <a href={`/${useCollectionURL(entry.collection)}/${entry.id}`}>
+    <span class="tabular-nums">{entry.data.from}</span>
+    <div>
+      <h3 class="text-foreground">{entry.data.title}</h3>
+      {entry.data?.location && <p>{entry.data?.location}</p>}
+      {
+        entry.data?.description && (
+          <div class="prose prose-sm prose-theme">
+            {entry.data?.description}
+          </div>
+        )
+      }
+    </div>
+  </a>
+</article>

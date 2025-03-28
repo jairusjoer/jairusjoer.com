@@ -1,13 +1,17 @@
 @layer base {
+  ::view-transition {
+    pointer-events: none;
+  }
+
   :root {
     color-scheme: light dark;
   }
 
   /* Base theme configuration */
 
-  h3:has(a[target='_blank'])::after {
+  h3:has(a[target="_blank"])::after {
     color: var(--color-theme);
-    content: '↗';
+    content: "↗";
   }
 
   a:not(h3 *) {

@@ -1,0 +1,28 @@
+---
+import '../styles/tailwind.css';
+import Meta from '../components/Meta.astro';
+import Header from '../components/Header.astro';
+import { ClientRouter } from 'astro:transitions';
+---
+
+<script>
+  import { useExternalLinks } from '../composables/useExternalLinks';
+
+  useExternalLinks();
+</script>
+
+<html
+  lang="en"
+  class="bg-background-subtle font-body antialiased print:scheme-light"
+>
+  <head>
+    <Meta />
+    <ClientRouter />
+  </head>
+  <body class="text-foreground-subtle text-sm px-4 py-16">
+    <div class="max-w-xl mx-auto">
+      <Header />
+      <slot />
+    </div>
+  </body>
+</html>
