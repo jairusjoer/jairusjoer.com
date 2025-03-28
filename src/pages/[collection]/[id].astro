@@ -21,7 +21,6 @@ export async function getStaticPaths() {
     paths.push(...map);
   }
 
-  console.log(paths);
   return paths;
 }
 
@@ -30,8 +29,10 @@ const { Content } = await render(entry);
 ---
 
 <Default>
+  <header class="mb-8">
+    <h1 class="text-foreground font-medium">{entry.data.title}</h1>
+  </header>
   <main>
-    <h1 class="text-foreground mb-4">{entry.data.title}</h1>
     <div class="prose prose-sm prose-theme">
       <Content />
     </div>

@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry } from 'astro:content';
 import _ from 'lodash';
+import Artifact from '../Artifact.astro';
 
 interface Props {
   entry: CollectionEntry<'WorkExperience'>;
@@ -8,14 +9,28 @@ interface Props {
 const { entry } = Astro.props;
 ---
 
-<article class="-my-2 grid sm:grid-cols-[6rem_1fr] sm:gap-8">
-  <span class="py-2 tabular-nums">{entry.data.from}</span>
-  <a
-    class:list={['rounded p-2', 'hover:bg-background', 'focus:bg-background']}
-    href={`/${_.kebabCase(entry.collection)}/${entry.id}`}
-  >
-    <h3 class="text-foreground">{entry.data.title}</h3>
+<article class="relative grid sm:grid-cols-[6rem_1fr] sm:gap-8">
+  <span class="tabular-nums">{entry.data.from} – {entry.data.to}</span>
+
+  <div class="relative">
+    <h3 class="text-foreground font-medium">
+      <span>{entry.data.title}</span>
+      {
+        entry.data?.company && (
+          <span>
+            at{' '}
+            {entry.data?.url ? (
+              <a class="borderline" href={entry.data.url}>
+                {entry.data.company} &nearr;
+              </a>
+            ) : (
+              entry.data.company
+            )}
+          </span>
+        )
+      }
+    </h3>
     {entry.data?.location && <p>{entry.data?.location}</p>}
-    {entry.data?.description && <p>{entry.data?.description}</p>}
-  </a>
+    <Artifact {entry} />
+  </div>
 </article>

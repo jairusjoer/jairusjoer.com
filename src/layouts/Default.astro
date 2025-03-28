@@ -11,16 +11,13 @@ import { ClientRouter } from 'astro:transitions';
   useExternalLinks();
 </script>
 
-<html
-  lang="en"
-  class="bg-background-subtle font-body antialiased print:scheme-light"
->
+<html lang="en" class="bg-background-subtle font-body antialiased print:scheme-light">
   <head>
     <Meta />
     <ClientRouter />
   </head>
-  <body class="text-foreground-subtle px-4 py-16 text-sm">
-    <div class="mx-auto max-w-xl" style="view-transition-name: base;">
+  <body class="text-foreground-subtle px-4 py-16 text-sm md:pl-16">
+    <div class="max-w-xl">
       <Header />
       <slot />
     </div>

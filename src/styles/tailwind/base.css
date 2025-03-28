@@ -1,9 +1,9 @@
 @layer base {
-  ::view-transition {
-    pointer-events: none;
-  }
-
   :root {
     color-scheme: light dark;
+  }
+
+  * {
+    border-color: var(--color-border);
   }
 }

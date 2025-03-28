@@ -1,0 +1,20 @@
+---
+import { useReader } from '../composables/useReader';
+import { parse } from 'marked';
+
+const reader = useReader();
+const data = await reader.singletons.General.read({ resolveLinkedFiles: true });
+
+const summary = [data?.profession, data?.location, data?.pronouns].filter((item) => item?.length! > 0).join(', ');
+---
+
+<h1 class="text-foreground font-medium">{data?.name}</h1>
+<p>{summary}</p>
+{
+  data?.about && (
+    <>
+      <h2 class="text-foreground mt-8 mb-4 font-medium">About</h2>
+      <div class="prose prose-sm prose-theme" set:html={parse(data.about)} />
+    </>
+  )
+}
