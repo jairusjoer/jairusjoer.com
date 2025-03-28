@@ -1,10 +1,15 @@
 ---
 import Default from '../layouts/Default.astro';
 import Section from '../components/Section.astro';
+import General from '../components/General.astro';
 ---
 
 <Default>
-  <main>
+  <header class="mb-16">
+    <General />
+  </header>
+  <main class="space-y-16">
     <Section content="WorkExperience" />
+    <Section content="Awards" />
   </main>
 </Default>

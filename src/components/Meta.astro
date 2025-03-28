@@ -46,13 +46,6 @@ const useURL = (path: string) => String(new URL(path, Astro.site));
 <meta property="twitter:description" content={metadata.description} />
 <meta property="twitter:image" content={metadata?.image} />
 
-{
-  metadata?.schema && (
-    <script
-      set:html={JSON.stringify(metadata.schema)}
-      type="application/ld+json"
-    />
-  )
-}
+{metadata?.schema && <script set:html={JSON.stringify(metadata.schema)} type="application/ld+json" />}
 
 <slot />

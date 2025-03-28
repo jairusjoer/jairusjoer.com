@@ -1,13 +1,22 @@
 ---
 import { getCollection } from 'astro:content';
-import { SITE_TITLE } from '../consts';
 
 const collection = await getCollection('Pages');
+const url = Astro.url.pathname;
 ---
 
-<header class="mb-8" transition:persist>
-  <nav class="text-foreground flex flex-wrap gap-2">
-    <a class="borderline" href="/">{SITE_TITLE}</a>
+<header class="mb-8">
+  <nav class="text-foreground flex flex-wrap gap-2 leading-6 font-medium">
+    {
+      url !== '/' ? (
+        <a class="bg-background size-6 rounded text-center" href="/" title="Return to homepage">
+          &larr;
+        </a>
+      ) : (
+        <span class="bg-background size-6 rounded text-center">⌘</span>
+      )
+    }
+    <a class="borderline" href="/">CV</a>
     {
       collection.map((entry) => (
         <a class="borderline" href={`/pages/${entry.id}`}>

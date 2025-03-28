@@ -8,12 +8,18 @@ interface Props {
 }
 
 const { content } = Astro.props;
-const collection = await getCollection(content);
+const collection = await getCollection(content, (item) => {
+  return !('draft' in item.data && item.data.draft);
+});
 
 const { default: Content } = await import(`./content/${content}.astro`);
 ---
 
 <section>
-  <h2 class="text-foreground mb-4">{_.startCase(content)}</h2>
-  {collection.map((entry) => <Content {entry} />)}
+  <h2 class="text-foreground mb-4 font-medium">
+    {_.startCase(content)}
+  </h2>
+  <div class="space-y-8">
+    {collection.map((entry) => <Content {entry} />)}
+  </div>
 </section>
