@@ -19,7 +19,7 @@ const { entry } = Astro.props;
       <p class="text-foreground p-4 font-medium">{entry.data.title}</p>
       <div class="mt-4 mr-4 -mb-px">
         <div
-          class="bg-background h-16 max-w-48 space-y-4 overflow-hidden rounded-t border p-2 font-mono text-[0.5rem]"
+          class="bg-background h-16 max-w-32 space-y-4 overflow-hidden rounded-t border p-3 font-mono text-[0.375rem]"
           set:html={_.truncate(await parse(entry.body), { length: 300 })}
         />
       </div>

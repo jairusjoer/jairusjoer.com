@@ -5,8 +5,8 @@ const keystatic = async () => {
     columns: ['title', 'year'],
     entryLayout: 'content',
     format: { contentField: 'content' },
-    label: 'Projects',
-    path: 'src/content/Projects/*',
+    label: 'Speaking',
+    path: 'src/content/Speaking/*',
     slugField: 'title',
     schema: {
       draft: fields.checkbox({ label: 'Draft' }),
@@ -14,7 +14,8 @@ const keystatic = async () => {
         name: { label: 'Title', validation: { isRequired: true } },
       }),
       year: fields.text({ label: 'Year', validation: { isRequired: true } }),
-      client: fields.text({ label: 'Client' }),
+      event: fields.text({ label: 'Event' }),
+      location: fields.text({ label: 'Location' }),
       url: fields.url({ label: 'URL' }),
       content: fields.mdx({ label: 'Content' }),
     },
@@ -27,17 +28,18 @@ const astro = async () => {
 
   return defineCollection({
     loader: glob({
-      base: './src/content/Projects',
+      base: './src/content/Speaking',
       pattern: '**/*.{md,mdx}',
     }),
     schema: z.object({
       draft: z.boolean().optional(),
       title: z.string(),
       year: z.string(),
-      client: z.string().optional(),
+      event: z.string().optional(),
+      location: z.string().optional(),
       url: z.string().optional(),
     }),
   });
 };
 
-export const Projects = { keystatic, astro };
+export const Speaking = { keystatic, astro };

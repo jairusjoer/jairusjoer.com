@@ -15,11 +15,11 @@ const keystatic = async () => {
       title: fields.slug({
         name: { label: 'Title', validation: { isRequired: true } },
       }),
-      company: fields.text({
-        label: 'Company',
+      client: fields.text({
+        label: 'Client',
         validation: { isRequired: true },
       }),
-      location: fields.text({ label: 'Location ' }),
+      location: fields.text({ label: 'Location' }),
       url: fields.url({ label: 'URL' }),
       content: fields.mdx({ label: 'Content' }),
     },
@@ -40,7 +40,7 @@ const astro = async () => {
       from: z.string(),
       to: z.string(),
       title: z.string(),
-      company: z.string(),
+      client: z.string(),
       location: z.string().optional(),
       url: z.string().optional(),
     }),
