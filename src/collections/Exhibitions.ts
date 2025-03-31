@@ -1,5 +1,6 @@
 const keystatic = async () => {
   const { fields, collection } = await import('@keystatic/core');
+  const { fieldPresets } = await import('./presets/Fields');
 
   return collection({
     columns: ['title', 'year'],
@@ -9,15 +10,13 @@ const keystatic = async () => {
     path: 'src/content/Exhibitions/*',
     slugField: 'title',
     schema: {
-      draft: fields.checkbox({ label: 'Draft' }),
-      title: fields.slug({
-        name: { label: 'Title', validation: { isRequired: true } },
-      }),
-      year: fields.text({ label: 'Year', validation: { isRequired: true } }),
+      draft: fieldPresets.draft,
+      title: fieldPresets.title,
+      year: fieldPresets.year,
       venue: fields.text({ label: 'Venue' }),
-      location: fields.text({ label: 'Location' }),
-      url: fields.url({ label: 'URL' }),
-      content: fields.mdx({ label: 'Content' }),
+      location: fieldPresets.location,
+      url: fieldPresets.url,
+      content: fieldPresets.content,
     },
   });
 };

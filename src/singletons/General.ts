@@ -1,5 +1,6 @@
 const keystatic = async () => {
   const { fields, singleton } = await import('@keystatic/core');
+  const { fieldPresets } = await import('../collections/presets/Fields');
 
   return singleton({
     label: 'General',
@@ -7,7 +8,7 @@ const keystatic = async () => {
     schema: {
       name: fields.text({ label: 'Name', validation: { isRequired: true } }),
       profession: fields.text({ label: 'Profession' }),
-      location: fields.text({ label: 'Location' }),
+      location: fieldPresets.location,
       pronouns: fields.text({ label: 'Pronouns' }),
       about: fields.mdx({ label: 'About' }),
     },

@@ -1,5 +1,6 @@
 const keystatic = async () => {
   const { fields, collection } = await import('@keystatic/core');
+  const { fieldPresets } = await import('./presets/Fields');
 
   return collection({
     columns: ['title'],
@@ -7,8 +8,8 @@ const keystatic = async () => {
     path: 'src/content/Contact/*',
     slugField: 'title',
     schema: {
-      draft: fields.checkbox({ label: 'Draft' }),
-      title: fields.text({ label: 'Title', validation: { isRequired: true } }),
+      draft: fieldPresets.draft,
+      title: fieldPresets.title,
       url: fields.url({ label: 'URL', validation: { isRequired: true } }),
     },
   });

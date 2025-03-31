@@ -1,5 +1,6 @@
 const keystatic = async () => {
     const { fields, collection } = await import('@keystatic/core');
+    const { fieldPresets } = await import('./presets/Fields');
 
     return collection({
       columns: ['title', 'year'],
@@ -9,14 +10,12 @@ const keystatic = async () => {
       path: 'src/content/Writing/*',
       slugField: 'title',
       schema: {
-        draft: fields.checkbox({ label: 'Draft' }),
-        title: fields.slug({
-          name: { label: 'Title', validation: { isRequired: true } },
-        }),
-        year: fields.text({ label: 'Year', validation: { isRequired: true } }),
+        draft: fieldPresets.draft,
+        title: fieldPresets.title,
+        year: fieldPresets.year,
         publisher: fields.text({ label: 'Publisher' }),
-        url: fields.url({ label: 'URL' }),
-        content: fields.mdx({ label: 'Content' }),
+        url: fieldPresets.url,
+        content: fieldPresets.content,
       },
     });
   };
@@ -34,7 +33,7 @@ const keystatic = async () => {
         draft: z.boolean().optional(),
         title: z.string(),
         year: z.string(),
-        client: z.string().optional(),
+        publisher: z.string().optional(),
         url: z.string().optional(),
       }),
     });
