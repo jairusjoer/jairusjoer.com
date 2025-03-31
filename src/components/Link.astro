@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry, CollectionKey } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<CollectionKey>;
+  field: string;
+  separator?: string;
+}
+
+const { entry, field, separator } = Astro.props;
+---
+
+{
+  entry.data?.[field] && (
+    <>
+      {separator && <span>{`${separator} `}</span>}
+      {entry.data?.url ? (
+        <a href={entry.data.url} target="_blank">
+          {entry.data[field]} &nearr;
+        </a>
+      ) : (
+        entry.data[field]
+      )}
+    </>
+  )
+}

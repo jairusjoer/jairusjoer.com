@@ -1,21 +1,19 @@
 ---
 import { type CollectionEntry } from 'astro:content';
+import Link from '../Link.astro';
 import _ from 'lodash';
-
+import Content from '../Content.astro';
 interface Props {
   entry: CollectionEntry<'Awards'>;
 }
 const { entry } = Astro.props;
 ---
 
-<article class="grid sm:grid-cols-[6rem_1fr] sm:gap-8">
-  <span class="tabular-nums">
-    <span>{entry.data.year}</span>
-  </span>
-  <a href={`/${_.kebabCase(entry.collection)}/${entry.id}`}>
-    <h3 class="text-foreground font-medium">
-      <span>{entry.data.title}</span>
-      {entry.data?.host && <span>at {entry.data.host}</span>}
-    </h3>
-  </a>
-</article>
+<Content {entry}>
+  <span slot="left">{entry.data.year}</span>
+
+  <h3 class="text-foreground font-medium" slot="right">
+    <span>{entry.data.title}</span>
+    <Link {entry} separator="from" field="host" />
+  </h3>
+</Content>

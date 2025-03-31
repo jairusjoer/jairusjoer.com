@@ -1,9 +1,4 @@
 @layer utilities {
-  .borderline {
-    border-bottom: 0.0625rem solid var(--color-border);
-    text-decoration: none;
-  }
-
   .prose-theme {
     --tw-prose-body: var(--color-foreground-subtle);
     --tw-prose-headings: var(--color-foreground);

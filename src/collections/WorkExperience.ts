@@ -36,7 +36,7 @@ const astro = async () => {
       from: z.string(),
       to: z.string(),
       title: z.string(),
-      client: z.string(),
+      client: z.string().optional(),
       location: z.string().optional(),
       url: z.string().optional(),
     }),

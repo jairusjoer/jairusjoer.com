@@ -9,7 +9,7 @@ const keystatic = async () => {
     slugField: 'title',
     schema: {
       draft: fieldPresets.draft,
-      title: fieldPresets.title,
+      title: fields.text({ label: 'Title', validation: { isRequired: true } }),
       url: fields.url({ label: 'URL', validation: { isRequired: true } }),
     },
   });

@@ -11,18 +11,25 @@ const { entry } = Astro.props;
 
 {
   entry?.body && (
-    <a
-      class="group mt-4 flex items-center justify-between rounded-lg border"
-      href={`/${_.kebabCase(entry.collection)}/${entry.id}`}
-      title={entry.data.title}
-    >
-      <p class="text-foreground p-4 font-medium">{entry.data.title}</p>
-      <div class="mt-4 mr-4 -mb-px">
-        <div
-          class="bg-background h-16 max-w-32 space-y-4 overflow-hidden rounded-t border p-3 font-mono text-[0.375rem]"
-          set:html={_.truncate(await parse(entry.body), { length: 300 })}
-        />
-      </div>
-    </a>
+    <div class="relative mt-4">
+      {entry.body.length > 300 ? (
+        <>
+          <a
+            class="absolute inset-0 rounded-lg border-none"
+            href={`/${_.kebabCase(entry.collection)}/${entry.id}`}
+            title={entry.data.title}
+          />
+          <div class="flex items-center justify-between rounded-lg border select-none">
+            <p class="text-foreground p-4 font-medium">{entry.data.title}</p>
+            <div
+              class="bg-background mt-4 mr-4 -mb-px h-16 max-w-48 space-y-2 overflow-hidden rounded-t border p-2 font-mono text-[0.5rem]"
+              set:html={_.truncate(await parse(entry.body), { length: 300 })}
+            />
+          </div>
+        </>
+      ) : (
+        <div set:html={await parse(entry.body)} />
+      )}
+    </div>
   )
 }

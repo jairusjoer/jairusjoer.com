@@ -1,7 +1,11 @@
 ---
 import Default from '../layouts/Default.astro';
-import Section from '../components/Section.astro';
 import General from '../components/General.astro';
+import { useReader } from '../composables/useReader';
+import Section from '../components/Section.astro';
+
+const reader = useReader();
+const settings = (await reader.singletons.General.read())!;
 ---
 
 <Default>
@@ -9,7 +13,6 @@ import General from '../components/General.astro';
     <General />
   </header>
   <main class="space-y-16">
-    <Section content="WorkExperience" />
-    <Section content="Awards" />
+    {settings.order.map((content) => <Section {content} />)}
   </main>
 </Default>

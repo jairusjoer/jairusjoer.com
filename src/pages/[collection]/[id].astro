@@ -13,10 +13,12 @@ export async function getStaticPaths() {
     const collectionKey = key as keyof DataEntryMap;
     const collection = await getCollection(collectionKey);
 
-    const map = collection.map((entry) => ({
-      params: { collection: _.kebabCase(collectionKey), id: entry.id },
-      props: { entry },
-    }));
+    const map = collection
+      .filter((entry) => entry.body && entry.body.trim().length > 300)
+      .map((entry) => ({
+        params: { collection: _.kebabCase(collectionKey), id: entry.id },
+        props: { entry },
+      }));
 
     paths.push(...map);
   }
@@ -29,7 +31,7 @@ const { Content } = await render(entry);
 ---
 
 <Default>
-  <header class="mb-8">
+  <header class="mb-4">
     <h1 class="text-foreground font-medium">{entry.data.title}</h1>
   </header>
   <main>

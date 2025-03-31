@@ -2,35 +2,22 @@
 import { type CollectionEntry } from 'astro:content';
 import _ from 'lodash';
 import Artifact from '../Artifact.astro';
-
+import Link from '../Link.astro';
+import Content from '../Content.astro';
 interface Props {
   entry: CollectionEntry<'WorkExperience'>;
 }
 const { entry } = Astro.props;
 ---
 
-<article class="relative grid sm:grid-cols-[6rem_1fr] sm:gap-8">
-  <span class="tabular-nums">{entry.data.from} – {entry.data.to}</span>
+<Content {entry}>
+  <span slot="left">{entry.data.from} – {entry.data.to}</span>
 
-  <div class="relative">
+  <div slot="right">
     <h3 class="text-foreground font-medium">
       <span>{entry.data.title}</span>
-      {
-        entry.data?.client && (
-          <span>
-            at{' '}
-            {entry.data?.url ? (
-              <a class="borderline" href={entry.data.url}>
-                {entry.data.client} &nearr;
-              </a>
-            ) : (
-              entry.data.client
-            )}
-          </span>
-        )
-      }
+      <Link {entry} field="client" separator="at" />
     </h3>
     {entry.data?.location && <p>{entry.data?.location}</p>}
-    <Artifact {entry} />
   </div>
-</article>
+</Content>

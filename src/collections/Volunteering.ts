@@ -33,10 +33,8 @@ const astro = async () => {
     }),
     schema: z.object({
       draft: z.boolean().optional(),
-      from: z.string(),
-      to: z.string(),
       title: z.string(),
-      client: z.string(),
+      organization: z.string(),
       location: z.string().optional(),
       url: z.string().optional(),
     }),

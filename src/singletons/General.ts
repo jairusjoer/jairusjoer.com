@@ -11,6 +11,30 @@ const keystatic = async () => {
       location: fieldPresets.location,
       pronouns: fields.text({ label: 'Pronouns' }),
       about: fields.mdx({ label: 'About' }),
+      order: fields.array(
+        fields.select({
+          label: 'Collection',
+          options: [
+            { label: 'Awards', value: 'Awards' },
+            { label: 'Certifications', value: 'Certifications' },
+            { label: 'Contact', value: 'Contact' },
+            { label: 'Exhibitions', value: 'Exhibitions' },
+            { label: 'Features', value: 'Features' },
+            { label: 'Pages', value: 'Pages' },
+            { label: 'Projects', value: 'Projects' },
+            { label: 'Side Projects', value: 'SideProjects' },
+            { label: 'Speaking', value: 'Speaking' },
+            { label: 'Volunteering', value: 'Volunteering' },
+            { label: 'Work Experience', value: 'WorkExperience' },
+            { label: 'Writing', value: 'Writing' },
+          ],
+          defaultValue: 'WorkExperience',
+        }),
+        {
+          label: 'Order',
+          itemLabel: (props) => props.value,
+        },
+      ),
     },
   });
 };
@@ -29,6 +53,7 @@ const astro = async () => {
       profession: z.string().optional(),
       location: z.string().optional(),
       pronouns: z.string().optional(),
+      order: z.array(z.string()),
     }),
   });
 };

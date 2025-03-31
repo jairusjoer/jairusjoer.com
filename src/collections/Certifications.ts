@@ -12,7 +12,7 @@ const keystatic = async () => {
       schema: {
         draft: fieldPresets.draft,
         issued: fields.text({ label: 'Issued', validation: { isRequired: true } }),
-        expires: fields.text({ label: 'Expires', validation: { isRequired: true } }),
+        expires: fields.text({ label: 'Expires' }),
         title: fieldPresets.title,
         organization: fields.text({ label: 'Organization', validation: { isRequired: true } }),
         url: fieldPresets.url,
@@ -33,7 +33,7 @@ const keystatic = async () => {
       schema: z.object({
         draft: z.boolean().optional(),
         issued: z.string(),
-        expires: z.string(),
+        expires: z.string().optional(),
         title: z.string(),
         organization: z.string(),
         url: z.string().optional(),
