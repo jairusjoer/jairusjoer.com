@@ -1,0 +1,17 @@
+---
+import { useReader } from '../composables/useReader';
+
+const reader = useReader();
+const general = await reader.singletons.General.read({ resolveLinkedFiles: true });
+const summary = [general?.profession, general?.location, general?.pronouns]
+  .filter((item) => item?.length! > 0)
+  .join(', ');
+---
+
+<header class="mb-8 flex items-center gap-4" transition:persist>
+  {general?.portrait && <img class="size-18 rounded-lg" src={`/src/content/General/${general.portrait}`} alt="" />}
+  <div>
+    <p class="text-foreground font-medium">{general?.name}</p>
+    <p>{summary}</p>
+  </div>
+</header>

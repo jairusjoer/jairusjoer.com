@@ -9,10 +9,8 @@ const settings = (await reader.singletons.General.read())!;
 ---
 
 <Default>
-  <header class="mb-16">
-    <General />
-  </header>
   <main class="space-y-16">
+    <General />
     {settings.order.map((content) => <Section {content} />)}
   </main>
 </Default>

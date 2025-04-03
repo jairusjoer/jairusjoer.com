@@ -1,6 +1,7 @@
 import { config } from '@keystatic/core';
 // Collections
 import { Awards } from './src/collections/Awards';
+import { Blog } from './src/collections/Blog';
 import { Certifications } from './src/collections/Certifications';
 import { Contact } from './src/collections/Contact';
 import { Exhibitions } from './src/collections/Exhibitions';
@@ -21,6 +22,7 @@ export default config({
   },
   collections: {
     Awards: await Awards.keystatic(),
+    Blog: await Blog.keystatic(),
     Certifications: await Certifications.keystatic(),
     Contact: await Contact.keystatic(),
     Exhibitions: await Exhibitions.keystatic(),

@@ -1,5 +1,6 @@
 // Collections
 import { Awards } from './collections/Awards';
+import { Blog } from './collections/Blog';
 import { Certifications } from './collections/Certifications';
 import { Contact } from './collections/Contact';
 import { Exhibitions } from './collections/Exhibitions';
@@ -16,6 +17,7 @@ import { General } from './singletons/General';
 
 export const collections = {
   Awards: await Awards.astro(),
+  Blog: await Blog.astro(),
   Certifications: await Certifications.astro(),
   Contact: await Contact.astro(),
   Exhibitions: await Exhibitions.astro(),

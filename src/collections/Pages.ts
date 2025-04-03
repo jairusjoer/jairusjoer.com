@@ -28,12 +28,13 @@ const astro = async () => {
       base: './src/content/Pages',
       pattern: '**/*.{md,mdx}',
     }),
-    schema: z.object({
-      draft: z.boolean().optional(),
-      image: z.string().optional(),
-      title: z.string(),
-      description: z.string().optional(),
-    }),
+    schema: ({ image }) =>
+      z.object({
+        draft: z.boolean().optional(),
+        image: image().optional(),
+        title: z.string(),
+        description: z.string().optional(),
+      }),
   });
 };
 

@@ -3,14 +3,15 @@ const keystatic = async () => {
   const { fieldPresets } = await import('./presets/Fields');
 
   return collection({
-    columns: ['title'],
+    columns: ['draft', 'title', 'url', 'username'],
     label: 'Contact',
     path: 'src/content/Contact/*',
     slugField: 'title',
     schema: {
       draft: fieldPresets.draft,
-      title: fields.text({ label: 'Title', validation: { isRequired: true } }),
+      title: fieldPresets.title,
       url: fields.url({ label: 'URL', validation: { isRequired: true } }),
+      username: fields.text({ label: 'Username', validation: { isRequired: true } }),
     },
   });
 };
@@ -26,7 +27,9 @@ const astro = async () => {
     }),
     schema: z.object({
       draft: z.boolean().optional(),
+      title: z.string(),
       url: z.string(),
+      username: z.string(),
     }),
   });
 };

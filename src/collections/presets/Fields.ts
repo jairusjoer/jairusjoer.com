@@ -8,7 +8,10 @@ export const fieldPresets = {
   year: fields.text({ label: 'Year', validation: { isRequired: true } }),
   // Optional
   client: fields.text({ label: 'Client' }),
-  content: fields.mdx({ label: 'Content' }),
+  content: fields.mdx({
+    label: 'Content',
+    description: 'Entering more than 300 characters turns the content into a page',
+  }),
   draft: fields.checkbox({ label: 'Draft' }),
   host: fields.text({ label: 'Host' }),
   location: fields.text({ label: 'Location' }),

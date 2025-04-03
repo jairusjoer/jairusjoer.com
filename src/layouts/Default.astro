@@ -2,6 +2,7 @@
 import '../styles/tailwind.css';
 import Meta from '../components/Meta.astro';
 import Navigation from '../components/Navigation.astro';
+import Header from '../components/Header.astro';
 import { ClientRouter } from 'astro:transitions';
 ---
 
@@ -16,8 +17,9 @@ import { ClientRouter } from 'astro:transitions';
     <Meta />
     <ClientRouter />
   </head>
-  <body class="text-foreground-subtle px-4 py-16 text-sm md:pl-16">
+  <body class="text-foreground-subtle px-8 py-16 text-sm leading-6 transition-all md:pl-16">
     <div class="max-w-xl">
+      <Header />
       <Navigation />
       <slot />
     </div>

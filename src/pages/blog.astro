@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import Default from '../layouts/Default.astro';
+import _ from 'lodash';
+
+const blog = await getCollection('Blog');
+---
+
+<Default>
+  <main>
+    {
+      blog.map((entry) => (
+        <div>
+          <h2>{entry.data.title}</h2>
+          <pre>{JSON.stringify(entry, null, 2)}</pre>
+          <a href={`/${_.kebabCase(entry.collection)}/${entry.id}`}>Link</a>
+        </div>
+      ))
+    }
+  </main>
+</Default>

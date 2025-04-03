@@ -6,6 +6,7 @@ const keystatic = async () => {
     label: 'General',
     path: 'src/content/General/',
     schema: {
+      portrait: fields.image({ label: 'Portrait' }),
       name: fields.text({ label: 'Name', validation: { isRequired: true } }),
       profession: fields.text({ label: 'Profession' }),
       location: fieldPresets.location,
@@ -48,13 +49,15 @@ const astro = async () => {
       base: './src/content/General',
       pattern: '**/*.{yml,yaml}',
     }),
-    schema: z.object({
-      name: z.string(),
-      profession: z.string().optional(),
-      location: z.string().optional(),
-      pronouns: z.string().optional(),
-      order: z.array(z.string()),
-    }),
+    schema: ({ image }) =>
+      z.object({
+        portrait: image().optional(),
+        name: z.string(),
+        profession: z.string().optional(),
+        location: z.string().optional(),
+        pronouns: z.string().optional(),
+        order: z.array(z.string()),
+      }),
   });
 };
 

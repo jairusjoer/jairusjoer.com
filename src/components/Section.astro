@@ -2,6 +2,7 @@
 import type { DataEntryMap } from 'astro:content';
 import { getCollection } from 'astro:content';
 import _ from 'lodash';
+import Grid from './Grid.astro';
 
 interface Props {
   content: keyof DataEntryMap;
@@ -12,7 +13,7 @@ const collection = await getCollection(content, (item) => {
   return !('draft' in item.data && item.data.draft);
 });
 
-let Content: unknown;
+let Content: any;
 try {
   const { default: component } = await import(`./content/${content}.astro`);
   Content = component;
@@ -26,6 +27,6 @@ try {
     {_.startCase(content)}
   </h2>
   <div class="space-y-8">
-    {Content ? collection.map((entry) => <Content {entry} />) : <p>Component {content} not found</p>}
+    {Content ? collection.map((entry) => <Content {entry} />) : <p>⚠️ Component {content} not found</p>}
   </div>
 </section>

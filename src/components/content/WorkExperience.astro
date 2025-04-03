@@ -1,16 +1,17 @@
 ---
 import { type CollectionEntry } from 'astro:content';
 import _ from 'lodash';
-import Artifact from '../Artifact.astro';
 import Link from '../Link.astro';
-import Content from '../Content.astro';
+import Grid from '../Grid.astro';
+
 interface Props {
   entry: CollectionEntry<'WorkExperience'>;
 }
+
 const { entry } = Astro.props;
 ---
 
-<Content {entry}>
+<Grid {entry}>
   <span slot="left">{entry.data.from} – {entry.data.to}</span>
 
   <div slot="right">
@@ -20,4 +21,4 @@ const { entry } = Astro.props;
     </h3>
     {entry.data?.location && <p>{entry.data?.location}</p>}
   </div>
-</Content>
+</Grid>

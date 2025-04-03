@@ -2,18 +2,20 @@
 import { type CollectionEntry } from 'astro:content';
 import Link from '../Link.astro';
 import _ from 'lodash';
-import Content from '../Content.astro';
+import Grid from '../Grid.astro';
+
 interface Props {
   entry: CollectionEntry<'Awards'>;
 }
+
 const { entry } = Astro.props;
 ---
 
-<Content {entry}>
+<Grid {entry}>
   <span slot="left">{entry.data.year}</span>
 
   <h3 class="text-foreground font-medium" slot="right">
     <span>{entry.data.title}</span>
     <Link {entry} separator="from" field="host" />
   </h3>
-</Content>
+</Grid>

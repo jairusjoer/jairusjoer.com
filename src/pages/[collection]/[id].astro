@@ -5,6 +5,8 @@ import { getCollection } from 'astro:content';
 import type { DataEntryMap } from 'astro:content';
 import { render } from 'astro:content';
 import _ from 'lodash';
+import type { CollectionEntry } from 'astro:content';
+import type { CollectionKey } from 'astro:content';
 
 export async function getStaticPaths() {
   let paths = [];
@@ -26,14 +28,15 @@ export async function getStaticPaths() {
   return paths;
 }
 
+interface Props {
+  entry: CollectionEntry<CollectionKey>;
+}
+
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
 <Default>
-  <header class="mb-4">
-    <h1 class="text-foreground font-medium">{entry.data.title}</h1>
-  </header>
   <main>
     <div class="prose prose-sm prose-theme">
       <Content />

@@ -6,30 +6,34 @@ import { parse } from 'marked';
 interface Props {
   entry: CollectionEntry<CollectionKey>;
 }
+
 const { entry } = Astro.props;
+const title = entry.data.title as string;
+const body = entry.body as string;
 ---
 
-{
-  entry?.body && (
-    <div class="relative mt-4">
-      {entry.body.length > 300 ? (
-        <>
-          <a
-            class="absolute inset-0 rounded-lg border-none"
-            href={`/${_.kebabCase(entry.collection)}/${entry.id}`}
-            title={entry.data.title}
-          />
-          <div class="flex items-center justify-between rounded-lg border select-none">
-            <p class="text-foreground p-4 font-medium">{entry.data.title}</p>
+<div class="group relative mt-4">
+  {
+    body && body.length > 300 ? (
+      <div>
+        <a
+          class="absolute inset-0 rounded-lg border-none"
+          href={`/${_.kebabCase(entry.collection)}/${entry.id}`}
+          title={title}
+          aria-label={title}
+        />
+        <div class="flex items-center justify-between rounded-lg border px-4 select-none">
+          <p class="text-foreground font-medium">{title}</p>
+          <div class:list={['relative -mt-4 h-24 w-48 overflow-hidden pt-8 transition-all', 'group-hover:pt-0']}>
             <div
-              class="bg-background mt-4 mr-4 -mb-px h-16 max-w-48 space-y-2 overflow-hidden rounded-t border p-2 font-mono text-[0.5rem]"
-              set:html={_.truncate(await parse(entry.body), { length: 300 })}
+              class="bg-background absolute space-y-2 rounded-t-lg border p-2 font-mono text-[0.5rem] transition-transform"
+              set:html={_.truncate(await parse(body), { length: 300 })}
             />
           </div>
-        </>
-      ) : (
-        <div set:html={await parse(entry.body)} />
-      )}
-    </div>
-  )
-}
+        </div>
+      </div>
+    ) : (
+      <div class="prose prose-sm prose-theme" set:html={await parse(body)} />
+    )
+  }
+</div>
