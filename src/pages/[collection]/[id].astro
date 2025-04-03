@@ -15,7 +15,7 @@ export async function getStaticPaths() {
     const collection = await getCollection(collectionKey);
 
     const map = collection
-      .filter((entry) => entry.body && entry.body.trim().length > 300)
+      .filter((entry) => collectionKey === 'Blog' || (entry.body && entry.body.trim().length > 300))
       .map((entry) => ({
         params: { collection: _.kebabCase(collectionKey), id: entry.id },
         props: { entry },

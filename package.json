@@ -36,6 +36,7 @@
   },
   "prettier": {
     "printWidth": 120,
+    "singleAttributePerLine": true,
     "singleQuote": true,
     "plugins": [
       "prettier-plugin-astro",

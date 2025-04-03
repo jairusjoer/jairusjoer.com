@@ -6,4 +6,11 @@ const reader = useReader();
 const data = await reader.singletons.General.read({ resolveLinkedFiles: true });
 ---
 
-{data?.about && <section class="prose prose-sm prose-theme" set:html={parse(data.about)} />}
+{
+  data?.about && (
+    <section
+      class="prose prose-sm prose-theme"
+      set:html={parse(data.about)}
+    />
+  )
+}

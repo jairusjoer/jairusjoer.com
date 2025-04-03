@@ -3,7 +3,7 @@ import type { CollectionEntry, CollectionKey } from 'astro:content';
 import Artifact from './Artifact.astro';
 
 interface Props {
-  entry: CollectionEntry<CollectionKey>;
+  entry: Exclude<CollectionEntry<CollectionKey>, CollectionEntry<'General'>>;
 }
 
 const { entry } = Astro.props;

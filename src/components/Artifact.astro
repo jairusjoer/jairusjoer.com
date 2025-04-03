@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { parse } from 'marked';
 
 interface Props {
-  entry: CollectionEntry<CollectionKey>;
+  entry: CollectionEntry<Exclude<CollectionKey, 'General'>>;
 }
 
 const { entry } = Astro.props;
@@ -16,12 +16,6 @@ const body = entry.body as string;
   {
     body && body.length > 300 ? (
       <div>
-        <a
-          class="absolute inset-0 rounded-lg border-none"
-          href={`/${_.kebabCase(entry.collection)}/${entry.id}`}
-          title={title}
-          aria-label={title}
-        />
         <div class="flex items-center justify-between rounded-lg border px-4 select-none">
           <p class="text-foreground font-medium">{title}</p>
           <div class:list={['relative -mt-4 h-24 w-48 overflow-hidden pt-8 transition-all', 'group-hover:pt-0']}>
@@ -31,9 +25,18 @@ const body = entry.body as string;
             />
           </div>
         </div>
+        <a
+          class="absolute inset-0 rounded-lg border-none"
+          href={`/${_.kebabCase(entry.collection)}/${entry.id}`}
+          title={title}
+          aria-label={title}
+        />
       </div>
     ) : (
-      <div class="prose prose-sm prose-theme" set:html={await parse(body)} />
+      <div
+        class="prose prose-sm prose-theme"
+        set:html={await parse(body)}
+      />
     )
   }
 </div>
