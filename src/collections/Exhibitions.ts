@@ -1,3 +1,7 @@
+import type { CollectionKey } from 'astro:content';
+
+const collectionKey: CollectionKey = 'Exhibitions';
+
 const keystatic = async () => {
   const { fields, collection } = await import('@keystatic/core');
   const { fieldPresets } = await import('./presets/Fields');
@@ -6,8 +10,8 @@ const keystatic = async () => {
     columns: ['title', 'year'],
     entryLayout: 'content',
     format: { contentField: 'content' },
-    label: 'Exhibitions',
-    path: 'src/content/Exhibitions/*',
+    label: collectionKey,
+    path: `src/content/${collectionKey}/*`,
     slugField: 'title',
     schema: {
       draft: fieldPresets.draft,
@@ -16,7 +20,7 @@ const keystatic = async () => {
       venue: fields.text({ label: 'Venue' }),
       location: fieldPresets.location,
       url: fieldPresets.url,
-      content: fieldPresets.content,
+      content: fieldPresets.content(collectionKey),
     },
   });
 };
@@ -27,7 +31,7 @@ const astro = async () => {
 
   return defineCollection({
     loader: glob({
-      base: './src/content/Exhibitions',
+      base: `./src/content/${collectionKey}`,
       pattern: '**/*.{md,mdx}',
     }),
     schema: z.object({

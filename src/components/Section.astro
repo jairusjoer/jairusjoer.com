@@ -1,11 +1,10 @@
 ---
-import type { DataEntryMap } from 'astro:content';
 import { getCollection } from 'astro:content';
 import _ from 'lodash';
-import Grid from './Grid.astro';
+import type { CollectionKey } from 'astro:content';
 
 interface Props {
-  content: keyof DataEntryMap;
+  content: CollectionKey;
 }
 
 const { content } = Astro.props;

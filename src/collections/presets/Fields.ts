@@ -1,4 +1,5 @@
 import { fields } from '@keystatic/core';
+import type { CollectionKey } from 'astro:content';
 
 export const fieldPresets = {
   // Required
@@ -8,9 +9,15 @@ export const fieldPresets = {
   year: fields.text({ label: 'Year', validation: { isRequired: true } }),
   // Optional
   client: fields.text({ label: 'Client' }),
-  content: fields.mdx({
+  content: (collection: CollectionKey) => fields.mdx({
     label: 'Content',
     description: 'Entering more than 300 characters turns the content into a page',
+    options: {
+      image: {
+        directory: `src/assets/images/${collection}`,
+        publicPath: `/src/assets/images/${collection}`,
+      },
+    },
   }),
   draft: fields.checkbox({ label: 'Draft' }),
   host: fields.text({ label: 'Host' }),

@@ -1,3 +1,7 @@
+import type { CollectionKey } from 'astro:content';
+
+const collectionKey: CollectionKey = 'Blog';
+
 const keystatic = async () => {
   const { fields, collection } = await import('@keystatic/core');
   const { fieldPresets } = await import('./presets/Fields');
@@ -6,16 +10,20 @@ const keystatic = async () => {
     columns: ['title', 'description'],
     entryLayout: 'content',
     format: { contentField: 'content' },
-    label: 'Blog',
-    path: 'src/content/Blog/*',
+    label: collectionKey,
+    path: `src/content/${collectionKey}/*`,
     slugField: 'title',
     schema: {
       draft: fieldPresets.draft,
-      image: fields.image({ label: 'Image' }),
+      image: fields.image({
+        label: 'Image',
+        directory: `src/assets/images/${collectionKey}`,
+        publicPath: `/src/assets/images/${collectionKey}`,
+      }),
       title: fieldPresets.title,
       description: fields.text({ label: 'Description' }),
       date: fields.date({ label: 'Date' }),
-      content: fieldPresets.content,
+      content: fieldPresets.content(collectionKey),
     },
   });
 };
@@ -26,7 +34,7 @@ const astro = async () => {
 
   return defineCollection({
     loader: glob({
-      base: './src/content/Blog',
+      base: `./src/content/${collectionKey}`,
       pattern: '**/*.{md,mdx}',
     }),
     schema: ({ image }) =>

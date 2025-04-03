@@ -2,7 +2,6 @@
 import Default from '../../layouts/Default.astro';
 import { collections } from '../../content.config';
 import { getCollection } from 'astro:content';
-import type { DataEntryMap } from 'astro:content';
 import { render } from 'astro:content';
 import _ from 'lodash';
 import type { CollectionEntry } from 'astro:content';
@@ -12,7 +11,7 @@ export async function getStaticPaths() {
   let paths = [];
 
   for (const key of Object.keys(collections)) {
-    const collectionKey = key as keyof DataEntryMap;
+    const collectionKey = key as CollectionKey;
     const collection = await getCollection(collectionKey);
 
     const map = collection

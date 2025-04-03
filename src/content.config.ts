@@ -16,6 +16,7 @@ import { Writing } from './collections/Writing';
 import { General } from './singletons/General';
 
 export const collections = {
+  // Collections
   Awards: await Awards.astro(),
   Blog: await Blog.astro(),
   Certifications: await Certifications.astro(),
@@ -29,8 +30,7 @@ export const collections = {
   Volunteering: await Volunteering.astro(),
   WorkExperience: await WorkExperience.astro(),
   Writing: await Writing.astro(),
-};
-
-export const singletons = {
+  // Singletons
   General: await General.astro(),
 };
+

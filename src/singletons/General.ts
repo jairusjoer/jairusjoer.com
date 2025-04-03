@@ -1,17 +1,31 @@
+const singletonKey: string = 'General';
+
 const keystatic = async () => {
   const { fields, singleton } = await import('@keystatic/core');
   const { fieldPresets } = await import('../collections/presets/Fields');
 
   return singleton({
-    label: 'General',
-    path: 'src/content/General/',
+    label: singletonKey,
+    path: `src/content/${singletonKey}/`,
     schema: {
-      portrait: fields.image({ label: 'Portrait' }),
+      portrait: fields.image({
+        label: 'Portrait',
+        directory: `src/assets/images/${singletonKey}`,
+        publicPath: `/src/assets/images/${singletonKey}`,
+      }),
       name: fields.text({ label: 'Name', validation: { isRequired: true } }),
       profession: fields.text({ label: 'Profession' }),
       location: fieldPresets.location,
       pronouns: fields.text({ label: 'Pronouns' }),
-      about: fields.mdx({ label: 'About' }),
+      about: fields.mdx({
+        label: 'About',
+        options: {
+          image: {
+            directory: `src/assets/images/${singletonKey}`,
+            publicPath: `/src/assets/images/${singletonKey}`,
+          },
+        },
+      }),
       order: fields.array(
         fields.select({
           label: 'Collection',
@@ -46,7 +60,7 @@ const astro = async () => {
 
   return defineCollection({
     loader: glob({
-      base: './src/content/General',
+      base: `./src/content/${singletonKey}`,
       pattern: '**/*.{yml,yaml}',
     }),
     schema: ({ image }) =>

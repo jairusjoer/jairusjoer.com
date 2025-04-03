@@ -1,11 +1,15 @@
+import type { CollectionKey } from 'astro:content';
+
+const collectionKey: CollectionKey = 'Contact';
+
 const keystatic = async () => {
   const { fields, collection } = await import('@keystatic/core');
   const { fieldPresets } = await import('./presets/Fields');
 
   return collection({
     columns: ['draft', 'title', 'url', 'username'],
-    label: 'Contact',
-    path: 'src/content/Contact/*',
+    label: collectionKey,
+    path: `src/content/${collectionKey}/*`,
     slugField: 'title',
     schema: {
       draft: fieldPresets.draft,
@@ -22,7 +26,7 @@ const astro = async () => {
 
   return defineCollection({
     loader: glob({
-      base: './src/content/Contact',
+      base: `./src/content/${collectionKey}`,
       pattern: '**/*.{yml,yaml}',
     }),
     schema: z.object({
