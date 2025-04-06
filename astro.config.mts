@@ -17,6 +17,14 @@ export default defineConfig({
     mode: 'standalone',
   }),
   integrations: [keystatic(), markdoc(), mdx(), react(), sitemap()],
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
+    },
+  },
   output: 'static',
   site: 'https://jairusjoer.com',
   vite: {

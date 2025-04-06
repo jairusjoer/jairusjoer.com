@@ -1,0 +1,27 @@
+---
+import { type CollectionEntry } from 'astro:content';
+import Link from '../Link.astro';
+import _ from 'lodash';
+import Collection from '../Collection.astro';
+
+interface Props {
+  entry: CollectionEntry<'Contact'>;
+}
+
+const { entry } = Astro.props;
+---
+
+<Collection {entry}>
+  <div slot="left">
+    <span>{entry.data.title}</span>
+  </div>
+
+  <div slot="right">
+    <h3 class="text-foreground font-medium">
+      <Link
+        {entry}
+        field="username"
+      />
+    </h3>
+  </div>
+</Collection>

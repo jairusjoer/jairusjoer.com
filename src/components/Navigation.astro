@@ -4,16 +4,43 @@ import { getCollection } from 'astro:content';
 const pages = await getCollection('Pages');
 const blog = await getCollection('Blog');
 
-const href = (href: string) => {
-  return {
-    class: Astro.url.pathname === href ? 'text-foreground' : '',
-    href,
-  };
+const isCurrentPath = (path: string) => {
+  if (path === '/') return Astro.url.pathname === '/';
+
+  return Astro.url.pathname.includes(path);
 };
+
+// Create navigation items with consistent structure
+const items = [
+  {
+    title: 'About',
+    href: '/',
+    show: true,
+  },
+  {
+    title: 'Blog',
+    href: '/blog',
+    show: blog.length > 0,
+  },
+  ...pages.map((entry) => ({
+    title: entry.data.title,
+    href: `/pages/${entry.id}`,
+    show: true,
+  })),
+];
 ---
 
 <nav class="mb-4 flex flex-wrap gap-2 font-medium">
-  <a {...href('/')}>About</a>
-  {blog.length > 0 && <a {...href('/blog')}>Blog</a>}
-  {pages.map((entry) => <a {...href(`/pages/${entry.id}`)}>{entry.data.title}</a>)}
+  {
+    items
+      .filter((item) => item.show)
+      .map(({ href, title }) => (
+        <a
+          class:list={{ 'text-foreground': isCurrentPath(href) }}
+          {href}
+        >
+          {title}
+        </a>
+      ))
+  }
 </nav>

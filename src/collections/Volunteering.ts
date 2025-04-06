@@ -16,6 +16,8 @@ const keystatic = async () => {
     slugField: 'title',
     schema: {
       draft: fieldPresets.draft,
+      from: fields.text({ label: 'From', validation: { isRequired: true } }),
+      to: fields.text({ label: 'To', validation: { isRequired: true } }),
       title: fieldPresets.title,
       organization: fields.text({
         label: 'Organization',
@@ -39,6 +41,8 @@ const astro = async () => {
     }),
     schema: z.object({
       draft: z.boolean().optional(),
+      from: z.string(),
+      to: z.string(),
       title: z.string(),
       organization: z.string(),
       location: z.string().optional(),

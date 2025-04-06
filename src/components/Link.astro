@@ -8,23 +8,27 @@ interface Props {
 }
 
 const { entry, field, separator } = Astro.props;
-const value = entry.data[field as keyof typeof entry.data];
+const fieldValue = entry.data[field as keyof typeof entry.data];
 ---
 
 {
   field in entry.data && (
     <>
-      {separator && <span>{`${separator} `}</span>}
+      {separator && (
+        <>
+          <span>{separator}</span>{' '}
+        </>
+      )}
       {'url' in entry.data ? (
         <a
           class="text-foreground inline-block font-medium"
           href={entry.data.url}
           target="_blank"
         >
-          {value} &nearr;
+          {fieldValue}
         </a>
       ) : (
-        value
+        <span>{fieldValue}</span>
       )}
     </>
   )

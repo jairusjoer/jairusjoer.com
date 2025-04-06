@@ -37,7 +37,6 @@ const keystatic = async () => {
             { label: 'Contact', value: 'Contact' },
             { label: 'Exhibitions', value: 'Exhibitions' },
             { label: 'Features', value: 'Features' },
-            { label: 'Pages', value: 'Pages' },
             { label: 'Projects', value: 'Projects' },
             { label: 'Side Projects', value: 'SideProjects' },
             { label: 'Speaking', value: 'Speaking' },

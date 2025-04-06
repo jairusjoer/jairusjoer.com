@@ -1,0 +1,20 @@
+---
+import { type CollectionEntry } from 'astro:content';
+import Link from '../Link.astro';
+import _ from 'lodash';
+import Collection from '../Collection.astro';
+
+interface Props {
+  entry: CollectionEntry<'Pages'>;
+}
+
+const { entry } = Astro.props;
+
+const date = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: 'numeric' }).format(entry.data.date);
+---
+
+<Collection {entry}>
+  <div slot="right">
+    <span class="text-foreground font-medium">{entry.data.title}</span>
+  </div>
+</Collection>

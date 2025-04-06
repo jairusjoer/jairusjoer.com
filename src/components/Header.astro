@@ -18,23 +18,23 @@ const summary = [general?.profession, general?.location, general?.pronouns]
 ---
 
 <header
-  class="mb-8 flex items-center gap-4"
+  class="mb-8 flex gap-4"
   transition:persist
 >
   {
     portrait && (
       <Image
-        class="size-12 rounded-lg"
+        class="size-12 rounded-lg object-cover"
         src={portrait}
         alt={general?.name!}
-        width={48}
-        height={48}
+        width={96}
+        height={96}
         loading="eager"
       />
     )
   }
-  <div>
-    <p class="text-foreground font-medium">{general?.name}</p>
-    <p>{summary}</p>
+  <div class="grid">
+    <span class="text-foreground font-medium">{general?.name}</span>
+    <span>{summary}</span>
   </div>
 </header>

@@ -12,13 +12,7 @@ const collection = await getCollection(content, (item) => {
   return !('draft' in item.data && item.data.draft);
 });
 
-let Content: any;
-try {
-  const { default: component } = await import(`./content/${content}.astro`);
-  Content = component;
-} catch (error) {
-  console.error(error);
-}
+const { default: Collection } = await import(`./collections/${content}.astro`);
 ---
 
 <section>
@@ -26,6 +20,6 @@ try {
     {_.startCase(content)}
   </h2>
   <div class="space-y-8">
-    {Content ? collection.map((entry) => <Content {entry} />) : <p>⚠️ Component {content} not found</p>}
+    {Collection ? collection.map((entry) => <Collection {entry} />) : <span>⚠️ Component {content} not found</span>}
   </div>
 </section>

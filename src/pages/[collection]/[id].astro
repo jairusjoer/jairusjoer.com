@@ -6,6 +6,7 @@ import { render } from 'astro:content';
 import _ from 'lodash';
 import type { CollectionEntry } from 'astro:content';
 import type { CollectionKey } from 'astro:content';
+import type { Metadata } from '../../types';
 
 export async function getStaticPaths() {
   let paths = [];
@@ -32,11 +33,19 @@ interface Props {
 }
 
 const { entry } = Astro.props;
+
 const { Content } = await render(entry);
 ---
 
-<Default>
+<Default metadata={entry.data as Metadata}>
   <main>
+    {
+      'title' in entry.data && (
+        <header class="mb-4">
+          <h1 class="text-foreground font-medium">{entry.data.title}</h1>
+        </header>
+      )
+    }
     <div class="prose prose-sm prose-theme">
       <Content />
     </div>

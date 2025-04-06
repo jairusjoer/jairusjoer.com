@@ -23,7 +23,7 @@ const keystatic = async () => {
       }),
       title: fieldPresets.title,
       description: fields.text({ label: 'Description' }),
-      date: fields.date({ label: 'Date' }),
+      date: fields.date({ label: 'Date', validation: { isRequired: true } }),
       content: fieldPresets.content(collectionKey),
     },
   });

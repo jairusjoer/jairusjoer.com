@@ -4,6 +4,13 @@ import Meta from '../components/Meta.astro';
 import Navigation from '../components/Navigation.astro';
 import Header from '../components/Header.astro';
 import { ClientRouter } from 'astro:transitions';
+import type { Metadata } from '../types';
+
+interface Props {
+  metadata?: Metadata;
+}
+
+const { metadata } = Astro.props;
 ---
 
 <script>
@@ -17,11 +24,11 @@ import { ClientRouter } from 'astro:transitions';
   class="bg-background-subtle font-body antialiased print:scheme-light"
 >
   <head>
-    <Meta />
+    <Meta {metadata} />
     <ClientRouter />
   </head>
-  <body class="text-foreground-subtle px-4 py-16 text-sm leading-6 transition-all sm:pl-16">
-    <div class="max-w-xl">
+  <body class="text-foreground-subtle px-4 py-16 text-sm leading-6 transition-all">
+    <div class="mx-auto max-w-xl">
       <Header />
       <Navigation />
       <slot />

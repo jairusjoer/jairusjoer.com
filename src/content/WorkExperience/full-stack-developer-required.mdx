@@ -6,50 +6,8 @@ title: Full Stack Developer (Required)
 ---
 ![](/src/assets/images/WorkExperience/full-stack-developer-required/tsd-studio-zaF_KJDJpso-unsplash.jpg)
 
-const collectionKey: CollectionKey = 'WorkExperience';
+Goodbye
 
-const keystatic = async () => \{
-const \{ fields, collection } = await import('@keystatic/core');
-const \{ fieldPresets } = await import('./presets/Fields');
+This is a great way to style things like blog posts, or documents with CMS-powered content where the contents live outside of Astro. But be careful: components whose appearance differs based on whether or not they have a certain parent component can become difficult to troubleshoot.
 
-return collection(\{
-columns: \['title', 'from', 'to'],
-entryLayout: 'content',
-format: \{ contentField: 'content' },
-label: \_.startCase(collectionKey),
-path: `src/content/${collectionKey}/*`,
-slugField: 'title',
-schema: \{
-draft: fieldPresets.draft,
-from: fields.text(\{ label: 'From', validation: \{ isRequired: true } }),
-to: fields.text(\{ label: 'To', validation: \{ isRequired: true } }),
-title: fieldPresets.title,
-client: fieldPresets.client,
-location: fieldPresets.location,
-url: fieldPresets.url,
-content: fieldPresets.content(collectionKey),
-},
-});
-};
-
-const astro = async () => \{
-const \{ defineCollection, z } = await import('astro:content');
-const \{ glob } = await import('astro/loaders');
-
-return defineCollection(\{
-loader: glob(\{
-base: `./src/content/${collectionKey}`,
-pattern: '\*\*/\*.\{md,mdx}',
-}),
-schema: z.object(\{
-draft: z.boolean().optional(),
-from: z.string(),
-to: z.string(),
-title: z.string(),
-client: z.string().optional(),
-location: z.string().optional(),
-url: z.string().optional(),
-}),
-});
-};
-
+Scoped styles should be used as often as possible. Global styles should be used only as-needed.
