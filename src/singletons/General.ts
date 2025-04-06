@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 const singletonKey: string = 'General';
 
 const keystatic = async () => {
@@ -5,7 +7,7 @@ const keystatic = async () => {
   const { fieldPresets } = await import('../collections/presets/Fields');
 
   return singleton({
-    label: singletonKey,
+    label: _.startCase(singletonKey),
     path: `src/content/${singletonKey}/`,
     schema: {
       portrait: fields.image({
@@ -47,7 +49,7 @@ const keystatic = async () => {
         }),
         {
           label: 'Order',
-          itemLabel: (props) => props.value,
+          itemLabel: (props) => _.startCase(props.value),
         },
       ),
     },

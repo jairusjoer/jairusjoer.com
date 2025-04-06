@@ -8,7 +8,7 @@ const general = await reader.singletons.General.read({ resolveLinkedFiles: true 
 
 let portrait: ImageMetadata | undefined;
 if (general?.portrait) {
-  const { default: image } = await import(general.portrait /* @vite-ignore */);
+  const { default: image } = await import(/* @vite-ignore */ general.portrait);
   portrait = image;
 }
 

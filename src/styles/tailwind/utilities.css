@@ -24,14 +24,15 @@
     --tw-prose-th-borders: var(--color-border);
     --tw-prose-td-borders: var(--color-border);
 
-    ul,
-    ol {
-      margin-left: calc((1.5714286em + 0.4285714em) * -1);
+    img {
+      @apply rounded;
     }
 
-    li > p {
-      margin-top: 0;
-      margin-bottom: 0;
+    ul,
+    ol {
+      @media (width >= 40rem) {
+        margin-left: calc((1.5714286em + 0.4285714em) * -1);
+      }
     }
   }
 }

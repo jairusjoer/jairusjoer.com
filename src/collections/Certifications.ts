@@ -1,4 +1,5 @@
 import type { CollectionKey } from 'astro:content';
+import _ from 'lodash';
 
 const collectionKey: CollectionKey = 'Certifications';
 
@@ -10,7 +11,7 @@ const keystatic = async () => {
     columns: ['title', 'issued', 'expires'],
     entryLayout: 'content',
     format: { contentField: 'content' },
-    label: collectionKey,
+    label: _.startCase(collectionKey),
     path: `src/content/${collectionKey}/*`,
     slugField: 'title',
     schema: {

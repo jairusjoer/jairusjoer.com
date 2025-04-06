@@ -1,12 +1,14 @@
 ---
 import type { CollectionEntry, CollectionKey } from 'astro:content';
-import Artifact from './Artifact.astro';
+import Entry from './Entry.astro';
+import { parse } from 'marked';
 
 interface Props {
   entry: Exclude<CollectionEntry<CollectionKey>, CollectionEntry<'General'>>;
 }
 
 const { entry } = Astro.props;
+const body = entry.body as string;
 ---
 
 <article class="relative grid sm:grid-cols-[6rem_1fr] sm:gap-8">
@@ -16,6 +18,17 @@ const { entry } = Astro.props;
 
   <div class="relative">
     <slot name="right" />
-    {entry?.body && <Artifact {entry} />}
+    <div class="mt-4">
+      {
+        body?.length > 300 ? (
+          <Entry {entry} />
+        ) : (
+          <div
+            class="prose prose-sm prose-theme"
+            set:html={await parse(body)}
+          />
+        )
+      }
+    </div>
   </div>
 </article>
