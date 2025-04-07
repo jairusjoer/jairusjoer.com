@@ -24,16 +24,12 @@
     --tw-prose-th-borders: var(--color-border);
     --tw-prose-td-borders: var(--color-border);
 
-    img {
-      @apply rounded;
+    a {
+      color: var(--color-foreground);
     }
 
-    > :is(ul, ol) {
-      @apply transition-[margin-left];
-
-      @media (width >= 40rem) {
-        margin-left: calc((1.5714286em + 0.4285714em) * -1);
-      }
+    img {
+      border-radius: 0.25rem;
     }
 
     @media (prefers-color-scheme: dark) {

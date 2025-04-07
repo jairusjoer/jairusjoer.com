@@ -12,10 +12,10 @@
     border-bottom: 1px solid var(--color-border);
   }
 
-  h3:has(a) {
+  h3 a,
+  .prose a {
     &::after {
       content: ' ↗';
-      user-select: none;
     }
   }
 }

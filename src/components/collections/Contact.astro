@@ -11,17 +11,21 @@ interface Props {
 const { entry } = Astro.props;
 ---
 
-<Collection {entry}>
-  <div slot="left">
-    <span>{entry.data.title}</span>
+<article class="relative grid not-first:-mt-4 sm:grid-cols-[6rem_1fr] sm:gap-8">
+  <div class="tabular-nums">
+    <div>
+      <span>{entry.data.title}</span>
+    </div>
   </div>
 
-  <div slot="right">
-    <h3 class="text-foreground font-medium">
-      <Link
-        {entry}
-        field="username"
-      />
-    </h3>
+  <div class="relative">
+    <div>
+      <h3 class="text-foreground font-medium">
+        <Link
+          {entry}
+          field="username"
+        />
+      </h3>
+    </div>
   </div>
-</Collection>
+</article>

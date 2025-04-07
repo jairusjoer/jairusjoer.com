@@ -4,8 +4,9 @@
   }
 
   :root {
-    --transition-duration: 300ms;
-    --transition-blur: 0.125rem;
+    --transition-duration: 150ms;
+
+    view-transition-name: none;
   }
 
   @media (prefers-reduced-motion) {
@@ -16,7 +17,30 @@
     }
 
     :root {
-      --animate-duration: 0ms !important;
+      --transition-duration: 0ms !important;
+    }
+  }
+
+  main {
+    view-transition-name: main;
+  }
+
+  ::view-transition-old(main) {
+    animation: fade var(--transition-duration) ease-in-out both;
+  }
+
+  ::view-transition-new(main) {
+    animation: fade var(--transition-duration) ease-in-out both reverse var(--transition-duration);
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 1;
+      filter: blur(0rem);
+    }
+    to {
+      opacity: 0;
+      filter: blur(0.0625rem);
     }
   }
 }

@@ -29,8 +29,8 @@ const { metadata } = Astro.props;
   </head>
   <body class="text-foreground-subtle px-4 py-16 text-sm leading-6 transition-all">
     <div class="mx-auto max-w-xl">
-      <Header />
-      <Navigation />
+      <Header transition:persist />
+      <Navigation transition:persist />
       <slot />
     </div>
   </body>

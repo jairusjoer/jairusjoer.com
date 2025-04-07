@@ -5,9 +5,7 @@ const pages = await getCollection('Pages');
 const blog = await getCollection('Blog');
 
 const isCurrentPath = (path: string) => {
-  if (path === '/') return Astro.url.pathname === '/';
-
-  return Astro.url.pathname.includes(path);
+  return Astro.url.pathname === path;
 };
 
 // Create navigation items with consistent structure
