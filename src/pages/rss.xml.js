@@ -1,16 +1,19 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { useReader } from '../composables/useReader';
+
+const reader = useReader();
+const settings = await reader.singletons.Settings.read();
 
 export async function GET(context) {
-	const posts = await getCollection('blog');
+	const blog = await getCollection('Blog');
 	return rss({
-		title: SITE_TITLE,
-		description: SITE_DESCRIPTION,
+		title: settings.title,
+		description: settings?.description,
 		site: context.site,
-		items: posts.map((post) => ({
-			...post.data,
-			link: `/blog/${post.id}/`,
+		items: blog.map((entry) => ({
+			...entry.data,
+			link: `/blog/${entry.id}/`,
 		})),
 	});
 }

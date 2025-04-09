@@ -5,12 +5,12 @@ import { useReader } from '../composables/useReader';
 import Section from '../components/Section.astro';
 
 const reader = useReader();
-const settings = (await reader.singletons.General.read())!;
+const settings = (await reader.singletons.Settings.read())!;
 ---
 
 <Default>
   <main class="space-y-16">
     <General />
-    {settings.order.map((content) => <Section {content} />)}
+    {settings.sections.map((content) => <Section {content} />)}
   </main>
 </Default>

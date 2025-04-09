@@ -1,0 +1,27 @@
+---
+import type { Entry } from '@keystatic/core/reader';
+import type keystaticConfig from '../../keystatic.config';
+
+interface Props {
+  settings: Entry<(typeof keystaticConfig)['singletons']['Settings']>;
+}
+
+const { settings } = Astro.props;
+---
+
+<footer class="mt-auto font-medium">
+  <ul class="mt-16 flex flex-wrap gap-2">
+    {
+      settings?.footer?.map(({ href, title }) => (
+        <li>
+          <a
+            class="block"
+            {href}
+          >
+            {title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</footer>

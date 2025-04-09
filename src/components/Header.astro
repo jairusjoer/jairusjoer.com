@@ -4,7 +4,7 @@ import { useReader } from '../composables/useReader';
 import type { ImageMetadata } from 'astro';
 
 const reader = useReader();
-const general = await reader.singletons.General.read({ resolveLinkedFiles: true });
+const general = await reader.singletons.General.read();
 
 let portrait: ImageMetadata | undefined;
 if (general?.portrait) {

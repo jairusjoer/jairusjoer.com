@@ -4,9 +4,9 @@ import { collections } from '../../content.config';
 import { getCollection } from 'astro:content';
 import { render } from 'astro:content';
 import _ from 'lodash';
-import type { CollectionEntry } from 'astro:content';
 import type { CollectionKey } from 'astro:content';
 import type { Metadata } from '../../types';
+import type { CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
   let paths = [];
@@ -15,8 +15,15 @@ export async function getStaticPaths() {
     const collectionKey = key as CollectionKey;
     const collection = await getCollection(collectionKey);
 
+    const filter = (entry: CollectionEntry<CollectionKey>): boolean => {
+      return Boolean(
+        !entry.data?.draft &&
+          (collectionKey === 'Blog' || collectionKey === 'Pages' || (entry.body && entry.body.trim().length > 300)),
+      );
+    };
+
     const map = collection
-      .filter((entry) => collectionKey === 'Blog' || (entry.body && entry.body.trim().length > 300))
+      .filter((entry) => filter(entry))
       .map((entry) => ({
         params: { collection: _.kebabCase(collectionKey), id: entry.id },
         props: { entry },
@@ -28,10 +35,6 @@ export async function getStaticPaths() {
   return paths;
 }
 
-interface Props {
-  entry: CollectionEntry<CollectionKey>;
-}
-
 const { entry } = Astro.props;
 
 const { Content } = await render(entry);
@@ -40,7 +43,7 @@ const { Content } = await render(entry);
 <Default metadata={entry.data as Metadata}>
   <main>
     {
-      'title' in entry.data && (
+      entry.data?.title && (
         <header class="mb-4">
           <h1 class="text-foreground font-medium">{entry.data.title}</h1>
         </header>

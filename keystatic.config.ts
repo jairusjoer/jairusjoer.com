@@ -16,6 +16,7 @@ import { WorkExperience } from './src/collections/WorkExperience';
 import { Writing } from './src/collections/Writing';
 // Singletons
 import { General } from './src/singletons/General';
+import { Settings } from './src/singletons/Settings';
 
 export default config({
   storage: {
@@ -39,5 +40,6 @@ export default config({
   },
   singletons: {
     General: await General.keystatic(),
+    Settings: await Settings.keystatic(),
   },
 });

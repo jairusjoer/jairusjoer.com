@@ -1,10 +1,11 @@
 import _ from 'lodash';
+import { Presets } from '../collections/Presets';
 
 const singletonKey: string = 'General';
 
 const keystatic = async () => {
   const { fields, singleton } = await import('@keystatic/core');
-  const { fieldPresets } = await import('../collections/presets/Fields');
+  const presets = await Presets.fields();
 
   return singleton({
     label: _.startCase(singletonKey),
@@ -17,7 +18,7 @@ const keystatic = async () => {
       }),
       name: fields.text({ label: 'Name', validation: { isRequired: true } }),
       profession: fields.text({ label: 'Profession' }),
-      location: fieldPresets.location,
+      location: presets.location,
       pronouns: fields.text({ label: 'Pronouns' }),
       about: fields.mdx({
         label: 'About',
@@ -28,30 +29,6 @@ const keystatic = async () => {
           },
         },
       }),
-      order: fields.array(
-        fields.select({
-          label: 'Collection',
-          options: [
-            { label: 'Awards', value: 'Awards' },
-            { label: 'Certifications', value: 'Certifications' },
-            { label: 'Contact', value: 'Contact' },
-            { label: 'Education', value: 'Education' },
-            { label: 'Exhibitions', value: 'Exhibitions' },
-            { label: 'Features', value: 'Features' },
-            { label: 'Projects', value: 'Projects' },
-            { label: 'Side Projects', value: 'SideProjects' },
-            { label: 'Speaking', value: 'Speaking' },
-            { label: 'Volunteering', value: 'Volunteering' },
-            { label: 'Work Experience', value: 'WorkExperience' },
-            { label: 'Writing', value: 'Writing' },
-          ],
-          defaultValue: 'WorkExperience',
-        }),
-        {
-          label: 'Order',
-          itemLabel: (props) => _.startCase(props.value),
-        },
-      ),
     },
   });
 };
@@ -59,6 +36,7 @@ const keystatic = async () => {
 const astro = async () => {
   const { defineCollection, z } = await import('astro:content');
   const { glob } = await import('astro/loaders');
+  const presets = await Presets.z();
 
   return defineCollection({
     loader: glob({
@@ -70,9 +48,8 @@ const astro = async () => {
         portrait: image().optional(),
         name: z.string(),
         profession: z.string().optional(),
-        location: z.string().optional(),
+        location: presets.location,
         pronouns: z.string().optional(),
-        order: z.array(z.string()),
       }),
   });
 };

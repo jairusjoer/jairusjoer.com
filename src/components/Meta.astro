@@ -1,19 +1,27 @@
 ---
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getImage } from 'astro:assets';
 import type { Metadata } from '../types';
+import type { Entry } from '@keystatic/core/reader';
+import type keystaticConfig from '../../keystatic.config';
 
 interface Props {
-  metadata?: Metadata;
+  metadata: Metadata;
+  settings: Entry<(typeof keystaticConfig)['singletons']['Settings']>;
 }
 
-const {
-  metadata = {
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
-  },
-} = Astro.props;
+const { metadata, settings } = Astro.props;
 
-const useURL = (path: string) => String(new URL(path, Astro.site));
+const site = import.meta.env.DEV ? Astro.url.origin : Astro.site;
+const useURL = (path: string) => String(new URL(path, site));
+
+const favicon = await getImage({
+  src: settings?.favicon || '/favicon_default.png',
+  width: 192,
+  height: 192,
+  format: 'png',
+});
+
+const title = metadata?.title ? [metadata.title, settings?.title].join(' • ') : settings?.title;
 ---
 
 <!-- Global Metadata -->
@@ -31,24 +39,18 @@ const useURL = (path: string) => String(new URL(path, Astro.site));
 <!-- Favicons -->
 <link
   rel="icon"
-  href={useURL('favicon.ico')}
-  sizes="32x32"
-/>
-<link
-  rel="icon"
-  href={useURL('favicon.svg')}
-  type="image/svg+xml"
+  href={useURL(favicon.src)}
 />
 <link
   rel="apple-touch-icon"
-  href={useURL('apple-touch-icon.png')}
+  href={useURL(favicon.src)}
 />
 
 <!-- Primary Meta Tags -->
-<title>{metadata.title}</title>
+<title>{title}</title>
 <meta
   name="title"
-  content={metadata.title}
+  content={title}
 />
 <meta
   name="description"
@@ -66,7 +68,7 @@ const useURL = (path: string) => String(new URL(path, Astro.site));
 />
 <meta
   property="og:title"
-  content={metadata.title}
+  content={title}
 />
 <meta
   property="og:description"
@@ -74,7 +76,7 @@ const useURL = (path: string) => String(new URL(path, Astro.site));
 />
 <meta
   property="og:image"
-  content={metadata?.image}
+  content={metadata.image}
 />
 
 <!-- Twitter -->
@@ -88,7 +90,7 @@ const useURL = (path: string) => String(new URL(path, Astro.site));
 />
 <meta
   property="twitter:title"
-  content={metadata.title}
+  content={title}
 />
 <meta
   property="twitter:description"
@@ -96,7 +98,7 @@ const useURL = (path: string) => String(new URL(path, Astro.site));
 />
 <meta
   property="twitter:image"
-  content={metadata?.image}
+  content={metadata.image}
 />
 
 {

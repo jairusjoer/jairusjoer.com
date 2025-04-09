@@ -1,17 +1,5 @@
-portrait: /src/assets/images/General/portrait.jpeg
+portrait: /src/assets/images/General/portrait.png
 name: Jairus Joer
 profession: Full Stack Developer & Designer
 location: Hanover, Germany
 pronouns: He/him
-order:
-  - Awards
-  - Certifications
-  - Exhibitions
-  - Features
-  - Projects
-  - SideProjects
-  - Speaking
-  - Volunteering
-  - WorkExperience
-  - Writing
-  - Contact

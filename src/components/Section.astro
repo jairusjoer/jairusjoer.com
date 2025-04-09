@@ -8,9 +8,7 @@ interface Props {
 }
 
 const { content } = Astro.props;
-const collection = await getCollection(content, (item) => {
-  return !('draft' in item.data && item.data.draft);
-});
+const collection = await getCollection(content, (entry) => !entry.data?.draft);
 
 const { default: Collection } = await import(`./collections/${content}.astro`);
 ---

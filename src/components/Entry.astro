@@ -6,7 +6,7 @@ import { useReadTime } from '../composables/useReadTime';
 import { parse } from 'marked';
 
 interface Props {
-  entry: CollectionEntry<Exclude<CollectionKey, 'General'>>;
+  entry: CollectionEntry<CollectionKey>;
 }
 
 const { entry } = Astro.props;
@@ -17,7 +17,7 @@ const { entry } = Astro.props;
     <!-- Preview -->
     <div class="relative hidden w-32 shrink-0 sm:block">
       {
-        'image' in entry.data ? (
+        entry.data?.image ? (
           <Image
             class="absolute inset-0 size-full object-cover"
             src={entry.data.image!}

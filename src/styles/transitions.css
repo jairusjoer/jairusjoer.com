@@ -21,6 +21,8 @@
     }
   }
 
+  /* Main */
+
   main {
     view-transition-name: main;
   }
@@ -42,5 +44,11 @@
       opacity: 0;
       filter: blur(0.0625rem);
     }
+  }
+
+  /* Footer */
+
+  footer {
+    view-transition-name: footer;
   }
 }

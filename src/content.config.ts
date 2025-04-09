@@ -15,6 +15,7 @@ import { WorkExperience } from './collections/WorkExperience';
 import { Writing } from './collections/Writing';
 // Singletons
 import { General } from './singletons/General';
+import { Settings } from './singletons/Settings';
 
 export const collections = {
   // Collections
@@ -32,7 +33,9 @@ export const collections = {
   Volunteering: await Volunteering.astro(),
   WorkExperience: await WorkExperience.astro(),
   Writing: await Writing.astro(),
-  // Singletons
-  General: await General.astro(),
 };
 
+export const singletons = {
+  General: await General.astro(),
+  Settings: await Settings.astro(),
+};

@@ -1,44 +1,50 @@
 ---
+import type { Entry } from '@keystatic/core/reader';
 import { getCollection } from 'astro:content';
+import type keystaticConfig from '../../keystatic.config';
 
-const pages = await getCollection('Pages');
+interface Props {
+  settings: Entry<(typeof keystaticConfig)['singletons']['Settings']>;
+}
+
+const { settings } = Astro.props;
 const blog = await getCollection('Blog');
 
-const isCurrentPath = (path: string) => {
-  return Astro.url.pathname === path;
-};
+const isCurrentPath = (path: string) => Astro.url.pathname === path;
 
-// Create navigation items with consistent structure
 const items = [
   {
     title: 'About',
     href: '/',
-    show: true,
+    hide: false,
   },
   {
     title: 'Blog',
     href: '/blog',
-    show: blog.length > 0,
+    hide: blog.filter((entry) => !entry.data?.draft).length === 0,
   },
-  ...pages.map((entry) => ({
-    title: entry.data.title,
-    href: `/pages/${entry.id}`,
-    show: true,
+  ...settings.navigation.map((item) => ({
+    ...item,
+    hide: false,
   })),
 ];
 ---
 
-<nav class="mb-4 flex flex-wrap gap-2 font-medium">
-  {
-    items
-      .filter((item) => item.show)
-      .map(({ href, title }) => (
-        <a
-          class:list={{ 'text-foreground': isCurrentPath(href) }}
-          {href}
-        >
-          {title}
-        </a>
-      ))
-  }
+<nav class="mb-4 font-medium">
+  <ul class="flex flex-wrap gap-2">
+    {
+      items
+        .filter((item) => !item?.hide)
+        .map((item) => (
+          <li>
+            <a
+              class:list={{ block: true, 'text-foreground': isCurrentPath(item.href!) }}
+              href={item.href}
+            >
+              {item.title}
+            </a>
+          </li>
+        ))
+    }
+  </ul>
 </nav>

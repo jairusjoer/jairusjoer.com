@@ -4,7 +4,7 @@ import Entry from './Entry.astro';
 import { parse } from 'marked';
 
 interface Props {
-  entry: Exclude<CollectionEntry<CollectionKey>, CollectionEntry<'General'>>;
+  entry: CollectionEntry<CollectionKey>;
 }
 
 const { entry } = Astro.props;

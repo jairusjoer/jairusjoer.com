@@ -1,3 +1,11 @@
-order:
-  - Awards
+title: Jairus Joer
+description: There are many like it but this one is mine
+navigation:
+  - title: Show
+    href: /pages/show-page
+sections:
   - WorkExperience
+  - Certifications
+footer:
+  - title: Imprint
+    href: /pages/imprint

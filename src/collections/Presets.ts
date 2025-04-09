@@ -16,7 +16,7 @@ export const fields = async () => {
     content: (collection: CollectionKey) =>
       fields.mdx({
         label: 'Content',
-        description: 'Entering more than 300 characters turns the content into a page',
+        description: 'Entering more than 300 characters turns the content into a page.',
         options: {
           image: {
             directory: `src/assets/images/${collection}`,
@@ -32,7 +32,7 @@ export const fields = async () => {
   };
 };
 
-export const z = async (): Promise<Record<keyof Awaited<ReturnType<typeof fields>>, ZodType>> => {
+export const z = async () => {
   const { z } = await import('astro:content');
 
   return {
