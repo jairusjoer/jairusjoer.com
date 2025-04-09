@@ -1,11 +1,12 @@
 import type { CollectionKey } from 'astro:content';
 import _ from 'lodash';
+import { Presets } from './Presets';
 
 const collectionKey: CollectionKey = 'Pages';
 
 const keystatic = async () => {
   const { fields, collection } = await import('@keystatic/core');
-  const { fieldPresets } = await import('./presets/Fields');
+  const presets = await Presets.fields();
 
   return collection({
     columns: ['title', 'description'],
@@ -15,15 +16,15 @@ const keystatic = async () => {
     path: `src/content/${collectionKey}/*`,
     slugField: 'title',
     schema: {
-      draft: fieldPresets.draft,
+      draft: presets.draft,
       image: fields.image({
         label: 'Image',
         directory: `src/assets/images/${collectionKey}`,
         publicPath: `/src/assets/images/${collectionKey}`,
       }),
-      title: fieldPresets.title,
+      title: presets.title,
       description: fields.text({ label: 'Description' }),
-      content: fieldPresets.content(collectionKey),
+      content: presets.content(collectionKey),
     },
   });
 };
@@ -31,6 +32,7 @@ const keystatic = async () => {
 const astro = async () => {
   const { defineCollection, z } = await import('astro:content');
   const { glob } = await import('astro/loaders');
+  const presets = await Presets.z();
 
   return defineCollection({
     loader: glob({
@@ -39,10 +41,10 @@ const astro = async () => {
     }),
     schema: ({ image }) =>
       z.object({
-        draft: z.boolean().optional(),
+        draft: presets.draft,
         image: image().optional(),
-        title: z.string(),
-        description: z.string().optional(),
+        title: presets.title,
+        description: presets.description,
       }),
   });
 };

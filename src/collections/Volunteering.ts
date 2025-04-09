@@ -1,11 +1,12 @@
 import type { CollectionKey } from 'astro:content';
 import _ from 'lodash';
+import { Presets } from './Presets';
 
 const collectionKey: CollectionKey = 'Volunteering';
 
 const keystatic = async () => {
-  const { fields, collection } = await import('@keystatic/core');
-  const { fieldPresets } = await import('./presets/Fields');
+  const { collection } = await import('@keystatic/core');
+  const presets = await Presets.fields();
 
   return collection({
     columns: ['title'],
@@ -15,17 +16,14 @@ const keystatic = async () => {
     path: `src/content/${collectionKey}/*`,
     slugField: 'title',
     schema: {
-      draft: fieldPresets.draft,
-      from: fields.text({ label: 'From', validation: { isRequired: true } }),
-      to: fields.text({ label: 'To', validation: { isRequired: true } }),
-      title: fieldPresets.title,
-      organization: fields.text({
-        label: 'Organization',
-        validation: { isRequired: true },
-      }),
-      location: fields.text({ label: 'Location' }),
-      url: fieldPresets.url,
-      content: fieldPresets.content(collectionKey),
+      draft: presets.draft,
+      from: presets.from,
+      to: presets.to,
+      title: presets.title,
+      institution: presets.institution,
+      location: presets.location,
+      url: presets.url,
+      content: presets.content(collectionKey),
     },
   });
 };
@@ -33,6 +31,7 @@ const keystatic = async () => {
 const astro = async () => {
   const { defineCollection, z } = await import('astro:content');
   const { glob } = await import('astro/loaders');
+  const presets = await Presets.z();
 
   return defineCollection({
     loader: glob({
@@ -40,13 +39,13 @@ const astro = async () => {
       pattern: '**/*.{md,mdx}',
     }),
     schema: z.object({
-      draft: z.boolean().optional(),
-      from: z.string(),
-      to: z.string(),
-      title: z.string(),
-      organization: z.string(),
-      location: z.string().optional(),
-      url: z.string().optional(),
+      draft: presets.draft,
+      from: presets.from,
+      to: presets.to,
+      title: presets.title,
+      institution: presets.institution,
+      location: presets.location,
+      url: presets.url,
     }),
   });
 };

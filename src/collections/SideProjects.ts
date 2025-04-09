@@ -1,47 +1,49 @@
 import type { CollectionKey } from 'astro:content';
 import _ from 'lodash';
+import { Presets } from './Presets';
 
 const collectionKey: CollectionKey = 'SideProjects';
 
 const keystatic = async () => {
-    const { collection } = await import('@keystatic/core');
-    const { fieldPresets } = await import('./presets/Fields');
+  const { collection } = await import('@keystatic/core');
+  const presets = await Presets.fields();
 
-    return collection({
-      columns: ['title', 'year'],
-      entryLayout: 'content',
-      format: { contentField: 'content' },
-      label: _.startCase(collectionKey),
-      path: `src/content/${collectionKey}/*`,
-      slugField: 'title',
-      schema: {
-        draft: fieldPresets.draft,
-        title: fieldPresets.title,
-        year: fieldPresets.year,
-        client: fieldPresets.client,
-        url: fieldPresets.url,
-        content: fieldPresets.content(collectionKey),
-      },
-    });
-  };
+  return collection({
+    columns: ['title', 'year'],
+    entryLayout: 'content',
+    format: { contentField: 'content' },
+    label: _.startCase(collectionKey),
+    path: `src/content/${collectionKey}/*`,
+    slugField: 'title',
+    schema: {
+      draft: presets.draft,
+      title: presets.title,
+      year: presets.year,
+      client: presets.client,
+      url: presets.url,
+      content: presets.content(collectionKey),
+    },
+  });
+};
 
-  const astro = async () => {
-    const { defineCollection, z } = await import('astro:content');
-    const { glob } = await import('astro/loaders');
+const astro = async () => {
+  const { defineCollection, z } = await import('astro:content');
+  const { glob } = await import('astro/loaders');
+  const presets = await Presets.z();
 
-    return defineCollection({
-      loader: glob({
-        base: `./src/content/${collectionKey}`,
-        pattern: '**/*.{md,mdx}',
-      }),
-      schema: z.object({
-        draft: z.boolean().optional(),
-        title: z.string(),
-        year: z.string(),
-        client: z.string().optional(),
-        url: z.string().optional(),
-      }),
-    });
-  };
+  return defineCollection({
+    loader: glob({
+      base: `./src/content/${collectionKey}`,
+      pattern: '**/*.{md,mdx}',
+    }),
+    schema: z.object({
+      draft: presets.draft,
+      title: presets.title,
+      year: presets.year,
+      client: presets.client,
+      url: presets.url,
+    }),
+  });
+};
 
-  export const SideProjects = { keystatic, astro };
+export const SideProjects = { keystatic, astro };

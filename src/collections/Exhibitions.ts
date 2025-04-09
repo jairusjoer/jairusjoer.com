@@ -1,11 +1,12 @@
 import type { CollectionKey } from 'astro:content';
 import _ from 'lodash';
+import { Presets } from './Presets';
 
 const collectionKey: CollectionKey = 'Exhibitions';
 
 const keystatic = async () => {
   const { fields, collection } = await import('@keystatic/core');
-  const { fieldPresets } = await import('./presets/Fields');
+  const fieldPresets = await Presets.fields();
 
   return collection({
     columns: ['title', 'year'],
@@ -29,6 +30,7 @@ const keystatic = async () => {
 const astro = async () => {
   const { defineCollection, z } = await import('astro:content');
   const { glob } = await import('astro/loaders');
+  const presets = await Presets.z();
 
   return defineCollection({
     loader: glob({
@@ -36,12 +38,12 @@ const astro = async () => {
       pattern: '**/*.{md,mdx}',
     }),
     schema: z.object({
-      draft: z.boolean().optional(),
-      title: z.string(),
-      year: z.string(),
+      draft: presets.draft,
+      title: presets.title,
+      year: presets.year,
       venue: z.string().optional(),
-      location: z.string().optional(),
-      url: z.string().optional(),
+      location: presets.location,
+      url: presets.url,
     }),
   });
 };

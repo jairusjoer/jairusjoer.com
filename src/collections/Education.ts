@@ -1,11 +1,12 @@
 import type { CollectionKey } from 'astro:content';
 import _ from 'lodash';
+import { Presets } from './Presets';
 
 const collectionKey: CollectionKey = 'Education';
 
 const keystatic = async () => {
   const { collection } = await import('@keystatic/core');
-  const { fieldPresets } = await import('./presets/Fields');
+  const presets = await Presets.fields();
 
   return collection({
     columns: ['title', 'from'],
@@ -15,14 +16,14 @@ const keystatic = async () => {
     path: `src/content/${collectionKey}/*`,
     slugField: 'title',
     schema: {
-      draft: fieldPresets.draft,
-      from: fieldPresets.from,
-      to: fieldPresets.to,
-      title: fieldPresets.title,
-      institution: fieldPresets.institution,
-      location: fieldPresets.location,
-      url: fieldPresets.url,
-      content: fieldPresets.content(collectionKey),
+      draft: presets.draft,
+      from: presets.from,
+      to: presets.to,
+      title: presets.title,
+      institution: presets.institution,
+      location: presets.location,
+      url: presets.url,
+      content: presets.content(collectionKey),
     },
   });
 };
@@ -30,6 +31,7 @@ const keystatic = async () => {
 const astro = async () => {
   const { defineCollection, z } = await import('astro:content');
   const { glob } = await import('astro/loaders');
+  const presets = await Presets.z();
 
   return defineCollection({
     loader: glob({
@@ -37,13 +39,13 @@ const astro = async () => {
       pattern: '**/*.{md,mdx}',
     }),
     schema: z.object({
-      from: z.string(),
-      to: z.string(),
-      draft: z.boolean().optional(),
-      title: z.string(),
-      institution: z.string(),
-      location: z.string().optional(),
-      url: z.string().optional(),
+      from: presets.from,
+      to: presets.to,
+      draft: presets.draft,
+      title: presets.title,
+      institution: presets.institution,
+      location: presets.location,
+      url: presets.url,
     }),
   });
 };
