@@ -16,35 +16,33 @@ const items = [
   {
     title: 'About',
     href: '/',
-    hide: false,
+    draft: false,
   },
   {
     title: 'Blog',
     href: '/blog',
-    hide: blog.filter((entry) => !entry.data?.draft).length === 0,
+    draft: blog.filter((entry) => !entry.data?.draft).length === 0,
   },
-  ...settings.navigation.map((item) => ({
+  ...(settings?.navigation.map((item) => ({
     ...item,
-    hide: false,
-  })),
-];
+    draft: false,
+  })) || []),
+].filter((item) => !item?.draft);
 ---
 
 <nav class="mb-4 font-medium">
   <ul class="flex flex-wrap gap-2">
     {
-      items
-        .filter((item) => !item?.hide)
-        .map((item) => (
-          <li>
-            <a
-              class:list={{ block: true, 'text-foreground': isCurrentPath(item.href!) }}
-              href={item.href}
-            >
-              {item.title}
-            </a>
-          </li>
-        ))
+      items.map((item) => (
+        <li>
+          <a
+            class:list={{ block: true, 'text-foreground': isCurrentPath(item.href!) }}
+            href={item.href}
+          >
+            {item.title}
+          </a>
+        </li>
+      ))
     }
   </ul>
 </nav>

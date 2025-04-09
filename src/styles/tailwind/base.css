@@ -12,10 +12,11 @@
     border-bottom: 1px solid var(--color-border);
   }
 
-  h3 a,
-  .prose a {
+  :is(h3, .prose) a[target] {
     &::after {
       content: ' ↗';
+      vertical-align: text-top;
+      font-size: 0.75em;
     }
   }
 }

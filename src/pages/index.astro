@@ -3,14 +3,15 @@ import Default from '../layouts/Default.astro';
 import General from '../components/General.astro';
 import { useReader } from '../composables/useReader';
 import Section from '../components/Section.astro';
+import Welcome from '../components/Welcome.astro';
 
 const reader = useReader();
 const settings = (await reader.singletons.Settings.read())!;
 ---
 
 <Default>
-  <main class="space-y-16">
+  <main class="grow space-y-16">
     <General />
-    {settings.sections.map((content) => <Section {content} />)}
+    {settings?.sections ? settings.sections.map((content) => <Section {content} />) : <Welcome />}
   </main>
 </Default>

@@ -9,19 +9,22 @@ interface Props {
 const { settings } = Astro.props;
 ---
 
-<footer class="mt-auto font-medium">
-  <ul class="mt-16 flex flex-wrap gap-2">
-    {
-      settings?.footer?.map(({ href, title }) => (
-        <li>
-          <a
-            class="block"
-            {href}
-          >
-            {title}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-</footer>
+{
+  settings?.footer.length > 0 && (
+    <footer class="mt-auto font-medium">
+      <ul class="mt-16 flex flex-wrap gap-2">
+        {settings.footer.map(({ href, title }) => (
+          <li>
+            <a
+              class="block"
+              target="_blank"
+              {href}
+            >
+              {title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </footer>
+  )
+}
