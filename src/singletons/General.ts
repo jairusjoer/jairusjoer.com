@@ -35,6 +35,7 @@ const keystatic = async () => {
             { label: 'Awards', value: 'Awards' },
             { label: 'Certifications', value: 'Certifications' },
             { label: 'Contact', value: 'Contact' },
+            { label: 'Education', value: 'Education' },
             { label: 'Exhibitions', value: 'Exhibitions' },
             { label: 'Features', value: 'Features' },
             { label: 'Projects', value: 'Projects' },

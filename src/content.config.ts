@@ -3,6 +3,7 @@ import { Awards } from './collections/Awards';
 import { Blog } from './collections/Blog';
 import { Certifications } from './collections/Certifications';
 import { Contact } from './collections/Contact';
+import { Education } from './collections/Education';
 import { Exhibitions } from './collections/Exhibitions';
 import { Features } from './collections/Features';
 import { Pages } from './collections/Pages';
@@ -21,6 +22,7 @@ export const collections = {
   Blog: await Blog.astro(),
   Certifications: await Certifications.astro(),
   Contact: await Contact.astro(),
+  Education: await Education.astro(),
   Exhibitions: await Exhibitions.astro(),
   Features: await Features.astro(),
   Pages: await Pages.astro(),

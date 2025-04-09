@@ -4,6 +4,7 @@ import { Awards } from './src/collections/Awards';
 import { Blog } from './src/collections/Blog';
 import { Certifications } from './src/collections/Certifications';
 import { Contact } from './src/collections/Contact';
+import { Education } from './src/collections/Education';
 import { Exhibitions } from './src/collections/Exhibitions';
 import { Features } from './src/collections/Features';
 import { Pages } from './src/collections/Pages';
@@ -25,6 +26,7 @@ export default config({
     Blog: await Blog.keystatic(),
     Certifications: await Certifications.keystatic(),
     Contact: await Contact.keystatic(),
+    Education: await Education.keystatic(),
     Exhibitions: await Exhibitions.keystatic(),
     Features: await Features.keystatic(),
     Pages: await Pages.keystatic(),
