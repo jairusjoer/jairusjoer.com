@@ -12,14 +12,14 @@ const fieldValue = entry.data[field as keyof typeof entry.data];
 ---
 
 {
-  entry.data?.[field] && (
+  field in entry.data && (
     <>
       {separator && (
         <>
           <span>{separator}</span>{' '}
         </>
       )}
-      {entry.data?.url ? (
+      {'url' in entry.data ? (
         <a
           class="text-foreground inline-block font-medium"
           href={entry.data.url}

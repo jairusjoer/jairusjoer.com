@@ -1,5 +1,4 @@
 import type { CollectionKey } from 'astro:content';
-import type { ZodType } from 'astro/zod';
 
 export const fields = async () => {
   const { fields } = await import('@keystatic/core');

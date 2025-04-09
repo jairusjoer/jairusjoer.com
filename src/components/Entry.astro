@@ -17,7 +17,7 @@ const { entry } = Astro.props;
     <!-- Preview -->
     <div class="relative hidden w-32 shrink-0 sm:block">
       {
-        entry.data?.image ? (
+        'image' in entry.data ? (
           <Image
             class="absolute inset-0 size-full object-cover"
             src={entry.data.image!}

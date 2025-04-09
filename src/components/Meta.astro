@@ -104,6 +104,7 @@ const title = metadata?.title ? [metadata.title, settings?.title].join(' • ') 
 {
   metadata?.schema && (
     <script
+      is:inline
       set:html={JSON.stringify(metadata.schema)}
       type="application/ld+json"
     />

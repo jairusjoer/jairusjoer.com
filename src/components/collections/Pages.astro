@@ -1,6 +1,5 @@
 ---
 import { type CollectionEntry } from 'astro:content';
-import Link from '../Link.astro';
 import _ from 'lodash';
 import Collection from '../Collection.astro';
 
@@ -9,8 +8,6 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-
-const date = new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: 'numeric' }).format(entry.data.date);
 ---
 
 <Collection {entry}>
