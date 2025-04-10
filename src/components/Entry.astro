@@ -29,7 +29,7 @@ const { entry } = Astro.props;
           <div class="pointer-events-none h-18.5 p-2 select-none">
             <div
               class="space-y-2 font-mono text-[0.5rem] leading-4 italic"
-              set:html={await parse(_.truncate(entry.body, { length: 150 }))}
+              set:html={await parse(_.truncate(entry.body, { length: 300 }))}
             />
           </div>
         )

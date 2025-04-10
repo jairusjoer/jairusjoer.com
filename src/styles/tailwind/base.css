@@ -15,8 +15,7 @@
   :is(h3, .prose) a[target] {
     &::after {
       content: ' ↗';
-      vertical-align: text-top;
-      font-size: 0.75em;
+      color: var(--color-theme);
     }
   }
 }

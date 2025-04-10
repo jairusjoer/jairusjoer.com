@@ -1,0 +1,18 @@
+favicon: /favicon.png
+title: Jairus Joer
+description: >-
+  I am a Full Stack Developer and Designer from Germany. Focused on creating
+  consistent and clear design systems for rich, beautiful products.
+navigation: []
+sections:
+  - WorkExperience
+  - Awards
+  - Projects
+  - SideProjects
+  - Speaking
+  - Writing
+  - Education
+  - Contact
+footer:
+  - title: Imprint
+    href: /pages/imprint

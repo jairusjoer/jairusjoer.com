@@ -8,7 +8,9 @@ interface Props {
 }
 
 const { content } = Astro.props;
+
 const collection = await getCollection(content, (entry) => !entry.data?.draft);
+collection.sort((a, b) => b.data.year - a.data.year);
 
 const { default: Collection } = await import(`./collections/${content}.astro`);
 ---
