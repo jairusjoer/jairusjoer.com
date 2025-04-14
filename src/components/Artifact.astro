@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry, CollectionKey } from 'astro:content';
+import _ from 'lodash';
+import { useReadTime } from '../composables/useReadTime';
+import { parse } from 'marked';
+
+interface Props {
+  entry: CollectionEntry<CollectionKey>;
+}
+
+const { entry } = Astro.props;
+---
+
+<article class="group relative">
+  <div class="border-background flex overflow-hidden rounded-lg border">
+    <!-- Preview -->
+    <div class="relative hidden w-32 shrink-0 sm:block">
+      {
+        'image' in entry.data ? (
+          <Image
+            class="absolute inset-0 size-full object-cover"
+            src={entry.data.image!}
+            alt=""
+            width={256}
+            height={144}
+          />
+        ) : (
+          <div class="pointer-events-none h-18.5 p-2 select-none">
+            <div
+              class="space-y-2 font-mono text-[0.5rem] leading-4 italic"
+              set:html={await parse(_.truncate(entry.body, { length: 300 }))}
+            />
+          </div>
+        )
+      }
+    </div>
+    <!-- Content -->
+    <div class="bg-background grid grow content-center p-4">
+      <span class="text-foreground truncate font-medium">{entry.data.title}</span>
+      {entry?.body && <span class="tabular-nums">{useReadTime(entry.body)}</span>}
+    </div>
+  </div>
+  <!-- Link -->
+  <a
+    class="absolute inset-0 rounded-lg border-0"
+    href={`/${_.kebabCase(entry.collection)}/${entry.id}`}
+    title={entry.data.title}
+    aria-label={entry.data.title}
+  ></a>
+</article>
+
+<style>
+  article :global(p:first-child img) {
+    height: 5rem;
+    object-fit: cover;
+    min-width: calc(100% + 1rem);
+    margin: -0.5rem;
+  }
+
+  article :global(p:not(:first-child) img) {
+    border-radius: 0.25rem;
+  }
+</style>

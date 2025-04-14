@@ -1,17 +1,19 @@
 ---
 import Default from '../layouts/Default.astro';
-import General from '../components/General.astro';
 import { useReader } from '../composables/useReader';
+import { parse } from 'marked';
 import Section from '../components/Section.astro';
-import Welcome from '../components/Welcome.astro';
 
 const reader = useReader();
-const settings = (await reader.singletons.Settings.read())!;
+const site = (await reader.singletons.Site.read({ resolveLinkedFiles: true }))!;
 ---
 
 <Default>
   <main class="grow space-y-16">
-    <General />
-    {settings?.sections ? settings.sections.map((content) => <Section {content} />) : <Welcome />}
+    <section
+      class="prose prose-sm prose-theme"
+      set:html={parse(site.general.about)}
+    />
+    {site?.sections?.map((section) => <Section {section} />)}
   </main>
 </Default>

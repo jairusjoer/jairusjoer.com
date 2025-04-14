@@ -5,11 +5,11 @@ import { Presets } from './Presets';
 const collectionKey: CollectionKey = 'Pages';
 
 const keystatic = async () => {
-  const { fields, collection } = await import('@keystatic/core');
+  const { collection } = await import('@keystatic/core');
   const presets = await Presets.fields();
 
   return collection({
-    columns: ['title', 'description'],
+    columns: ['draft', 'title', 'description'],
     entryLayout: 'content',
     format: { contentField: 'content' },
     label: _.startCase(collectionKey),
@@ -17,13 +17,9 @@ const keystatic = async () => {
     slugField: 'title',
     schema: {
       draft: presets.draft,
-      image: fields.image({
-        label: 'Image',
-        directory: `src/assets/images/${collectionKey}`,
-        publicPath: `/src/assets/images/${collectionKey}`,
-      }),
-      title: presets.title,
-      description: fields.text({ label: 'Description' }),
+      image: presets.image(collectionKey),
+      title: presets.titleSlug,
+      description: presets.description,
       content: presets.content(collectionKey),
     },
   });

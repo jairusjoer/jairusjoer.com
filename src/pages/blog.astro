@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Default from '../layouts/Default.astro';
-import Entry from '../components/Entry.astro';
+import Artifact from '../components/Artifact.astro';
 import type { Metadata } from '../types';
 
 const blog = await getCollection('Blog');
@@ -13,6 +13,6 @@ const metadata: Metadata = {
 
 <Default {metadata}>
   <main class="space-y-4">
-    {blog.map((entry) => <Entry {entry} />)}
+    {blog.map((entry) => <Artifact {entry} />)}
   </main>
 </Default>

@@ -29,5 +29,8 @@ export default defineConfig({
   site: 'https://jairusjoer.com',
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      exclude: ['@keystatic/astro'],
+    },
   },
 });

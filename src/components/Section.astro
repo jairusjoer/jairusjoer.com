@@ -1,25 +1,18 @@
 ---
-import { getCollection } from 'astro:content';
-import _ from 'lodash';
-import type { CollectionKey } from 'astro:content';
+import type keystaticConfig from '../../keystatic.config';
+import type { EntryWithResolvedLinkedFiles } from '@keystatic/core/reader';
+import Entry from './Entry.astro';
 
 interface Props {
-  content: CollectionKey;
+  section: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['Site']>['sections'][number];
 }
 
-const { content } = Astro.props;
-
-const collection = await getCollection(content, (entry) => !entry.data?.draft);
-collection.sort((a, b) => b.data.year - a.data.year);
-
-const { default: Collection } = await import(`./collections/${content}.astro`);
+const { section } = Astro.props;
 ---
 
 <section>
-  <h2 class="text-foreground mb-4 font-medium">
-    {_.startCase(content)}
-  </h2>
+  <h2 class="text-foreground mb-4 font-medium">{section.title}</h2>
   <div class="space-y-8">
-    {Collection ? collection.map((entry) => <Collection {entry} />) : <span>⚠️ Component {content} not found</span>}
+    {section.entries.map((entry) => <Entry {entry} />)}
   </div>
 </section>

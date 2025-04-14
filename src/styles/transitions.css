@@ -5,6 +5,8 @@
 
   :root {
     --transition-duration: 150ms;
+
+    view-transition-name: none;
   }
 
   @media (prefers-reduced-motion) {
@@ -19,11 +21,15 @@
     }
   }
 
-  ::view-transition-old(root) {
+  main {
+    view-transition-name: main;
+  }
+
+  ::view-transition-old(main) {
     animation: fade var(--transition-duration) ease-in-out both;
   }
 
-  ::view-transition-new(root) {
+  ::view-transition-new(main) {
     animation: fade var(--transition-duration) ease-in-out both reverse var(--transition-duration);
   }
 

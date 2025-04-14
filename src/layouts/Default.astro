@@ -9,7 +9,7 @@ import type { Metadata } from '../types';
 import { useReader } from '../composables/useReader';
 
 const reader = useReader();
-const settings = (await reader.singletons.Settings.read())!;
+const site = (await reader.singletons.Site.read({ resolveLinkedFiles: true }))!;
 
 interface Props {
   metadata?: Metadata;
@@ -17,8 +17,7 @@ interface Props {
 
 const {
   metadata = {
-    title: undefined,
-    description: settings?.description,
+    description: site?.general.description,
   },
 } = Astro.props;
 ---
@@ -34,21 +33,24 @@ const {
 >
   <head>
     <Meta
-      {settings}
+      {site}
       {metadata}
     />
     <ClientRouter />
   </head>
   <body class="text-foreground-subtle grid min-h-screen px-4 py-16 text-sm leading-6">
     <div class="mx-auto flex w-full max-w-xl flex-col">
-      <Header transition:persist />
+      <Header
+        {site}
+        transition:persist
+      />
       <Navigation
-        {settings}
+        {site}
         transition:persist
       />
       <slot />
       <Footer
-        {settings}
+        {site}
         transition:persist
       />
     </div>
