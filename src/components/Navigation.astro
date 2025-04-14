@@ -4,11 +4,11 @@ import { getCollection } from 'astro:content';
 import type keystaticConfig from '../../keystatic.config';
 
 interface Props {
-  site: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['Site']>;
+  site: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['site']>;
 }
 
 const { site } = Astro.props;
-const blog = await getCollection('Blog');
+const blog = await getCollection('blog');
 
 const isCurrentPath = (path: string) => Astro.url.pathname === path;
 

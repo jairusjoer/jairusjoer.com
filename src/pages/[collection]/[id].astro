@@ -6,7 +6,6 @@ import { render } from 'astro:content';
 import _ from 'lodash';
 import type { CollectionKey } from 'astro:content';
 import type { Metadata } from '../../types';
-import type { CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
   let paths = [];
@@ -15,19 +14,10 @@ export async function getStaticPaths() {
     const collectionKey = key as CollectionKey;
     const collection = await getCollection(collectionKey);
 
-    const filter = (entry: CollectionEntry<CollectionKey>): boolean => {
-      return Boolean(
-        !entry.data?.draft &&
-          (collectionKey === 'Blog' || collectionKey === 'Pages' || (entry.body && entry.body.trim().length > 300)),
-      );
-    };
-
-    const map = collection
-      .filter((entry) => filter(entry))
-      .map((entry) => ({
-        params: { collection: _.kebabCase(collectionKey), id: entry.id },
-        props: { entry },
-      }));
+    const map = collection.map((entry) => ({
+      params: { collection: _.kebabCase(collectionKey), id: entry.id },
+      props: { entry },
+    }));
 
     paths.push(...map);
   }

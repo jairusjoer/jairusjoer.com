@@ -1,46 +1,46 @@
 import _ from 'lodash';
-import { Presets } from '../collections/Presets';
+import { presets } from '../content.presets';
 
-const singletonKey = 'Site';
+const singletonKey = 'site';
 
 const keystatic = async () => {
   const { fields, singleton } = await import('@keystatic/core');
-  const presets = await Presets.fields();
+  const fieldPresets = await presets.fields();
 
   // General
   const general = fields.object({
-    image: presets.image(singletonKey),
-    title: presets.titleString,
-    description: presets.description,
+    image: fieldPresets.image(singletonKey),
+    title: fieldPresets.titleString,
+    description: fieldPresets.description,
     navigation: fields.array(
       fields.object({
-        title: presets.titleString,
-        href: presets.url,
+        title: fieldPresets.titleString,
+        href: fieldPresets.url,
       }),
       {
         label: 'Navigation',
         itemLabel: (props) => props.fields.title.value,
       },
     ),
-    about: presets.content(singletonKey),
+    about: fieldPresets.content(singletonKey),
   });
 
   // Sections
   const sections = fields.object({
-    draft: presets.draft,
-    title: presets.titleString,
+    draft: fieldPresets.draft,
+    title: fieldPresets.titleString,
     entries: fields.array(
       fields.object({
-        draft: presets.draft,
+        draft: fieldPresets.draft,
         time: fields.text({ label: 'Time' }),
-        title: presets.titleString,
-        description: presets.description,
-        url: presets.url,
-        content: presets.content(singletonKey),
+        title: fieldPresets.titleString,
+        description: fieldPresets.description,
+        url: fieldPresets.url,
+        content: fieldPresets.content(singletonKey),
         page: fields.relationship({
           label: 'Page',
-          collection: 'Pages'
-        })
+          collection: 'pages',
+        }),
       }),
       {
         label: 'Entries',
@@ -76,7 +76,7 @@ const keystatic = async () => {
       }),
       footer: fields.array(
         fields.object({
-          title: presets.titleString,
+          title: fieldPresets.titleString,
           href: fields.url({ label: 'URL' }),
         }),
         {
@@ -91,7 +91,7 @@ const keystatic = async () => {
 const astro = async () => {
   const { defineCollection, z } = await import('astro:content');
   const { glob } = await import('astro/loaders');
-  const presets = await Presets.z();
+  const zPresets = await presets.z();
 
   return defineCollection({
     loader: glob({
@@ -100,14 +100,41 @@ const astro = async () => {
     }),
     schema: ({ image }) =>
       z.object({
-        favicon: image().optional(),
-        title: presets.title,
-        description: presets.description,
-        navigation: z.array(z.string()),
-        sections: z.array(z.string()),
-        footer: z.array(z.string()),
+        general: z.object({
+          image: image().optional(),
+          title: zPresets.title,
+          description: zPresets.description,
+          navigation: z.array(
+            z.object({
+              title: zPresets.title,
+              href: z.string(),
+            }),
+          ),
+        }),
+        sections: z.array(
+          z.object({
+            draft: zPresets.draft,
+            title: zPresets.title,
+            entries: z.array(
+              z.object({
+                draft: zPresets.draft,
+                time: z.string(),
+                title: zPresets.title,
+                description: zPresets.description,
+                url: z.string().optional(),
+                page: z.string().optional(),
+              }),
+            ),
+          }),
+        ),
+        footer: z.array(
+          z.object({
+            title: zPresets.title,
+            href: z.string(),
+          }),
+        ),
       }),
   });
 };
 
-export const Site = { keystatic, astro };
+export const site = { keystatic, astro };

@@ -6,7 +6,7 @@ import type keystaticConfig from '../../keystatic.config';
 
 interface Props {
   metadata: Metadata;
-  site: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['Site']>;
+  site: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['site']>;
 }
 
 const { metadata, site } = Astro.props;

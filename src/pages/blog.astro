@@ -4,7 +4,7 @@ import Default from '../layouts/Default.astro';
 import Artifact from '../components/Artifact.astro';
 import type { Metadata } from '../types';
 
-const blog = await getCollection('Blog');
+const blog = await getCollection('blog');
 
 const metadata: Metadata = {
   title: 'Blog',

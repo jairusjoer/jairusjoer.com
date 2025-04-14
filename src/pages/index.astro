@@ -5,7 +5,7 @@ import { parse } from 'marked';
 import Section from '../components/Section.astro';
 
 const reader = useReader();
-const site = (await reader.singletons.Site.read({ resolveLinkedFiles: true }))!;
+const site = (await reader.singletons.site.read({ resolveLinkedFiles: true }))!;
 ---
 
 <Default>

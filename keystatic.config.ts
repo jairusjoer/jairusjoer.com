@@ -1,19 +1,19 @@
 import { config } from '@keystatic/core';
 // Collections
-import { Blog } from './src/collections/Blog';
-import { Pages } from './src/collections/Pages';
+import { blog } from './src/collections/blog';
+import { pages } from './src/collections/pages';
 // Singletons
-import { Site } from './src/singletons/Site';
+import { site } from './src/singletons/site';
 
 export default config({
   storage: {
     kind: 'local',
   },
   collections: {
-    Blog: await Blog.keystatic(),
-    Pages: await Pages.keystatic(),
+    blog: await blog.keystatic(),
+    pages: await pages.keystatic(),
   },
   singletons: {
-    Site: await Site.keystatic(),
+    site: await site.keystatic(),
   },
 });

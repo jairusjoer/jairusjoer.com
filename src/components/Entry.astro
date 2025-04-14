@@ -7,7 +7,7 @@ import { getEntry } from 'astro:content';
 
 interface Props {
   entry: EntryWithResolvedLinkedFiles<
-    (typeof keystaticConfig)['singletons']['Site']
+    (typeof keystaticConfig)['singletons']['site']
   >['sections'][number]['entries'][number];
 }
 
@@ -30,7 +30,7 @@ const { entry } = Astro.props;
     {
       entry?.page && (
         <div class="mt-4">
-          <Artifact entry={(await getEntry('Pages', entry.page))!} />
+          <Artifact entry={(await getEntry('pages', entry.page))!} />
         </div>
       )
     }

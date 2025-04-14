@@ -4,7 +4,7 @@ import type { EntryWithResolvedLinkedFiles } from '@keystatic/core/reader';
 import Entry from './Entry.astro';
 
 interface Props {
-  section: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['Site']>['sections'][number];
+  section: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['site']>['sections'][number];
 }
 
 const { section } = Astro.props;

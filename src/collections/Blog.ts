@@ -1,12 +1,12 @@
-import type { CollectionKey } from 'astro:content';
 import _ from 'lodash';
-import { Presets } from './Presets';
+import { presets } from '../content.presets';
+import type { CollectionKey } from 'astro:content';
 
-const collectionKey: CollectionKey = 'Blog';
+const collectionKey: CollectionKey = 'blog';
 
 const keystatic = async () => {
   const { fields, collection } = await import('@keystatic/core');
-  const presets = await Presets.fields();
+  const fieldPresets = await presets.fields();
 
   return collection({
     columns: ['draft', 'title', 'description', 'date'],
@@ -16,12 +16,12 @@ const keystatic = async () => {
     path: `src/content/${collectionKey}/*`,
     slugField: 'title',
     schema: {
-      draft: presets.draft,
-      image: presets.image(collectionKey),
-      title: presets.titleSlug,
-      description: presets.description,
+      draft: fieldPresets.draft,
+      image: fieldPresets.image(collectionKey),
+      title: fieldPresets.titleSlug,
+      description: fieldPresets.description,
       date: fields.date({ label: 'Date' }),
-      content: presets.content(collectionKey),
+      content: fieldPresets.content(collectionKey),
     },
   });
 };
@@ -29,7 +29,7 @@ const keystatic = async () => {
 const astro = async () => {
   const { defineCollection, z } = await import('astro:content');
   const { glob } = await import('astro/loaders');
-  const presets = await Presets.z();
+  const zPresets = await presets.z();
 
   return defineCollection({
     loader: glob({
@@ -38,13 +38,13 @@ const astro = async () => {
     }),
     schema: ({ image }) =>
       z.object({
-        draft: presets.draft,
+        draft: zPresets.draft,
         image: image().optional(),
-        title: presets.title,
-        description: presets.description,
+        title: zPresets.title,
+        description: zPresets.description,
         date: z.date().optional(),
       }),
   });
 };
 
-export const Blog = { keystatic, astro };
+export const blog = { keystatic, astro };

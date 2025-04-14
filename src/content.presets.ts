@@ -36,9 +36,9 @@ export const z = async () => {
     title: z.string(),
     // Optional
     description: z.string().optional(),
-    draft: z.boolean().optional(),
+    draft: z.boolean().optional().default(false),
     url: z.string().optional(),
   };
 };
 
-export const Presets = { fields, z };
+export const presets = { fields, z };
