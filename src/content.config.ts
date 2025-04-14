@@ -1,14 +1,8 @@
 // Collections
-import { Blog } from './collections/Blog';
-import { Pages } from './collections/Pages';
-// Singletons
-import { Site } from './singletons/Site';
+import { blog } from './collections/blog';
+import { pages } from './collections/pages';
 
 export const collections = {
-  Blog: await Blog.astro(),
-  Pages: await Pages.astro(),
-};
-
-export const singletons = {
-  Site: await Site.astro(),
+  blog: await blog.astro(),
+  pages: await pages.astro(),
 };

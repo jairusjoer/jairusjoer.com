@@ -1,19 +1,7 @@
 ---
-import Default from '../layouts/Default.astro';
-import { useReader } from '../composables/useReader';
-import { parse } from 'marked';
-import Section from '../components/Section.astro';
 
-const reader = useReader();
-const site = (await reader.singletons.Site.read({ resolveLinkedFiles: true }))!;
 ---
 
-<Default>
-  <main class="grow space-y-16">
-    <section
-      class="prose prose-sm prose-theme"
-      set:html={parse(site.general.about)}
-    />
-    {site?.sections?.map((section) => <Section {section} />)}
-  </main>
-</Default>
+<main class="grow space-y-16">
+  <h1>Hello</h1>
+</main>

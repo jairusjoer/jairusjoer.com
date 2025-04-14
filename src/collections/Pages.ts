@@ -1,34 +1,10 @@
 import type { CollectionKey } from 'astro:content';
-import _ from 'lodash';
-import { Presets } from './Presets';
 
-const collectionKey: CollectionKey = 'Pages';
-
-const keystatic = async () => {
-  const { collection } = await import('@keystatic/core');
-  const presets = await Presets.fields();
-
-  return collection({
-    columns: ['draft', 'title', 'description'],
-    entryLayout: 'content',
-    format: { contentField: 'content' },
-    label: _.startCase(collectionKey),
-    path: `src/content/${collectionKey}/*`,
-    slugField: 'title',
-    schema: {
-      draft: presets.draft,
-      image: presets.image(collectionKey),
-      title: presets.titleSlug,
-      description: presets.description,
-      content: presets.content(collectionKey),
-    },
-  });
-};
+const collectionKey: CollectionKey = 'pages';
 
 const astro = async () => {
   const { defineCollection, z } = await import('astro:content');
   const { glob } = await import('astro/loaders');
-  const presets = await Presets.z();
 
   return defineCollection({
     loader: glob({
@@ -37,12 +13,12 @@ const astro = async () => {
     }),
     schema: ({ image }) =>
       z.object({
-        draft: presets.draft,
+        draft: z.boolean().optional(),
         image: image().optional(),
-        title: presets.title,
-        description: presets.description,
+        title: z.string(),
+        description: z.string().optional(),
       }),
   });
 };
 
-export const Pages = { keystatic, astro };
+export const pages = { astro };

@@ -6,20 +6,12 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { ClientRouter } from 'astro:transitions';
 import type { Metadata } from '../types';
-import { useReader } from '../composables/useReader';
-
-const reader = useReader();
-const site = (await reader.singletons.Site.read({ resolveLinkedFiles: true }))!;
 
 interface Props {
   metadata?: Metadata;
 }
 
-const {
-  metadata = {
-    description: site?.general.description,
-  },
-} = Astro.props;
+const { metadata } = Astro.props;
 ---
 
 <script>
