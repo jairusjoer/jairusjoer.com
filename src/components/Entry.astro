@@ -18,9 +18,9 @@ const { entry } = Astro.props;
   <span>{entry.time}</span>
   <div>
     <h3 class="text-foreground font-medium">{entry.title}</h3>
-    <p>{entry.description}</p>
+    {entry?.description && <p>{entry.description}</p>}
     {
-      entry.content && (
+      entry?.content && (
         <div
           class="prose prose-sm prose-theme mt-4"
           set:html={parse(entry.content)}
@@ -30,7 +30,7 @@ const { entry } = Astro.props;
     {
       entry?.page && (
         <div class="mt-4">
-          <Artifact entry={(await getEntry('pages', entry.page))!} />
+          <Artifact entry={await getEntry('pages', entry.page)} />
         </div>
       )
     }

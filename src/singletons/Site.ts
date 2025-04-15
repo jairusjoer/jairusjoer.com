@@ -130,7 +130,7 @@ const astro = async () => {
         footer: z.array(
           z.object({
             title: zPresets.title,
-            href: z.string(),
+            href: z.string().url().or(z.string().startsWith('/')),
           }),
         ),
       }),

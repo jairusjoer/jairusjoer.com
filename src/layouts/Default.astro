@@ -9,7 +9,7 @@ import type { Metadata } from '../types';
 import { useReader } from '../composables/useReader';
 
 const reader = useReader();
-const site = (await reader.singletons.site.read({ resolveLinkedFiles: true }))!;
+const site = await reader.singletons.site.read({ resolveLinkedFiles: true });
 
 interface Props {
   metadata?: Metadata;

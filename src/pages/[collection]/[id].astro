@@ -32,13 +32,9 @@ const { Content } = await render(entry);
 
 <Default metadata={entry.data as Metadata}>
   <main>
-    {
-      entry.data?.title && (
-        <header class="mb-4">
-          <h1 class="text-foreground font-medium">{entry.data.title}</h1>
-        </header>
-      )
-    }
+    <header class="mb-4">
+      <h1 class="text-foreground font-medium">{entry.data.title}</h1>
+    </header>
     <div class="prose prose-sm prose-theme">
       <Content />
     </div>

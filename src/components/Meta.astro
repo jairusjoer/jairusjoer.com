@@ -5,8 +5,8 @@ import type { EntryWithResolvedLinkedFiles } from '@keystatic/core/reader';
 import type keystaticConfig from '../../keystatic.config';
 
 interface Props {
-  metadata: Metadata;
-  site: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['site']>;
+  metadata?: Metadata;
+  site: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['site']> | null;
 }
 
 const { metadata, site } = Astro.props;
@@ -54,7 +54,7 @@ const title = metadata?.title ? [metadata.title, site?.general.title].join(' •
 />
 <meta
   name="description"
-  content={metadata.description}
+  content={metadata?.description}
 />
 
 <!-- Open Graph / Facebook -->
@@ -72,11 +72,11 @@ const title = metadata?.title ? [metadata.title, site?.general.title].join(' •
 />
 <meta
   property="og:description"
-  content={metadata.description}
+  content={metadata?.description}
 />
 <meta
   property="og:image"
-  content={metadata.image}
+  content={metadata?.image}
 />
 
 <!-- Twitter -->
@@ -94,11 +94,11 @@ const title = metadata?.title ? [metadata.title, site?.general.title].join(' •
 />
 <meta
   property="twitter:description"
-  content={metadata.description}
+  content={metadata?.description}
 />
 <meta
   property="twitter:image"
-  content={metadata.image}
+  content={metadata?.image}
 />
 
 {

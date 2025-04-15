@@ -3,17 +3,17 @@ import type { EntryWithResolvedLinkedFiles } from '@keystatic/core/reader';
 import type keystaticConfig from '../../keystatic.config';
 
 interface Props {
-  site: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['site']>;
+  site: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['site']> | null;
 }
 
 const { site } = Astro.props;
 ---
 
 {
-  site?.footer.length > 0 && (
+  site && site.footer.length > 0 && (
     <footer class="mt-auto font-medium">
       <ul class="mt-16 flex flex-wrap gap-2">
-        {site?.footer.map(({ href, title }) => (
+        {site.footer.map(({ href, title }) => (
           <li>
             <a
               class="block"

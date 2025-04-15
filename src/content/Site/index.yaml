@@ -1,31 +1,6 @@
 general:
-  image: /src/assets/images/Site/general/image.png
   title: Jairus Joer
-  description: Full Stack Developer & Designer based in Hanover, Germany
-  navigation:
-    - title: Imprint
-      href: /pages/imprint
-sections:
-  - draft: false
-    title: Work Experience
-    entries:
-      - draft: false
-        time: 2024 – Now
-        title: Full Stack Engineer at HERO Software
-        description: Hanover, Germany – Full-time
-        url: https://google.com
-        page: demo-appendage
-      - draft: false
-        time: 2018 – 2019
-        title: Another Position
-        description: Hanover, Germany
-  - draft: false
-    title: Projects
-    entries:
-      - draft: false
-        time: Ongoing
-        title: Aggregata
-        description: A blog about the web
-footer:
-  - title: Imprint
-    href: /pages/imprint
+  description: Full Stack Developer & Designer
+  navigation: []
+sections: []
+footer: []

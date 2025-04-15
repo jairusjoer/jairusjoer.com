@@ -4,13 +4,22 @@ import { getCollection } from 'astro:content';
 import type keystaticConfig from '../../keystatic.config';
 
 interface Props {
-  site: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['site']>;
+  site: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['site']> | null;
 }
 
 const { site } = Astro.props;
 const blog = await getCollection('blog');
 
 const isCurrentPath = (path: string) => Astro.url.pathname === path;
+
+const navItemsFromSite =
+  site?.general.navigation
+    .filter((item) => item.href !== null)
+    .map((item) => ({
+      ...item,
+      href: item.href!,
+      draft: false,
+    })) || [];
 
 const items = [
   {
@@ -21,13 +30,10 @@ const items = [
   {
     title: 'Blog',
     href: '/blog',
-    draft: blog.filter((entry) => !entry.data?.draft).length === 0,
+    draft: blog.filter((entry) => !entry.data.draft).length === 0,
   },
-  ...(site?.general.navigation.map((item) => ({
-    ...item,
-    draft: false,
-  })) || []),
-].filter((item) => !item?.draft);
+  ...navItemsFromSite,
+].filter((item) => !item.draft);
 ---
 
 <nav class="mb-4 font-medium">
@@ -36,7 +42,7 @@ const items = [
       items.map((item) => (
         <li>
           <a
-            class:list={{ block: true, 'text-foreground': isCurrentPath(item.href!) }}
+            class:list={{ block: true, 'text-foreground': isCurrentPath(item.href) }}
             href={item.href}
           >
             {item.title}
