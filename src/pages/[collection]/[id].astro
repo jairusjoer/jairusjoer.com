@@ -1,39 +1,58 @@
 ---
 import Default from '../../layouts/Default.astro';
-import { collections } from '../../content.config';
 import { getCollection } from 'astro:content';
 import { render } from 'astro:content';
-import _ from 'lodash';
 import type { CollectionKey } from 'astro:content';
 import type { Metadata } from '../../types';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
-  let paths = [];
+  const collections: Exclude<CollectionKey, 'site'>[] = ['blog', 'pages'];
 
-  for (const key of Object.keys(collections)) {
-    const collectionKey = key as CollectionKey;
-    const collection = await getCollection(collectionKey);
+  return (
+    await Promise.all(
+      collections.map(async (collectionKey) => {
+        const collection = await getCollection(collectionKey);
 
-    const map = collection.map((entry) => ({
-      params: { collection: _.kebabCase(collectionKey), id: entry.id },
-      props: { entry },
-    }));
-
-    paths.push(...map);
-  }
-
-  return paths;
+        return collection
+          .filter((entry) => !entry.data?.draft)
+          .map((entry) => ({
+            params: { collection: collectionKey, id: entry.id },
+            props: { entry },
+          }));
+      }),
+    )
+  ).flat();
 }
 
 const { entry } = Astro.props;
-
 const { Content } = await render(entry);
 ---
 
 <Default metadata={entry.data as Metadata}>
   <main>
     <header class="mb-4">
+      {
+        entry.data?.image && (
+          <Image
+            src={entry.data.image}
+            alt=""
+            width={864}
+            height={486}
+            class="mb-4 rounded object-cover"
+            loading="eager"
+            format="avif"
+          />
+        )
+      }
       <h1 class="text-foreground font-medium">{entry.data.title}</h1>
+      {
+        'date' in entry.data && (
+          <time datetime={entry.data.date.toISOString()}>
+            {entry.data.date.toLocaleString(undefined, { dateStyle: 'long' })}
+          </time>
+        )
+      }
     </header>
     <div class="prose prose-sm prose-theme">
       <Content />

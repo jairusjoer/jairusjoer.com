@@ -1,22 +1,23 @@
 ---
-import type { EntryWithResolvedLinkedFiles } from '@keystatic/core/reader';
-import type keystaticConfig from '../../keystatic.config';
+import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-  site: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['site']> | null;
+  site: CollectionEntry<'site'>['data'];
 }
 
 const { site } = Astro.props;
+
+const isCurrentPath = (path: string) => Astro.url.pathname === path;
 ---
 
 {
-  site && site.footer.length > 0 && (
+  site.footer && (
     <footer class="mt-auto font-medium">
       <ul class="mt-16 flex flex-wrap gap-2">
-        {site.footer.map(({ href, title }) => (
+        {Object.entries(site.footer).map(([title, href]) => (
           <li>
             <a
-              class="block"
+              class:list={{ block: true, 'text-foreground': isCurrentPath(href) }}
               {href}
             >
               {title}

@@ -1,15 +1,13 @@
 ---
 import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import _ from 'lodash';
-import { useReadTime } from '../composables/useReadTime';
-import { parse } from 'marked';
+import { render, type CollectionEntry } from 'astro:content';
 
 interface Props {
-  entry: CollectionEntry<'pages' | 'blog'> | undefined;
+  entry: CollectionEntry<'pages' | 'blog'>;
 }
 
 const { entry } = Astro.props;
+const { Content } = await render(entry);
 ---
 
 {
@@ -24,24 +22,24 @@ const { entry } = Astro.props;
               alt=""
               width={256}
               height={144}
+              format="avif"
             />
           ) : (
             <div class="pointer-events-none h-18.5 p-2 select-none">
-              <div
-                class="space-y-2 font-mono text-[0.5rem] leading-4 italic"
-                set:html={await parse(_.truncate(entry.body, { length: 300 }))}
-              />
+              <div class="space-y-2 font-mono text-[0.5rem] leading-4 italic">
+                <Content />
+              </div>
             </div>
           )}
         </div>
         <div class="bg-background grid grow content-center p-4">
-          <span class="text-foreground truncate font-medium">{entry.data.title}</span>
-          {entry?.body && <span class="tabular-nums">{useReadTime(entry.body)}</span>}
+          <h2 class="text-foreground truncate font-medium">{entry.data.title}</h2>
+          {entry.data?.description && <p class="truncate">{entry.data.description}</p>}
         </div>
       </div>
       <a
         class="absolute inset-0 rounded-lg border-0"
-        href={`/${_.kebabCase(entry.collection)}/${entry.id}`}
+        href={`/${entry.collection}/${entry.id}`}
         title={entry.data.title}
         aria-label={entry.data.title}
       />

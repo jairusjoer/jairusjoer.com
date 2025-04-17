@@ -1,12 +1,11 @@
 ---
 import { getImage } from 'astro:assets';
 import type { Metadata } from '../types';
-import type { EntryWithResolvedLinkedFiles } from '@keystatic/core/reader';
-import type keystaticConfig from '../../keystatic.config';
+import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   metadata?: Metadata;
-  site: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['site']> | null;
+  site: CollectionEntry<'site'>['data'];
 }
 
 const { metadata, site } = Astro.props;
@@ -21,7 +20,7 @@ const favicon = await getImage({
   format: 'png',
 });
 
-const title = metadata?.title ? [metadata.title, site?.general.title].join(' • ') : site?.general.title;
+const title = metadata?.title ? [metadata.title, site?.general.name].join(' • ') : site?.general.name;
 ---
 
 <!-- Global Metadata -->

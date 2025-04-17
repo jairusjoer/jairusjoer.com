@@ -4,7 +4,9 @@ import Default from '../layouts/Default.astro';
 import Artifact from '../components/Artifact.astro';
 import type { Metadata } from '../types';
 
-const blog = await getCollection('blog');
+let blog = await getCollection('blog');
+blog = blog.filter((entry) => !entry.data?.draft);
+blog = blog.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const metadata: Metadata = {
   title: 'Blog',

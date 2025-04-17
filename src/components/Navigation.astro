@@ -1,10 +1,9 @@
 ---
-import type { EntryWithResolvedLinkedFiles } from '@keystatic/core/reader';
+import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
-import type keystaticConfig from '../../keystatic.config';
 
 interface Props {
-  site: EntryWithResolvedLinkedFiles<(typeof keystaticConfig)['singletons']['site']> | null;
+  site: CollectionEntry<'site'>['data'];
 }
 
 const { site } = Astro.props;
@@ -12,40 +11,29 @@ const blog = await getCollection('blog');
 
 const isCurrentPath = (path: string) => Astro.url.pathname === path;
 
-const navItemsFromSite =
-  site?.general.navigation
-    .filter((item) => item.href !== null)
-    .map((item) => ({
-      ...item,
-      href: item.href!,
-      draft: false,
-    })) || [];
+const defaultLinks = {
+  About: '/',
+};
 
-const items = [
-  {
-    title: 'About',
-    href: '/',
-    draft: false,
-  },
-  {
-    title: 'Blog',
-    href: '/blog',
-    draft: blog.filter((entry) => !entry.data.draft).length === 0,
-  },
-  ...navItemsFromSite,
-].filter((item) => !item.draft);
+if (blog.length > 0) {
+  Object.assign(defaultLinks, {
+    Blog: `/blog`,
+  });
+}
+
+const links = { ...defaultLinks, ...site.general?.links };
 ---
 
-<nav class="mb-4 font-medium">
+<nav class="py-4 font-medium">
   <ul class="flex flex-wrap gap-2">
     {
-      items.map((item) => (
+      Object.entries(links).map(([title, href]) => (
         <li>
           <a
-            class:list={{ block: true, 'text-foreground': isCurrentPath(item.href) }}
-            href={item.href}
+            class:list={{ block: true, 'text-foreground': isCurrentPath(href) }}
+            {href}
           >
-            {item.title}
+            {title}
           </a>
         </li>
       ))

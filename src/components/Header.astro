@@ -1,24 +1,33 @@
 ---
 import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  site: CollectionEntry<'site'>['data'];
+}
 
 const { site } = Astro.props;
 ---
 
 {
   site?.general && (
-    <header class="mb-8 flex gap-4">
+    <header
+      class="mb-4 flex gap-4"
+      transition:persist
+    >
       {site.general?.image && (
         <Image
           class="size-12 rounded-lg object-cover"
           src={site.general.image}
-          alt={site.general.title}
+          alt={site.general.name}
           width={96}
           height={96}
           loading="eager"
+          format="avif"
         />
       )}
       <div class="grid items-center">
-        <span class="text-foreground font-medium">{site.general.title}</span>
+        <span class="text-foreground font-medium">{site.general.name}</span>
         {site.general?.description && <span>{site.general.description}</span>}
       </div>
     </header>

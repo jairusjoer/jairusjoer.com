@@ -1,38 +1,30 @@
 ---
-import { parse } from 'marked';
-import type keystaticConfig from '../../keystatic.config';
-import type { EntryWithResolvedLinkedFiles } from '@keystatic/core/reader';
-import Artifact from './Artifact.astro';
-import { getEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-  entry: EntryWithResolvedLinkedFiles<
-    (typeof keystaticConfig)['singletons']['site']
-  >['sections'][number]['entries'][number];
+  entry: CollectionEntry<'site'>['data']['collections'][string][number];
 }
 
 const { entry } = Astro.props;
 ---
 
-<article class="relative grid sm:grid-cols-[6rem_1fr] sm:gap-8">
-  <span>{entry.time}</span>
-  <div>
-    <h3 class="text-foreground font-medium">{entry.title}</h3>
+<div class="relative grid sm:grid-cols-[6rem_1fr] sm:gap-8">
+  <span>{entry.meta}</span>
+  <article>
+    <h3 class="text-foreground font-medium">
+      {
+        entry?.url ? (
+          <a
+            href={entry.url}
+            target="_blank"
+          >
+            {entry.title}
+          </a>
+        ) : (
+          entry.title
+        )
+      }
+    </h3>
     {entry?.description && <p>{entry.description}</p>}
-    {
-      entry?.content && (
-        <div
-          class="prose prose-sm prose-theme mt-4"
-          set:html={parse(entry.content)}
-        />
-      )
-    }
-    {
-      entry?.page && (
-        <div class="mt-4">
-          <Artifact entry={await getEntry('pages', entry.page)} />
-        </div>
-      )
-    }
-  </div>
-</article>
+  </article>
+</div>

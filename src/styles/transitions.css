@@ -30,7 +30,7 @@
   }
 
   ::view-transition-new(main) {
-    --transition-y: -0.5rem;
+    --transition-y: 0.5rem;
     animation: fade var(--transition-duration) ease-in-out both reverse var(--transition-duration);
   }
 
@@ -42,8 +42,14 @@
     to {
       opacity: 0;
       filter: blur(0.125rem);
-      transform: translateY(var(--transition-y, 0.5rem));
+      transform: translateY(var(--transition-y, -0.5rem));
     }
+  }
+
+  /* Navigation */
+
+  nav {
+    view-transition-name: nav;
   }
 
   /* Footer */

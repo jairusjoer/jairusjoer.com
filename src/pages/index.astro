@@ -1,24 +1,22 @@
 ---
+import Collection from '../components/Collection.astro';
 import Default from '../layouts/Default.astro';
-import { useReader } from '../composables/useReader';
-import { parse } from 'marked';
-import Section from '../components/Section.astro';
-import Welcome from '../components/Welcome.astro';
 
-const reader = useReader();
-const site = await reader.singletons.site.read({ resolveLinkedFiles: true });
+import { getCollection, render } from 'astro:content';
+
+const site = (await getCollection('site'))[0];
+const { Content } = await render(site);
 ---
 
 <Default>
   <main class="grow space-y-16">
     {
-      site?.general && (
-        <section
-          class="prose prose-sm prose-theme"
-          set:html={parse(site.general.about)}
-        />
+      Content && (
+        <section class="prose prose-sm prose-theme">
+          <Content />
+        </section>
       )
     }
-    {site?.sections ? site.sections.map((section) => <Section {section} />) : <Welcome />}
+    {Object.entries(site.data.collections).map((collection) => <Collection {collection} />)}
   </main>
 </Default>
