@@ -14,26 +14,26 @@ const { metadata } = Astro.props;
 ---
 
 <Base {metadata}>
-  <Header
+  <!-- <Header
     image={`${Astro.url.origin}/avatar.jpeg`}
     title="Jairus Joer"
-    subtitle="Full Stack Developer & Design System Consultant, Germany, He/him"
-  />
+    subtitle="Designer meets Developer, Germany, He/him"
+  /> -->
 
-  <Navigation
+  <!-- <Navigation
     pages={{
       About: '/',
       Blog: '/blog/',
       Links: '/links/',
     }}
-  />
+  /> -->
   <slot />
-  <Footer
+  <!-- <Footer
     pages={{
       Imprint: '/imprint/',
       Privacy: 'https://www.iubenda.com/privacy-policy/41205652',
       Cookies: 'https://www.iubenda.com/privacy-policy/41205652/cookie-policy',
       Source: 'https://github.com/jairusjoer/jairusjoer.com/',
     }}
-  />
+  /> -->
 </Base>

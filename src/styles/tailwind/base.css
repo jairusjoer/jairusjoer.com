@@ -5,6 +5,7 @@
 
   ::view-transition {
     pointer-events: none;
+    isolation: isolate;
   }
 
   :root {
@@ -20,22 +21,8 @@
     content: ' ↗';
   }
 
-  code,
-  pre {
-    font-size: 0.75rem !important;
-  }
-
-  img,
-  pre {
-    border-radius: 0.25rem;
-  }
-
   html {
     scrollbar-gutter: stable;
     text-wrap: pretty;
-  }
-
-  pre {
-    max-width: calc(100dvw - 2rem);
   }
 }

@@ -9,10 +9,10 @@ const isCurrentPath = (path: string) => Astro.url.pathname === path;
 ---
 
 <footer
-  class="mt-auto md:ml-56 print:hidden"
+  class="mt-auto print:hidden"
   style="view-transition-name: footer"
 >
-  <nav class="mt-16 py-4 font-medium">
+  <nav class="p-6">
     <ul class="flex flex-wrap gap-4">
       {
         Object.entries(pages).map(([title, href]) => (

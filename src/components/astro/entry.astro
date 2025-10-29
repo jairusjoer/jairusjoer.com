@@ -1,40 +1,82 @@
 ---
-interface Props {
-  class?: string;
-  subtitle?: string;
-  meta: string[];
+export interface Props {
+  span: [string] | [string, string];
   title: string;
-  url?: string;
+  subtitle?: string;
 }
 
-const { class: className, meta, subtitle, title, url } = Astro.props;
+const { span, title, subtitle } = Astro.props;
 ---
 
-<div class:list={['relative col-span-full grid break-inside-avoid grid-cols-subgrid items-start', className]}>
-  <span class="bg-background print:bg-transparent top-10 tabular-nums md:sticky">{meta.join(' — ')}</span>
-  <article>
-    <h3 class="not-prose text-foreground font-headings font-medium">
-      {
-        url ? (
-          <a
-            v-if="url"
-            href={url}
-            target="_blank"
-          >
-            {title}
-          </a>
-        ) : (
-          title
-        )
-      }
-    </h3>
-    {subtitle && <span>{subtitle}</span>}
-    {
-      Astro.slots.has('default') && (
-        <div class="prose prose-sm prose-theme mt-4 space-y-4 tabular-nums">
-          <slot />
+<div class="absolute flex w-full items-start">
+  {
+    span.length === 2 ? (
+      <>
+        <div
+          class="relative w-6 border-y border-r"
+          data-start={span[0]}
+          data-end={span[1]}
+        >
+          <hr class="absolute -top-px right-0 w-screen border-dashed" />
+          <hr class="absolute right-0 -bottom-px w-screen border-dashed" />
         </div>
-      )
-    }
-  </article>
+        <div class="bg-background sticky top-0 z-10 grow border-t p-6">
+          <div class="text-foreground font-medium">{title}</div>
+          {subtitle && <div>{subtitle}</div>}
+        </div>
+      </>
+    ) : (
+      <div
+        class="bg-background flex w-full items-center gap-6"
+        data-start={span[0]}
+      >
+        <hr class="w-12" />
+        <div>{title}</div>
+      </div>
+    )
+  }
 </div>
+
+<script>
+  // Handle entries with both start and end (two-item spans)
+  const rangeEntries = document.querySelectorAll<HTMLElement>('[data-start][data-end]');
+
+  for (const entry of rangeEntries) {
+    const parent = entry.parentElement as HTMLElement;
+    const sibling = entry.nextElementSibling as HTMLElement;
+
+    const startRange = entry.getAttribute('data-start')!;
+    const endRange = entry.getAttribute('data-end')!;
+
+    const startElement = document.getElementById(startRange);
+    const endElement = document.getElementById(endRange);
+
+    const startRect = startElement?.getBoundingClientRect();
+    const endRect = endElement?.getBoundingClientRect();
+
+    if (!startRect || !endRect) continue;
+
+    const distance = Math.hypot(
+      startRect.left + startRect.width / 2 - (endRect.left + endRect.width / 2),
+      startRect.top + startRect.height / 2 - (endRect.top + endRect.height / 2)
+    );
+
+    parent.style.marginTop = `${endRect.top - 12}px`;
+    entry.style.marginBottom = `${sibling.offsetHeight - 1}px`;
+    entry.style.height = `${distance}px`;
+  }
+
+  // Handle entries with only start (one-item spans)
+  const singleEntries = document.querySelectorAll<HTMLElement>('[data-start]:not([data-end])');
+
+  for (const entry of singleEntries) {
+    const parent = entry.parentElement as HTMLElement;
+    const startRange = entry.getAttribute('data-start')!;
+    const startElement = document.getElementById(startRange);
+    const startRect = startElement?.getBoundingClientRect();
+
+    if (!startRect) continue;
+
+    parent.style.marginTop = `${startRect.top}px`;
+  }
+</script>

@@ -1,0 +1,57 @@
+---
+const now = new Date();
+const currentYear = now.getFullYear();
+const currentMonth = now.getMonth() - 1;
+const startYear = 2014;
+
+const years = Array.from({ length: currentYear - startYear + 1 }, (_, i) => currentYear - i);
+
+function getMonths(year: number, locale = 'en-US') {
+  const formatter = new Intl.DateTimeFormat(locale, { month: 'short' });
+  const months = [];
+
+  let endMonth;
+  if (year === currentYear) {
+    endMonth = currentMonth;
+  } else if (year < currentYear && year >= startYear) {
+    endMonth = 11;
+  } else {
+    return [];
+  }
+
+  for (let m = endMonth; m >= 0; m--) {
+    months.push(formatter.format(new Date(year, m, 1)));
+  }
+
+  return months;
+}
+---
+
+<aside class="relative z-10 -mt-3 text-center font-mono text-xs leading-6 uppercase">
+  <div
+    id="Now"
+    class="bg-background flex items-center gap-2 pr-2 text-orange-400"
+  >
+    <hr class="w-16 border-current" />
+    <div class="w-8">Now</div>
+  </div>
+  {
+    years.map((year) => (
+      <>
+        {getMonths(year).map((month) => (
+          <div
+            id={`${month} ${year}`}
+            class="bg-background flex w-18 items-center gap-2 pr-2"
+          >
+            <hr class="w-8" />
+            <pre class="w-6">{month}</pre>
+          </div>
+        ))}
+        <div class="bg-background flex items-center gap-2 pr-2 text-orange-400">
+          <hr class="w-16 border-current" />
+          <pre class="w-8">{year}</pre>
+        </div>
+      </>
+    ))
+  }
+</aside>

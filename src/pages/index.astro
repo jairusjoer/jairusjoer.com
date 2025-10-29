@@ -1,15 +1,9 @@
 ---
-import { render } from 'astro:content';
 import Default from '../layouts/default.astro';
-import { getEntry } from 'astro:content';
-import { useComponents } from '../composables';
 import type { Metadata } from '../types';
 import { defaultMetadata } from '../constants';
-
-const entry = await getEntry('pages', 'index');
-const { Content } = await render(entry!);
-
-const components = useComponents();
+import Entry from 'src/components/astro/entry.astro';
+import Timeline from 'src/components/astro/timeline.astro';
 
 const metadata: Metadata = {
   schema: {
@@ -36,9 +30,88 @@ const metadata: Metadata = {
 
 <Default {metadata}>
   <main
-    class="prose prose-sm prose-theme !max-w-none"
+    class="flex py-6"
     style="view-transition-name: main"
   >
-    <Content {components} />
+    <Timeline />
+    <div class="relative grid grow grid-cols-3 items-start gap-6">
+      <Entry
+        span={['Apr 2024', 'Now']}
+        title="Senior Full Stack Engineer"
+        subtitle="HERO Software"
+      />
+      <Entry
+        span={['Aug 2021', 'Mar 2024']}
+        title="Full Stack Developer"
+        subtitle="neuwaerts"
+      />
+      <Entry
+        span={['Aug 2018', 'Jul 2021']}
+        title="Media Design Apprentice"
+        subtitle="neuwaerts"
+      />
+      <Entry
+        span={['Aug 2018', 'May 2019']}
+        title="Media Designer Apprentice"
+        subtitle="TA Bildungszentrum"
+      />
+      <Entry
+        span={['Sep 2015', 'Jun 2018']}
+        title="Matura in Linguistics"
+        subtitle="Kooperative Gesamtschule Gronau (Leine)"
+      />
+      <Entry
+        span={['Apr 2016', 'May 2017']}
+        title="Co-Founder"
+        subtitle="XVI CHAPEL"
+      />
+      <Entry
+        span={['Oct 2015', 'Aug 2016']}
+        title="Marketing Manager"
+        subtitle="Word Of Bass Records"
+      />
+      <!-- Parallel track content -->
+      <Entry
+        span={['Nov 2020', 'Now']}
+        title="Freelance Developer & Designer"
+        subtitle="Working for SME clients"
+      />
+      <Entry
+        span={['Aug 2022', 'Now']}
+        title="Aggregata"
+        subtitle="Technical writing and project development"
+      />
+      <Entry
+        span={['Jan 2022']}
+        title="Content Platforms B2C (Gold)"
+        subtitle="BCM Award for zukunftswaende"
+      />
+      <Entry
+        span={['Nov 2023']}
+        title="Figma Workshop Series"
+        subtitle="neuwaerts"
+      />
+      <Entry
+        span={['Sep 2023']}
+        title="Working with Projects & Files"
+        subtitle="Client Workshop"
+      />
+      <Entry
+        span={['Jul 2023']}
+        title="Digital Tools for Clients"
+        subtitle="neuwaerts"
+      />
+      <Entry
+        span={['May 2023']}
+        title="Generative Texts Workshop"
+        subtitle="neuwaerts"
+      />
+      <Entry
+        span={['Nov 2019']}
+        title="New Work Seminar"
+        subtitle="neuwaerts"
+      />
+    </div>
+    <div class="grow border-t border-l p-6">Preview Placeholder</div>
   </main>
 </Default>

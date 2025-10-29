@@ -7,7 +7,6 @@ import { useComponents } from '../composables';
 import { getEntry } from 'astro:content';
 import { collections } from 'src/content.config';
 import type { CollectionKey } from 'astro:content';
-import Section from 'src/components/astro/section.astro';
 
 export async function getStaticPaths() {
   return (
@@ -18,8 +17,6 @@ export async function getStaticPaths() {
         if (import.meta.env.PROD) {
           collection = collection.filter((entry) => !entry.data?.draft);
         }
-
-        collection = collection.filter((entry) => entry.id !== 'index');
 
         return collection.map((entry) => ({
           params: { page: entry.id },
@@ -40,10 +37,8 @@ const components = useComponents();
 
 <Default metadata={entry.data as Metadata}>
   <main style="view-transition-name: main">
-    <Section title={entry.data.title}>
-      <div class="prose prose-sm prose-theme !max-w-none md:col-2">
-        <Content {components} />
-      </div>
-    </Section>
+    <article class="prose prose-theme !max-w-none">
+      <Content {components} />
+    </article>
   </main>
 </Default>
