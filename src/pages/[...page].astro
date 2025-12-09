@@ -1,0 +1,40 @@
+---
+import Default from '../layouts/default.astro';
+import { getCollection } from 'astro:content';
+import { render } from 'astro:content';
+import type { Metadata } from '../types';
+import { getEntry } from 'astro:content';
+import Category from '../components/astro/category.astro';
+import { getComponents } from '../scripts/getComponents';
+
+export async function getStaticPaths() {
+  let collection = await getCollection('pages');
+
+  if (import.meta.env.PROD) {
+    collection = collection.filter((entry) => !entry.data?.draft);
+  }
+
+  collection = collection.filter((entry) => entry.id !== 'index');
+
+  return collection.map((entry) => ({
+    params: { page: entry.id },
+    props: { id: entry.id },
+  }));
+}
+
+const { id } = Astro.props;
+
+const entry = await getEntry('pages', id)!;
+const { Content } = await render(entry);
+const components = getComponents();
+---
+
+<Default metadata={entry.data as Metadata}>
+  <main>
+    <Category {...entry.data}>
+      <div class="prose prose-theme">
+        <Content {components} />
+      </div>
+    </Category>
+  </main>
+</Default>
