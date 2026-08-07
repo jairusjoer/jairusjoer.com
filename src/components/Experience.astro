@@ -1,0 +1,55 @@
+---
+import { type Props as ItemProps } from '@components/Item.astro';
+import Icon from './Icon.astro';
+import Item from './Item.astro';
+
+export interface Props extends ItemProps {
+  icon: string;
+  highlights?: string[];
+  items?: ItemProps[];
+}
+
+const props = Astro.props;
+---
+
+<section
+  class:list={[
+    'relative break-inside-avoid',
+    {
+      'before:border-border before:absolute before:top-15 before:bottom-12 before:left-6 before:border-l': props.items,
+    },
+  ]}
+>
+  <header class="flex w-full gap-3">
+    <div class="bg-background-subtle grid size-12 shrink-0 place-items-center rounded-lg print:border">
+      <Icon name={props.icon} />
+    </div>
+    <Item {...props} />
+  </header>
+
+  {
+    props.highlights && (
+      <ul class="mt-3 list-disc space-y-3 pl-15">
+        {props.highlights.map((highlight) => (
+          <li>{highlight}</li>
+        ))}
+      </ul>
+    )
+  }
+  {
+    props.items && (
+      <ul class="mt-3 space-y-3 pl-15">
+        {props.items.map((item) => (
+          <li
+            class:list={[
+              'relative grid',
+              'before:border-border before:absolute before:top-0 before:-left-9 before:block before:h-3 before:w-6 before:rounded-bl-xl before:border-b before:border-l',
+            ]}
+          >
+            <Item {...item} />
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</section>

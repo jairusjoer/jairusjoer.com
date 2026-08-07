@@ -1,6 +1,6 @@
 ---
 import ContentHeaderTable from '@components/ContentHeaderTable.astro';
-import { formatDatetime } from '@scripts/formatDatetime';
+import { formatDateTime } from '@scripts/formatDateTime';
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
@@ -35,7 +35,7 @@ const isWriting = entry.id.startsWith('writing/');
   {
     entry.data.date && (
       <small class="block">
-        <time>{formatDatetime(entry.data.date)}</time>
+        <time>{formatDateTime(entry.data.date)}</time>
       </small>
     )
   }

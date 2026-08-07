@@ -1,6 +1,5 @@
 ---
 import type { PageConfigLink } from '../page.config.ts';
-import Button from './Button.vue';
 
 export interface Props {
   class?: string;
@@ -20,17 +19,17 @@ const active = (path: string) => {
 
 {
   links?.length && (
-    <nav class:list={['print-hidden w-full', className]}>
-      <ul class="flex flex-wrap items-center gap-1 font-medium">
+    <nav class:list={['w-full print:hidden', className]}>
+      <ul class="flex flex-wrap items-center gap-6 font-medium">
         <slot />
         {links.map((link) => (
           <li>
-            <Button
-              variant={active(link.href) ? 'bold' : 'ghost'}
+            <a
+              class={active(link.href) ? 'text-foreground underline' : 'ghost'}
               href={link.href}
             >
               {link.title}
-            </Button>
+            </a>
           </li>
         ))}
       </ul>

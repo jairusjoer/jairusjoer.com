@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
+import Item from './Item.astro';
 
 const books = (await getCollection('books')).sort((a, b) => {
   const dateA = new Date(a.data.date).getTime();
@@ -14,22 +15,16 @@ const books = (await getCollection('books')).sort((a, b) => {
   <ul class="space-y-3">
     {
       books.map(({ data: book }) => (
-        <li class="group flex gap-3">
+        <li class="group flex items-center gap-3">
           {book?.cover && (
             <Image
-              class="h-12 w-8 shrink-0"
+              class="h-12 w-8 shrink-0 rounded-xs"
               src={book.cover}
               alt={book.id}
-              height={144}
+              height={384}
             />
           )}
-          <div>
-            <strong class="text-foreground">{book.id}</strong>
-            <br />
-            <small>
-              {book.status} &bull; {book.author}
-            </small>
-          </div>
+          <Item text={[book.id, book.author]} />
         </li>
       ))
     }

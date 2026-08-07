@@ -9,7 +9,7 @@ const sitemapContent = readFileSync(sitemapPath, 'utf-8');
 
 const urlRegex = /<loc>(https?:\/\/[^<]+)<\/loc>/g;
 const urls = [...sitemapContent.matchAll(urlRegex)].map((url) => {
-  return url[1].replace(page.url, '');
+  return url[1].replace(page.href, '');
 });
 
 test.describe('light', () => {

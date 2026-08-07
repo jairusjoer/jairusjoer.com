@@ -11,12 +11,12 @@ export interface PageConfig {
   locale: string;
   navigation?: PageConfigLink[];
   title: string;
-  url: string;
+  href: string;
 }
 
 export const page: PageConfig = {
-  url: 'https://jairusjoer.com',
-  image: async () => (await import('./assets/image.png')).default,
+  href: 'https://jairusjoer.com',
+  image: async () => (await import('./assets/image.jpeg')).default,
   title: 'Jairus Joer',
   description: 'Senior Software Engineer & Designer',
   locale: 'en-US',

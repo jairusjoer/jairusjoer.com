@@ -35,7 +35,7 @@ export default defineConfig({
     },
   },
 
-  site: page.url,
+  site: page.href,
 
   vite: {
     plugins: [tailwindcss()],

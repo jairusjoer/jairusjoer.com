@@ -3,15 +3,12 @@ import { Image } from 'astro:assets';
 import { page } from '../page.config';
 ---
 
-<header class="flex flex-col gap-6">
-  <a
-    class="relative flex items-start gap-3"
-    href="/"
-  >
+<header>
+  <a href="/">
     {
       page?.image && (
         <Image
-          class="size-12"
+          class="mb-6 size-12 rounded-lg"
           src={await page.image()}
           alt=""
           width={144}

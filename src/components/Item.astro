@@ -1,0 +1,28 @@
+---
+export interface Props {
+  href?: string;
+  text: [string?, string?, string?];
+  class?: string;
+}
+
+const props = Astro.props;
+
+const Element = props.href ? 'a' : 'div';
+---
+
+<Element
+  class:list={['group', props.class]}
+  href={props.href}
+>
+  {
+    props.text?.filter(Boolean).map((line, i) => (
+      <p
+        class:list={{
+          'text-foreground font-medium': i === 0,
+        }}
+      >
+        {line}
+      </p>
+    ))
+  }
+</Element>

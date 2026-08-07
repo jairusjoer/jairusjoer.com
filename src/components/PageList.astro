@@ -1,5 +1,6 @@
 ---
-import { formatDatetime } from '@scripts/formatDatetime';
+import Item from '@components/Item.astro';
+import { formatDateTime } from '@scripts/formatDateTime';
 import { isPublished } from '@scripts/isPublished';
 import { getCollection } from 'astro:content';
 
@@ -27,27 +28,17 @@ if (import.meta.env.PROD) {
 }
 ---
 
-<ul>
+<ul class="not-prose space-y-3">
   {
     collection.map((entry) => (
       <li>
-        <article>
-          <strong>
-            <a href={`/${entry.id}`}>
-              {entry.data.status && <span>{entry.data.status}: </span>}
-              {entry.data.title}
-            </a>
-          </strong>
-
-          {entry.data.date && (
-            <>
-              <br />
-              <small>
-                <time>{formatDatetime(entry.data.date)}</time>
-              </small>
-            </>
-          )}
-        </article>
+        <Item
+          href={`/${entry.id}`}
+          text={[
+            [entry.data.status, entry.data.title].filter(Boolean).join(': '),
+            entry.data.date && formatDateTime(entry.data.date),
+          ]}
+        />
       </li>
     ))
   }
