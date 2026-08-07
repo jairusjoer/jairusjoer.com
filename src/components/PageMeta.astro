@@ -1,6 +1,6 @@
 ---
 import { getImage } from 'astro:assets';
-import { site } from '../config';
+import { page } from '../page.config';
 
 export interface Metadata {
   title: string;
@@ -17,9 +17,9 @@ export interface Props {
 
 const { metadata } = Astro.props;
 
-const { title = site.title, id, description = site.description, image, schema, status } = metadata ?? {};
+const { title = page.title, id, description = page.description, image, schema, status } = metadata ?? {};
 
-const titleTemplate = title === site.title ? site.title : `${title} • ${site.title}`;
+const titleTemplate = title === page.title ? page.title : `${title} • ${page.title}`;
 
 const getURL = (path: string) => String(new URL(path, Astro.site));
 
@@ -45,21 +45,21 @@ const pageImage = image ? getURL(image.src) : getURL(`og/${id ?? 'index'}.png`);
 <link
   rel="alternate"
   type="application/rss+xml"
-  title={site.title}
+  title={page.title}
   href={new URL('rss.xml', Astro.site)}
 />
 
 {
-  site?.image && (
+  page?.image && (
     <>
       <link
         rel="icon"
-        href={(await getImage({ src: await site.image(), width: 48, height: 48, format: 'png' })).src}
+        href={(await getImage({ src: await page.image(), width: 48, height: 48, format: 'png' })).src}
         sizes="48x48"
       />
       <link
         rel="apple-touch-icon"
-        href={(await getImage({ src: await site.image(), width: 180, height: 180, format: 'png' })).src}
+        href={(await getImage({ src: await page.image(), width: 180, height: 180, format: 'png' })).src}
       />
     </>
   )

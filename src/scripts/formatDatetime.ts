@@ -1,5 +1,5 @@
-import { site } from '../config';
+import { page } from '../page.config';
 
-const formatter = new Intl.DateTimeFormat(site.locale, site?.datetime);
+const formatter = new Intl.DateTimeFormat(page.locale, page?.datetime);
 
 export const formatDatetime = (date: Date) => formatter.format(new Date(date));

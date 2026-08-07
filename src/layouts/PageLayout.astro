@@ -1,12 +1,12 @@
 ---
 import '@styles/global.css';
-import SiteFooter from '@components/SiteFooter.astro';
-import SiteHeader from '@components/SiteHeader.astro';
-import SiteMeta from '@components/SiteMeta.astro';
-import type { Metadata } from '@components/SiteMeta.astro';
+import PageFooter from '@components/PageFooter.astro';
+import PageHeader from '@components/PageHeader.astro';
+import PageMeta from '@components/PageMeta.astro';
+import type { Metadata } from '@components/PageMeta.astro';
 import { Font } from 'astro:assets';
-import SiteNavigation from '../components/SiteNavigation.astro';
-import { site } from '../config';
+import PageNavigation from '../components/PageNavigation.astro';
+import { page } from '../page.config';
 
 export interface Props {
   metadata?: Metadata;
@@ -16,11 +16,11 @@ const { metadata } = Astro.props;
 ---
 
 <html
-  lang={site.locale.slice(0, 2)}
+  lang={page.locale.slice(0, 2)}
   class="bg-background text-foreground-subtle text-pretty antialiased scheme-light-dark print:bg-transparent print:scheme-light"
 >
   <head>
-    <SiteMeta {metadata} />
+    <PageMeta {metadata} />
     <Font cssVariable="--font-sans" />
     <Font cssVariable="--font-mono" />
     <slot name="head" />
@@ -31,13 +31,13 @@ const { metadata } = Astro.props;
       class="text-default px-6 py-24 font-sans"
     >
       <div class="max-w-default mx-auto flex min-h-dvh w-full flex-col items-start print:ml-0 print:max-w-none">
-        <SiteHeader />
-        <SiteNavigation
+        <PageHeader />
+        <PageNavigation
           class="mt-6"
-          links={site.navigation}
+          links={page.navigation}
         />
         <slot />
-        <SiteFooter links={site.footer} />
+        <PageFooter links={page.footer} />
       </div>
     </div>
   </body>

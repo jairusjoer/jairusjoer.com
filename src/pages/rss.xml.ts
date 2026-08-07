@@ -2,7 +2,7 @@ import rss from '@astrojs/rss';
 import { isPublished } from '@scripts/isPublished';
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
-import { site } from '../config';
+import { page } from '../page.config';
 
 export const GET: APIRoute = async () => {
   let collection = await getCollection('pages');
@@ -33,9 +33,9 @@ export const GET: APIRoute = async () => {
   });
 
   return rss({
-    title: site.title,
-    description: site.description,
-    site: site.url,
+    title: page.title,
+    description: page.description,
+    site: page.url,
     items: entries,
   });
 };

@@ -1,10 +1,10 @@
 ---
-import type { SiteConfigLink } from '../config';
+import type { PageConfigLink } from '../page.config.ts';
 import Button from './Button.vue';
 
 export interface Props {
   class?: string;
-  links?: Array<SiteConfigLink>;
+  links?: PageConfigLink[];
 }
 
 const { class: className, links } = Astro.props;

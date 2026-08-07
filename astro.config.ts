@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import vue from '@astrojs/vue';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, fontProviders } from 'astro/config';
-import { site } from './src/config';
+import { page } from './src/page.config';
 
 // https://astro.build/config
 export default defineConfig({
@@ -35,7 +35,7 @@ export default defineConfig({
     },
   },
 
-  site: site.url,
+  site: page.url,
 
   vite: {
     plugins: [tailwindcss()],

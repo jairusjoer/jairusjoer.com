@@ -1,20 +1,20 @@
-export interface SiteConfigLink {
+export interface PageConfigLink {
   title: string;
   href: string;
 }
 
-export interface SiteConfig {
+export interface PageConfig {
   datetime: Intl.DateTimeFormatOptions;
   description: string;
-  footer?: Array<SiteConfigLink>;
+  footer?: PageConfigLink[];
   image?: () => Promise<ImageMetadata>;
   locale: string;
-  navigation?: Array<SiteConfigLink>;
+  navigation?: PageConfigLink[];
   title: string;
   url: string;
 }
 
-export const site: SiteConfig = {
+export const page: PageConfig = {
   url: 'https://jairusjoer.com',
   image: async () => (await import('./assets/image.png')).default,
   title: 'Jairus Joer',
