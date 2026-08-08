@@ -1,11 +1,19 @@
 ---
 import BadgeList from '@components/BadgeList.astro';
 import Experience from '@components/Experience.astro';
+import type { Metadata } from '@components/PageMeta.astro';
+import Section from '@components/Section.astro';
 import PageLayout from '@layouts/PageLayout.astro';
+
+const metadata: Metadata = {
+  title: 'About',
+  id: 'index',
+};
 ---
 
-<PageLayout>
-  <div class="my-18 space-y-6">
+<PageLayout {metadata}>
+  <main class="my-18 space-y-6">
+    <h1 class="text-foreground font-medium">About</h1>
     <div class="prose">
       <p>
         Hello there! I am Jairus Joer, a <strong>Senior Software Engineer</strong> and <strong>Designer</strong> based in
@@ -30,194 +38,221 @@ import PageLayout from '@layouts/PageLayout.astro';
       </p>
     </div>
 
-    <hr class="w-full" />
+    <Section title="Skills">
+      <BadgeList
+        items={[
+          'Alpine.js',
+          'Astro',
+          'CakePHP',
+          'Cloudflare',
+          'Codegen',
+          'Design Systems',
+          'Docker',
+          'ESLint',
+          'Figma',
+          'Git',
+          'GitHub',
+          'GitLab',
+          'GraphQL',
+          'GSAP',
+          'Jest',
+          'MySQL',
+          'Next.js',
+          'Node.js',
+          'Nuxt',
+          'PHP',
+          'Playwright',
+          'PostgreSQL',
+          'Prettier',
+          'ProcessWire',
+          'React',
+          'Rspack',
+          'Sass',
+          'Sentry',
+          'Storybook',
+          'Style Dictionary',
+          'Tailwind CSS',
+          'Temporal',
+          'Turborepo',
+          'TypeScript',
+          'Vitest',
+          'Vue.js',
+          'WCAG 2.1',
+          'Webflow',
+          'webpack',
+        ]}
+      />
+    </Section>
 
-    <h2 class="text-foreground font-medium">Skills</h2>
+    <Section title="Experience">
+      <ol class="list-none space-y-6">
+        <Experience
+          icon="local:bwi"
+          text={['Senior Software Engineer', 'BWI', 'May 2026 — Present']}
+        />
 
-    <BadgeList
-      items={[
-        'Alpine.js',
-        'Astro',
-        'CakePHP',
-        'Cloudflare',
-        'Codegen',
-        'Design Systems',
-        'Docker',
-        'ESLint',
-        'Figma',
-        'Git',
-        'GitHub',
-        'GitLab',
-        'GraphQL',
-        'GSAP',
-        'Jest',
-        'MySQL',
-        'Next.js',
-        'Node.js',
-        'Nuxt',
-        'PHP',
-        'Playwright',
-        'PostgreSQL',
-        'Prettier',
-        'ProcessWire',
-        'React',
-        'Rspack',
-        'Sass',
-        'Sentry',
-        'Storybook',
-        'Style Dictionary',
-        'Tailwind CSS',
-        'Temporal',
-        'Turborepo',
-        'TypeScript',
-        'Vitest',
-        'Vue.js',
-        'WCAG 2.1',
-        'Webflow',
-        'webpack',
-      ]}
-    />
+        <Experience
+          icon="lucide:briefcase-business"
+          text={['Developer and Designer', 'Freelance', 'Nov 2020 — Present']}
+          highlights={[
+            'Built high-performance web solutions for SMEs meeting modern accessibility standards',
+            'Optimized conversion flows, translating goals into measurable engagement improvements',
+            'Sustained repeat and referral pipeline via ongoing technical advisory and reliability',
+          ]}
+        />
 
-    <hr class="w-full" />
+        <Experience
+          icon="local:hero-software"
+          href="/writing/two-years-at-hero-software"
+          text={['Senior Full Stack Engineer', 'HERO Software', 'Apr 2024 — Apr 2026']}
+          highlights={[
+            'Led cross-departmental initiatives, shipping code and design standards company-wide',
+            'Modernized frontend platform via Rspack, cutting build times 50%+ and cold start 41%+',
+            'Established design system driving products consistency across 5 teams and 35+ people',
+          ]}
+          items={[
+            { text: ['Senior Full Stack Engineer', 'Jul 2025 — Apr 2026'] },
+            { text: ['Full Stack Engineer', 'Apr 2024 — Jun 2025'] },
+          ]}
+        />
 
-    <h2 class="text-foreground font-medium">Experience</h2>
+        <Experience
+          icon="local:neuwaerts"
+          href="https://www.neuwaerts.de/"
+          text={['Full Stack Developer', 'neuwaerts', 'Jul 2019 — Mar 2024']}
+          highlights={[
+            'Increased organic traffic 120% and conversion 33% for a diving travel platform',
+            'Trained 50+ employees through workshops, establishing design system practices',
+          ]}
+          items={[
+            { text: ['Full Stack Developer', 'Sep 2022 — Mar 2024'] },
+            { text: ['Junior Frontend Developer', 'Jul 2021 — Aug 2022'] },
+            { text: ['Media Designer Apprentice', 'Jul 2019 — Jul 2021'] },
+          ]}
+        />
 
-    <Experience
-      icon="local:bwi"
-      text={['Senior Software Engineer', 'BWI', 'May 2026 — Present']}
-    />
+        <Experience
+          icon="local:ta-bildungszentrum"
+          text={['Media Designer Apprentice', 'TA Bildungszentrum', 'Aug 2018 — May 2019']}
+        />
 
-    <Experience
-      icon="local:briefcase-business"
-      text={['Developer and Designer', 'Freelance', 'Nov 2020 — Present']}
-      highlights={[
-        'Built high-performance web solutions for SMEs meeting modern accessibility standards',
-        'Optimized conversion flows, translating goals into measurable engagement improvements',
-        'Sustained repeat and referral pipeline via ongoing technical advisory and reliability',
-      ]}
-    />
+        <Experience
+          icon="lucide:pen-tool"
+          text={['Co-Founder', 'XVI CHAPEL', 'Apr 2016 — May 2017']}
+          highlights={[
+            'Co-founded digital creative agency delivering brand identities for content creators',
+            'Executed strategic exit post validation to pursue engineering and product opportunities',
+          ]}
+        />
 
-    <Experience
-      icon="local:hero-software"
-      href="/writing/two-years-at-hero-software"
-      text={['Senior Full Stack Engineer', 'HERO Software', 'Apr 2024 — Apr 2026']}
-      highlights={[
-        'Led cross-departmental initiatives, shipping code and design standards company-wide',
-        'Modernized frontend platform via Rspack, cutting build times 50%+ and cold start 41%+',
-        'Established design system driving products consistency across 5 teams and 35+ people',
-      ]}
-      items={[
-        { text: ['Senior Full Stack Engineer', 'Jul 2025 — Apr 2026'] },
-        { text: ['Full Stack Engineer', 'Apr 2024 — Jun 2025'] },
-      ]}
-    />
+        <Experience
+          icon="lucide:megaphone"
+          text={['Marketing Manager', 'World Of Bass Records', 'Oct 2015 — Aug 2016']}
+          highlights={[
+            'Managed digital presence and campaigns crafting strategy for content creators',
+            'Applied data-informed experimentation to improve engagement and marketing skills',
+          ]}
+        />
+      </ol>
+    </Section>
 
-    <Experience
-      icon="local:neuwaerts"
-      href="https://www.neuwaerts.de/"
-      text={['Full Stack Developer', 'neuwaerts', 'Jul 2019 — Mar 2024']}
-      highlights={[
-        'Increased organic traffic 120% and conversion 33% for a diving travel platform',
-        'Trained 50+ employees through workshops, establishing design system practices',
-      ]}
-      items={[
-        { text: ['Full Stack Developer', 'Sep 2022 — Mar 2024'] },
-        { text: ['Junior Frontend Developer', 'Jul 2021 — Aug 2022'] },
-        { text: ['Media Designer Apprentice', 'Jul 2019 — Jul 2021'] },
-      ]}
-    />
+    <Section title="Awards">
+      <ol class="list-none space-y-6">
+        <Experience
+          icon="lucide:award"
+          href="https://zukunftswaende.de"
+          text={['BCM Content Platforms B2C', 'zukunftswaende.de for LBS NordWest, at neuwaerts', 'Jan 2022']}
+        />
+      </ol>
+    </Section>
 
-    <Experience
-      icon="local:ta-bildungszentrum"
-      text={['Media Designer Apprentice', 'TA Bildungszentrum', 'Aug 2018 — May 2019']}
-    />
+    <Section title="Projects">
+      <ol class="list-none space-y-6">
+        <Experience
+          icon="local:find-ski"
+          href="https://find.ski"
+          text={['find.ski', 'Ski comparison portal', 'Apr 2025 — Nov 2025']}
+          highlights={[
+            'Validated proof-of-concept web scraping and API integrations',
+            'Demonstrated user interface and flow prototypes to manufacturers',
+            'Pitched and aligned business model with renowned ski manufacturers',
+          ]}
+        />
 
-    <Experience
-      icon="local:pen-tool"
-      text={['Co-Founder', 'XVI CHAPEL', 'Apr 2016 — May 2017']}
-      highlights={[
-        'Co-founded digital creative agency delivering brand identities for content creators',
-        'Executed strategic exit post validation to pursue engineering and product opportunities',
-      ]}
-    />
+        <Experience
+          icon="local:aggregata"
+          href="https://aggregata.de/"
+          text={['Co-Author and Maintainer', 'Aggregata', 'Aug 2022 — Dec 2025']}
+          highlights={[
+            'Technical blog reaching 9,000+ monthly unique visitors',
+            'Published 39 articles on web architecture, accessibility, and emerging tooling',
+            'Scaled to 9,000+ monthly readers via consistent publishing and SEO strategies',
+            'Built credibility and inbound opportunities through actionable, focused writing',
+          ]}
+        />
 
-    <Experience
-      icon="local:megaphone"
-      text={['Marketing Manager', 'World Of Bass Records', 'Oct 2015 — Aug 2016']}
-      highlights={[
-        'Managed digital presence and campaigns crafting strategy for content creators',
-        'Applied data-informed experimentation to improve engagement and marketing skills',
-      ]}
-    />
+        <Experience
+          icon="lucide:skull"
+          text={['Graveyard', 'Abandoned ideas and endeavours']}
+          items={[
+            {
+              text: ['quote.work', 'Real-time bids for time slots', 'Nov 2025 — Apr 2026'],
+              href: 'https://quote.work',
+            },
+            {
+              text: ['geist.software', 'A purely digital full-service agency', 'Jul 2025 — Nov 2025'],
+              href: 'https://geist.software',
+            },
+            { text: ['Schmidt & Joer', 'Personalised learning content hub', 'Dec 2022 — May 2023'] },
+            { text: ['Project "Jonathan"', 'Resource management for tradespeople', 'Mar 2022 — Nov 2022'] },
+            { text: ['Sesame AI', 'AI-driven analysis of social signals for stocks', 'Mar 2021 — Aug 2021'] },
+          ]}
+        />
+      </ol>
+    </Section>
 
-    <hr class="w-full" />
+    <Section title="Speaking">
+      <ol class="list-none space-y-6">
+        <Experience
+          icon="lucide:presentation"
+          text={['HERO Software', 'Multi-part workshop on engineering practices for 35+ personnel']}
+        />
 
-    <h2 class="text-foreground font-medium">Awards</h2>
+        <Experience
+          icon="lucide:presentation"
+          text={['neuwaerts', 'Workshops and presentations for clients and personnel']}
+          items={[
+            { text: ['Multi-part training for design and project teams', 'Nov 2023'] },
+            {
+              text: ['Multi-session workshop for an enterprise client', 'Sep 2023'],
+            },
+            {
+              text: ['Seminar on AI-enabled collaborative workflows', 'Jul 2023'],
+            },
+            { text: ['Technical overview of emerging AI text generation', 'May 2023'] },
+            { text: ['Cloud collaboration tools and GDPR compliance', 'Nov 2019'] },
+          ]}
+        />
+      </ol>
+    </Section>
 
-    <Experience
-      icon="local:award"
-      href="https://zukunftswaende.de"
-      text={['BCM Content Platforms B2C', 'zukunftswaende.de for LBS NordWest, at neuwaerts', 'Jan 2022']}
-    />
+    <Section title="Education">
+      <ol class="list-none space-y-6">
+        <Experience
+          icon="lucide:graduation-cap"
+          text={[
+            'Media Design Apprenticeship',
+            'Multi Media Berufsbildende Schulen Hannover (MMBbS)',
+            'Aug 2018 — Jul 2021',
+          ]}
+          highlights={['Received laure recognition for scoring 95/100 points across the curriculum']}
+        />
 
-    <hr class="w-full" />
-
-    <h2 class="text-foreground font-medium">Projects</h2>
-
-    <Experience
-      icon="local:aggregata"
-      href="https://aggregata.de/"
-      text={['Co-Author and Maintainer', 'Aggregata', 'Aug 2022 — Dec 2025']}
-      highlights={[
-        'Technical blog reaching 9,000+ monthly unique visitors',
-        'Published 39 articles on web architecture, accessibility, and emerging tooling',
-        'Scaled to 9,000+ monthly readers via consistent publishing and SEO strategies',
-        'Built credibility and inbound opportunities through actionable, focused writing',
-      ]}
-    />
-
-    <hr class="w-full" />
-
-    <h2 class="text-foreground font-medium">Speaking</h2>
-
-    <Experience
-      icon="lucide:presentation"
-      text={['HERO Software', 'Multi-part workshop on engineering practices for 35+ personnel']}
-    />
-
-    <Experience
-      icon="lucide:presentation"
-      text={['neuwaerts', 'Workshops and presentations for clients and personnel']}
-      items={[
-        { text: ['Multi-part training for design and project teams', 'Nov 2023'] },
-        {
-          text: ['Multi-session workshop for an enterprise client', 'Sep 2023'],
-        },
-        {
-          text: ['Seminar on AI-enabled collaborative workflows', 'Jul 2023'],
-        },
-        { text: ['Technical overview of emerging AI text generation', 'May 2023'] },
-        { text: ['Cloud collaboration tools and GDPR compliance', 'Nov 2019'] },
-      ]}
-    />
-
-    <hr class="w-full" />
-
-    <h2 class="text-foreground font-medium">Education</h2>
-
-    <Experience
-      icon="local:graduation-cap"
-      text={[
-        'Media Design Apprenticeship',
-        'Multi Media Berufsbildende Schulen Hannover (MMBbS)',
-        'Aug 2018 — Jul 2021',
-      ]}
-      highlights={['Received laure recognition for scoring 95/100 points across the curriculum']}
-    />
-
-    <Experience
-      icon="local:graduation-cap"
-      text={['Matura in Linguistics', 'Kooperative Gesamtschule Gronau (Leine)', 'Sep 2015 — Jun 2018']}
-    />
-  </div>
+        <Experience
+          icon="lucide:graduation-cap"
+          text={['Matura in Linguistics', 'Kooperative Gesamtschule Gronau (Leine)', 'Sep 2015 — Jun 2018']}
+        />
+      </ol>
+    </Section>
+  </main>
 </PageLayout>

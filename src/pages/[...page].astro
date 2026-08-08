@@ -1,8 +1,10 @@
 ---
-import ContentHeader from '@components/ContentHeader.astro';
+import ContentHeaderTable from '@components/ContentHeaderTable.astro';
 import type { Metadata } from '@components/PageMeta.astro';
 import PageLayout from '@layouts/PageLayout.astro';
+import { formatDateTime } from '@scripts/formatDateTime';
 import { getComponents } from '@scripts/getComponents';
+import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
@@ -32,11 +34,43 @@ const metadata: Metadata = {
   image: entry.data.image,
   status: entry.data.status,
 };
+
+const hasExtras = entry.data.image || entry.data.description || entry.data.date;
+const isWriting = entry.id.startsWith('writing/');
 ---
 
 <PageLayout {metadata}>
-  <main class="prose my-24 w-full">
-    <ContentHeader {entry} />
-    <Content {components} />
+  <main class="prose my-18 w-full">
+    <header class="space-y-6">
+      {
+        entry.data.image && (
+          <Image
+            src={entry.data.image}
+            alt=""
+            width={864}
+            height={486}
+          />
+        )
+      }
+      <h1>
+        {entry.data.status && <span class="text-accent">{entry.data.status}: </span>}
+        {entry.data.title}
+      </h1>
+
+      {entry.data.description && <p>{entry.data.description}</p>}
+
+      {
+        entry.data.date && (
+          <small class="block">
+            <time>{formatDateTime(entry.data.date)}</time>
+          </small>
+        )
+      }
+      {isWriting && <ContentHeaderTable {entry} />}
+      {hasExtras && <hr />}
+    </header>
+    <main class="prose my-18 w-full">
+      <Content {components} />
+    </main>
   </main>
 </PageLayout>

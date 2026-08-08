@@ -1,6 +1,6 @@
 @layer components {
   :root {
-    --prose-flow: 1.5rem;
+    --prose-flow: calc(var(--spacing) * 6);
     --prose-leading: 1.5;
     --prose-headline-scale: pow(2, 0.2);
   }

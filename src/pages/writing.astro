@@ -1,0 +1,28 @@
+---
+import PageList from '@components/PageList.astro';
+import type { Metadata } from '@components/PageMeta.astro';
+import Section from '@components/Section.astro';
+import PageLayout from '@layouts/PageLayout.astro';
+
+const metadata: Metadata = {
+  title: 'Writing',
+  description: 'Explorations and expressions of a curious mind',
+  id: 'writing',
+};
+---
+
+<PageLayout {metadata}>
+  <main class="my-18 w-full space-y-6">
+    <h1 class="text-foreground font-medium">{metadata.title}</h1>
+    <p>{metadata.description}</p>
+
+    <PageList filter="writing/" />
+
+    <Section title="Aggregata">
+      <p>
+        Articles written for <a href="https://aggregata.de">Aggregata</a> between August 2022 and November 2025.
+      </p>
+      <PageList filter="archive/aggregata/" />
+    </Section>
+  </main>
+</PageLayout>

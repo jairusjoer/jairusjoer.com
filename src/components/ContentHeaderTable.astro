@@ -17,13 +17,15 @@ const { headings } = await render(entry);
         <strong>Contents</strong>
       </summary>
 
-      <ul>
-        {headings.map(({ depth, slug, text }) => (
-          <li style={{ marginLeft: `${Math.max(0, depth - 2) * 1.5}rem` }}>
-            <a href={`#${slug}`}>{text}</a>
-          </li>
-        ))}
-      </ul>
+      <div class="prose -mt-4 pl-3">
+        <ul>
+          {headings.map(({ depth, slug, text }) => (
+            <li style={{ marginLeft: `${Math.max(0, depth - 2) * 1.5}rem` }}>
+              <a href={`#${slug}`}>{text}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </details>
   )
 }

@@ -1,10 +1,23 @@
 <svg
+  width="24"
+  height="22"
+  viewBox="0 0 24 22"
+  fill="none"
   xmlns="http://www.w3.org/2000/svg"
-  id="Ebene_1"
-  viewBox="0 0 70.95 64"
 >
-  <path
-    d="M66.38,0h-21.58l-1.46,20.75h-13.9L30.9,0h-11.43L0,36.57l4.57,27.43h21.58l1.65-22.22h13.9l-1.65,22.22h11.43l19.47-36.57L66.38,0Z"
-    fill="currentColor"
-  />
+  <g clip-path="url(#clip0_3986_796)">
+    <path
+      d="M22.4541 0H15.1543L14.6605 7.13281H9.95856L10.4524 0H6.58605L0 12.5709L1.54588 22H8.84567L9.40381 14.3619H14.1057L13.5476 22H17.414L24 9.42906L22.4541 0Z"
+      fill="currentColor"
+    />
+  </g>
+  <defs>
+    <clipPath id="clip0_3986_796">
+      <rect
+        width="24"
+        height="22"
+        fill="white"
+      />
+    </clipPath>
+  </defs>
 </svg>
